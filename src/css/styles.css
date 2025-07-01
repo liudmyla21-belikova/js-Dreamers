@@ -5,4 +5,12 @@
 
 /* Sections style */
 @import url('./header.css');
+@import url('./article.css');
+@import url('./book-modal.css');
+@import url('./books.css');
+@import url('./contact-modal.css');
+@import url('./events.css');
+@import url('./feedbacks.css');
+@import url('./hero.css');
+@import url('./location.css');
 @import url('./footer.css');
