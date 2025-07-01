@@ -8,18 +8,13 @@ p {
   margin: 0;
 }
 
-p:last-child {
-  margin-bottom: 0;
-}
-
-ul {
+ul, ol {
   margin: 0;
   padding: 0;
   list-style: none;
 }
 
 a {
-  color: currentColor;
   text-decoration: none;
 }
 
@@ -29,6 +24,4 @@ button {
 
 img {
   display: block;
-  max-width: 100%;
-  height: auto;
 }
