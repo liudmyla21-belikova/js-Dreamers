@@ -1,0 +1,112 @@
+.feedback-section {
+  background: #fceee6;
+  padding: 64px;
+}
+
+.feedback-container {
+  max-width: 1440px;
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+  gap: 32px;
+}
+
+.feedback-titles {
+  display: flex;
+  align-items: flex-start;
+  justify-content: flex-start;
+  flex-direction: column;
+  gap: 24px;
+  margin-bottom: 80px;
+}
+
+.feedback-title {
+  font-size: 36px;
+  font-weight: 700;
+  margin: 0;
+  color: #111;
+}
+
+.feedback-subtitle {
+  font-size: 16px;
+  color: #555;
+  margin: 0;
+}
+
+/* Slider wrapper */
+.feedback-slider {
+  overflow: hidden;
+}
+
+.feedback-slide {
+  display: flex;
+  gap: 24px;
+  transition: transform 0.3s ease;
+}
+
+/* Individual card */
+.feedback-card {
+  width: 421px;
+  height: 217px;
+  border: 1px solid rgba(11, 5, 0, 0.15);
+  border-radius: 16px;
+  padding: 32px;
+  background: #ffffff;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  gap: 24px;
+  box-sizing: border-box;
+}
+
+.feedback-text {
+  font-size: 16px;
+  color: #111;
+  margin: 0;
+}
+
+.feedback-user {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.feedback-avatar {
+  width: 48px;
+  height: 48px;
+  border-radius: 50%;
+  object-fit: cover;
+}
+
+.feedback-name {
+  font-weight: bold;
+  font-size: 14px;
+  margin: 0;
+}
+
+.feedback-role {
+  font-size: 14px;
+  color: #555;
+  margin: 0;
+}
+
+/* Controls */
+.feedback-controls {
+  display: flex;
+  justify-content: flex-end;
+  gap: 8px;
+}
+
+.feedback-controls button {
+  border: none;
+  background: #e65c00;
+  color: #fff;
+  font-size: 16px;
+  padding: 8px 12px;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+.feedback-controls button:hover {
+  background: #ff7700;
+}
