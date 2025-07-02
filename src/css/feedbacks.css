@@ -8,28 +8,32 @@
   margin: 0 auto;
   display: flex;
   flex-direction: column;
-  gap: 32px;
+  gap: 80px;
 }
 
-.feedback-titles {
+.feedback-title-box {
   display: flex;
   align-items: flex-start;
   justify-content: flex-start;
   flex-direction: column;
   gap: 24px;
-  margin-bottom: 80px;
 }
 
 .feedback-title {
-  font-size: 36px;
-  font-weight: 700;
+  font-family: 'Rubik', sans-serif;
+  font-weight: 600;
+  font-size: 48px;
   margin: 0;
-  color: #111;
+  line-height: 1.2;
+  letter-spacing: -0.01em;
+  color: #0b0500;
 }
 
 .feedback-subtitle {
-  font-size: 16px;
-  color: #555;
+  font-weight: 400;
+  font-size: 18px;
+  line-height: 1.5;
+  color: #0b0500;
   margin: 0;
 }
 
@@ -40,53 +44,64 @@
 
 .feedback-slide {
   display: flex;
-  gap: 24px;
   transition: transform 0.3s ease;
+  align-items: flex-start;
+  justify-content: flex-start;
+  flex-direction: row;
+  gap: 24px;
 }
 
 /* Individual card */
 .feedback-card {
-  width: 421px;
+  width: calc((100% - 48px) / 3);
   height: 217px;
   border: 1px solid rgba(11, 5, 0, 0.15);
   border-radius: 16px;
   padding: 32px;
-  background: #ffffff;
+  background-color: #fceee6;
   display: flex;
-  flex-direction: column;
+  flex-direction: row;
   justify-content: space-between;
   gap: 24px;
   box-sizing: border-box;
+  flex-wrap: wrap;
 }
 
 .feedback-text {
-  font-size: 16px;
-  color: #111;
+  font-weight: 400;
+  font-size: 18px;
+  line-height: 1.5;
+  color: #0b0500;
   margin: 0;
 }
 
 .feedback-user {
   display: flex;
   align-items: center;
-  gap: 12px;
+  gap: 16px;
 }
 
 .feedback-avatar {
   width: 48px;
   height: 48px;
-  border-radius: 50%;
+  border-radius: 100%;
   object-fit: cover;
 }
 
 .feedback-name {
+  font-weight: 600;
+  font-size: 16px;
   font-weight: bold;
-  font-size: 14px;
+  line-height: 1.5;
+  color: #0b0500;
   margin: 0;
 }
 
 .feedback-role {
-  font-size: 14px;
-  color: #555;
+  font-weight: 400;
+  font-size: 16px;
+  line-height: 1.5;
+  color: #0b0500;
   margin: 0;
 }
 
@@ -94,19 +109,28 @@
 .feedback-controls {
   display: flex;
   justify-content: flex-end;
-  gap: 8px;
+  gap: 16px;
 }
 
 .feedback-controls button {
-  border: none;
-  background: #e65c00;
+  border: 1px solid rgba(11, 5, 0, 0.15);
+  padding: 12px;
+  width: 48px;
+  height: 48px;
+  background-color: #e15d05;
   color: #fff;
-  font-size: 16px;
-  padding: 8px 12px;
-  border-radius: 4px;
   cursor: pointer;
 }
 
 .feedback-controls button:hover {
-  background: #ff7700;
+  background: #fceee6;
+}
+
+.feedback-controls button:active {
+  background: #5a2502;
+}
+
+.feedback-controls button:disabled {
+  background: #e15d05;
+  opacity: 0.2;
 }
