@@ -1,0 +1,70 @@
+.events-section {
+  padding: 64px 16px;
+  width: 375px;
+  height: 1008px;
+}
+.cont-event {
+  display: flex;
+  align-items: flex-start;
+  justify-content: flex-start;
+  flex-direction: column;
+  gap: 16px;
+  padding: 64px 16px;
+  width: 375px;
+  background: #fceee6;
+}
+.event-name {
+}
+.events-title {
+  font-weight: 600;
+  font-size: 36px;
+  line-height: 1.2;
+  letter-spacing: -0.01em;
+  color: #0b0500;
+}
+
+.events-text {
+  font-weight: 400;
+  font-size: 18px;
+  line-height: 1.5;
+  color: #0b0500;
+}
+.events-list {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 24px;
+}
+.events-item {
+}
+.events-photo {
+}
+.event-content {
+}
+.events-title-item {
+  font-weight: 400;
+  font-size: 24px;
+  line-height: 1.4;
+  letter-spacing: -0.01em;
+  color: #0b0500;
+}
+.events-format-data {
+  font-weight: 400;
+  font-size: 16px;
+  line-height: 1.5;
+  color: #0b0500;
+}
+.events-description {
+  font-weight: 400;
+  font-size: 16px;
+  line-height: 1.5;
+  color: #0b0500;
+}
+.register-btn {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: row;
+  gap: 8px;
+  width: 95px;
+  height: 24px;
+}
