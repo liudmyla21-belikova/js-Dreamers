@@ -11,9 +11,6 @@ const BASE_URL = 'https://books-backend.p.goit.global';
 
 
  
-  @param {string} bookId 
-@returns { Promise < Object >}
- 
 async function getBookDetails(bookId) {
   try {
     const response = await axios.get(`${BASE_URL}/books/${bookId}`);
@@ -42,13 +39,6 @@ const buyNowBtnModal = document.querySelector('.buy-now-btn-book-modal');
 const bookAccordionModal = document.querySelector('.book-accordion-book-modal');
 
 
-// --- Функції відкриття/закриття модального вікна ---
-
-/**
- * Відкриває модальне вікно та заповнює його даними книги.
- * Ця функція є єдиною експортованою точкою входу для відкриття модалки.
- * @param {string} bookId - ID книги, для якої потрібно відкрити модалку.
- */
 export async function openBookModal(bookId) {
     if (!bookId) {
         console.error('No book ID provided to openBookModal.');
@@ -56,9 +46,9 @@ export async function openBookModal(bookId) {
         return;
     }
 
-    // Опціонально: Показати лоадер перед запитом
-    // const loaderElement = document.querySelector('.some-loader-class');
-    // if (loaderElement) loaderElement.classList.remove('is-hidden');
+    
+    const loaderElement = document.querySelector('.some-loader-class');
+    if (loaderElement) loaderElement.classList.remove('is-hidden');
 
     try {
         const bookData = await getBookDetails(bookId);
@@ -93,10 +83,7 @@ function closeBookModal() {
     window.removeEventListener('keydown', onEscapePress); 
 }
 
-/**
- * Обробник події для закриття модалки по клавіші Escape.
- * @param {KeyboardEvent} event
- */
+
 function onEscapePress(event) {
     if (event.key === 'Escape') {
         closeBookModal();
@@ -147,10 +134,6 @@ buyNowBtnModal.addEventListener('click', (event) => {
 });
 
 
-/**
- * Рендерить Accordion з динамічними даними.
- * @param {Object} bookData - Об'єкт з даними про книгу.
- */
 function renderAccordion(bookData) {
     
     bookAccordionModal.innerHTML = '';
