@@ -1,7 +1,7 @@
 .events-section {
   padding: 64px 16px;
   width: 375px;
-  height: 1008px;
+  height: 100%;
 }
 .cont-event {
   display: flex;
