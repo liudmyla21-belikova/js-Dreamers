@@ -1,12 +1,18 @@
 .footer {
-  padding: 20px 0;
+  display: flex;
+  flex-direction: column;
+  padding: 80px 16px;
+  background-color: #ea8d50;
 }
+
 .footer-desc {
   text-align: center;
 }
+
 .footer-link {
   position: relative;
 }
+
 .footer-link::before {
   content: '';
   position: absolute;
@@ -18,4 +24,137 @@
   height: 24%;
   background-color: #41d1ff;
   transition: 200ms ease;
+}
+
+/* ---------------- */
+.footer-container {
+  width: 375px;
+  height: 410px;
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  flex-direction: column;
+  gap: 32px;
+
+}
+
+.footer-logo__link {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  text-decoration: none;
+  color: inherit;
+}
+
+.footer-logo__icon {
+  fill: currentColor;
+  display: inline-block;
+}
+
+/* Список навігації */
+
+.footer-list {
+
+  width: 73px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  gap: 32px
+}
+
+.footer-item {
+
+  font-weight: 400;
+  font-size: 16px;
+  line-height: 1.5;
+  color: #0b0500;
+}
+
+.footer-item a {
+  text-decoration: none;
+  color: inherit;
+  transition: color 0.2s;
+
+}
+
+.footer-item a:hover {
+  color: #ffffff;
+}
+
+/* Форма */
+.footer-form {
+  margin-bottom: 24px;
+}
+
+.footer-form__title {
+  margin-bottom: 16px;
+  font-weight: 600;
+  font-size: 16px;
+  line-height: 1.5;
+}
+
+.footer-form__group {
+  display: flex;
+  justify-content: center;
+  gap: 16px;
+  margin-bottom: 12px;
+  width: 343px;
+
+}
+
+.footer-form__input {
+  padding: 8px 12px;
+  border: none;
+  border-radius: 8px;
+  min-width: 221px;
+  font-size: 16px;
+  font-weight: 400;
+  line-height: 1.5;
+  color: rgba(11, 5, 0, 0.6);
+  background-color: rgba(11, 5, 0, 0.05);
+  border: 1px solid rgba(11, 5, 0, 0.15);
+}
+
+.footer-form__input:focus {
+  background: rgba(11, 5, 0, 0.05);
+}
+
+.footer-form__button {
+  padding: 10px 16px;
+  border: 1px solid #0b0500;
+  border-radius: 4px;
+  background-color: transparent;
+  cursor: pointer;
+  font-family: "Rubik", sans-serif;
+  font-weight: 400;
+  font-size: 16px;
+  line-height: 1.5;
+  transition: background-color 0.3s;
+  width: 106px;
+
+}
+
+.footer-form__button:hover {
+  background-color: #0b0500;
+  color: #fff;
+}
+
+.footer-form__note {
+  font-weight: 400;
+  font-size: 12px;
+  line-height: 1.5;
+
+}
+
+/* Копірайт */
+.footer-copy {
+  font-weight: 400;
+  font-size: 14px;
+  line-height: 1.5;
+  color: #0b0500;
+  border-top: 1px solid rgba(0, 0, 0, 0.1);
+  padding-top: 32px;
+  margin-top: 80px;
+  text-align: center;
 }
