@@ -1,3 +1,1 @@
-import { initBooksSection } from './js/books.js';
-
-initBooksSection();
+import './js/books.js';

@@ -9,6 +9,7 @@ const refs = {
   booksList: document.querySelector('.books-list'),
   showMoreBtn: document.querySelector('.pagination-btn'),
   counter: document.querySelector('#books-count'),
+  booksCategoryList: document.querySelector('#categorySelect'),
 };
 
 let visibleBooks = 0;
@@ -25,37 +26,18 @@ export async function initBooksSection() {
 async function loadCategories() {
   try {
     const response = await axios.get(`${BASE_URL}/category-list`);
-    const markup = ['All categories', ...response.data]
-      .map(
-        category =>
-          `<li><button class="category-btn" data-category="${cat}">${cat}</button></li>`
-      )
-      .join('');
-    refs.categoryList.innerHTML = markup;
+    const markup = [
+      '<option value="">All categories</option>',
+      ...response.data.map(
+        ({ list_name }) =>
+          `
+      <option value="${list_name}">${list_name}</option>`
+      ),
+    ].join('');
+    refs.booksCategoryList.innerHTML = markup;
   } catch (error) {
     iziToast.error({ message: 'Failed to load categories' });
   }
-}
-
-export async function getCategoriesList() {
-  const response = await axios.get(`${BASE_URL}/category-list`);
-  return response.data;
-}
-
-export async function getBooks() {
-  const response = await axios.get(`${BASE_URL}/top-books`);
-  return response.data;
-}
-
-export function renderCategories(categories) {
-  const booksCategoryList = document.querySelector('#categorySelect');
-  const markup = categories
-    .map(
-      category => `
-      <option value="${category}">${category}</option>`
-    )
-    .join('');
-  booksCategoryList.insertAdjacentHTML('beforeend', markup);
 }
 
 async function loadTrendingBooks() {
@@ -76,7 +58,7 @@ function renderInitialBooks() {
 
 // розібратися
 function loadMoreBooks() {
-  const nextBatch = allBooks.slice(visibleBooks, visibleBooks + 4);
+  const nextBatch = allBooks.slice(visibleBooks, visibleBooks + 10);
   renderBooks(nextBatch, { append: true });
   visibleBooks += nextBatch.length;
   updateCounter(visibleBooks, allBooks.length);
@@ -96,10 +78,8 @@ function renderBooks(books, { append = false } = {}) {
           <img src="${book.book_image}" alt="${book.title}" />
           <h4>${book.title}</h4>
           <p>${book.author}</p>
-          <p>${book.price ? book.price + '$' : ''}</p>
-          <button class="learn-more-btn" data-id="${
-            book._id
-          }">Learn More</button>
+          <p>${book.price} $</p>
+          <button class="learn-more-btn" data-id="${book._id}">Learn More</button>
         </li>
       `
     )
@@ -137,3 +117,5 @@ async function onCategoryClick(e) {
     iziToast.error({ message: 'Failed to load category books' });
   }
 }
+
+initBooksSection();
