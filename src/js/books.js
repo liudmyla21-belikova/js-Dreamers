@@ -5,11 +5,13 @@ import 'izitoast/dist/css/iziToast.min.css';
 const BASE_URL = 'https://books-backend.p.goit.global/books';
 
 const refs = {
+  dropdownList: document.querySelector('.dropdown-list'),
+  categoryList: document.querySelector('.category-list'),
+  dropdownBtn: document.querySelector('.category-dropdown-btn'),
   categoryList: document.querySelector('.category-list'),
   booksList: document.querySelector('.books-list'),
   showMoreBtn: document.querySelector('.pagination-btn'),
-  counter: document.querySelector('#books-count'),
-  booksCategoryList: document.querySelector('#categorySelect'),
+  counter: document.querySelector('.books-count'),
 };
 
 let visibleBooks = 0;
@@ -17,24 +19,55 @@ let allBooks = [];
 let booksPerPage = window.innerWidth < 768 ? 10 : 24;
 
 export async function initBooksSection() {
-  await loadCategories();
+  await initDropdown();
   await loadTrendingBooks();
   refs.showMoreBtn.addEventListener('click', loadMoreBooks);
   refs.categoryList.addEventListener('click', onCategoryClick);
 }
 
-async function loadCategories() {
+async function initDropdown() {
   try {
     const response = await axios.get(`${BASE_URL}/category-list`);
-    const markup = [
-      '<option value="">All categories</option>',
-      ...response.data.map(
-        ({ list_name }) =>
-          `
-      <option value="${list_name}">${list_name}</option>`
-      ),
-    ].join('');
-    refs.booksCategoryList.innerHTML = markup;
+    const categories = [
+      'All categories',
+      ...response.data.map(cat => cat.list_name),
+    ];
+    const dropdownMarkup = categories
+      .map(
+        name => `<li class="dropdown-item" data-category="${name}">${name}</li>`
+      )
+      .join('');
+    refs.dropdownList.innerHTML = dropdownMarkup;
+
+    const categoryListMarkup = categories
+      .map(
+        name =>
+          `<li class="category-item"><button class="category-btn" data-category="${name}">${name}</button></li>`
+      )
+      .join('');
+    refs.categoryList.innerHTML = categoryListMarkup;
+
+    refs.dropdownBtn.addEventListener('click', () => {
+      refs.dropdownList.classList.toggle('is-open');
+    });
+
+    refs.dropdownList.addEventListener('click', event => {
+      const li = event.target.closest('li[data-category]');
+      if (!li) return;
+
+      const selectedCategory = li.dataset.category;
+      refs.dropdownBtn.textContent = selectedCategory;
+      refs.dropdownList.classList.remove('is-open');
+
+      onCategoryClick(selectedCategory);
+    });
+
+    refs.categoryList.addEventListener('click', event => {
+      const btn = event.target.closest('[data-category]');
+      if (!btn) return;
+      const selectedCategory = btn.dataset.category;
+      onCategoryClick(selectedCategory);
+    });
   } catch (error) {
     iziToast.error({ message: 'Failed to load categories' });
   }
@@ -73,13 +106,17 @@ function loadMoreBooks() {
 function renderBooks(books, { append = false } = {}) {
   const markup = books
     .map(
-      book => `
+      ({ book_image, title, author, _id }) => `
         <li class="book-card">
-          <img src="${book.book_image}" alt="${book.title}" />
-          <h4>${book.title}</h4>
-          <p>${book.author}</p>
-          <p>${book.price} $</p>
-          <button class="learn-more-btn" data-id="${book._id}">Learn More</button>
+          <img src="${book_image}" alt="${title}" width="340" height="484" />
+          <div class="book-card-elements-wrapper">
+              <div class="book-card-title-wrapper">
+                  <h4>${title}</h4>
+                  <p>${author}</p>
+              </div>
+              <p>9,99 $</p>
+          </div>
+          <button class="learn-more-btn" data-id="${_id}">Learn More</button>
         </li>
       `
     )
@@ -96,12 +133,7 @@ function updateCounter(visible, total) {
   refs.counter.textContent = `Showing ${visible} of ${total}`;
 }
 
-async function onCategoryClick(e) {
-  const btn = e.target.closest('button[data-category]');
-  if (!btn) return;
-
-  const category = btn.dataset.category;
-
+async function onCategoryClick(category) {
   if (category === 'All categories') {
     await loadTrendingBooks();
     return;
@@ -109,7 +141,7 @@ async function onCategoryClick(e) {
 
   try {
     const response = await axios.get(
-      `${BASE_URL}/category?category=${encodeURIComponent(category)}`
+      `${BASE_URL}/category?category=${category}`
     );
     allBooks = response.data;
     renderInitialBooks();

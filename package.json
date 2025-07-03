@@ -1,11 +1,11 @@
 {
-  "name": "js-Dreamers",
+  "name": "js_dreamers",
   "private": true,
   "version": "1.0.0",
   "type": "module",
   "scripts": {
     "dev": "vite",
-    "build": "vite build --base=/js-Dreamers/",
+    "build": "vite build --base=/js_dreamers/",
     "preview": "vite preview"
   },
   "devDependencies": {

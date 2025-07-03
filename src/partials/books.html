@@ -1,14 +1,25 @@
-<section class="books-section books-container">
-  <h2 class="visually-hidden">Trending books</h2>
-  <div class="books-categories-info">
-    <h3 class="books-subtitle">Books</h3>
-    <p id="books-count">Showing 10 of 100</p>
+<section class="books-section books-container" id="books">
+  <div class="books-subsection">
+    <h2 class="visually-hidden">Trending books</h2>
+    <div class="books-categories-info">
+      <h3 class="books-subtitle">Books</h3>
+      <p class="books-count"></p>
+    </div>
+    <div class="category-dropdown">
+      <button class="category-dropdown-btn">
+        Category
+        <svg width="24" height="24">
+          <use href="../img/webp/sprite.svg#icon-chevron-down"></use>
+        </svg>
+      </button>
+      <ul class="dropdown-list"></ul>
+    </div>
+    <ul class="category-list"></ul>
   </div>
-  <ul class="category-list">
-    <select id="categorySelect" class="dropdown-select">
-      <option value="" disabled selected hidden>Categories</option>
-    </select>
-  </ul>
-  <ul class="books-list"></ul>
-  <button class="pagination-btn hidden">Show More</button>
+  <div class="books-list-wrapper">
+    <ul class="books-list"></ul>
+    <div class="pagination-wrapper">
+      <button class="pagination-btn hidden">Show More</button>
+    </div>
+  </div>
 </section>
