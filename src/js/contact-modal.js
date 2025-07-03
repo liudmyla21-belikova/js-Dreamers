@@ -5,23 +5,32 @@ document.addEventListener('DOMContentLoaded', () => {
     '.contact-modal-close'
   );
   const contactModalForm = document.getElementById('contact-modal-form');
-  const openContactModalBtn = document.getElementById('open-contact-modal-btn');
+  const contactModalSubtitle = contactModal?.querySelector(
+    '.contact-modal-subtitle'
+  );
+  const eventRegisterButtons = document.querySelectorAll('[data-event-title]');
 
   if (
     !contactModal ||
     !contactModalCloseBtn ||
     !contactModalForm ||
-    !openContactModalBtn
+    !contactModalSubtitle
   ) {
     console.error('Contact Modal: One or more required elements are missing.');
     return;
   }
 
-  // Open modal
-  openContactModalBtn.addEventListener('click', () => {
-    contactModal.classList.remove('is-hidden');
-    document.body.style.overflow = 'hidden';
-    contactModal.querySelector('input[name="name"]').focus();
+  // Open modal with dynamic event title
+  eventRegisterButtons.forEach(button => {
+    button.addEventListener('click', () => {
+      const eventTitle =
+        button.getAttribute('data-event-title') || 'Event Registration';
+      contactModalSubtitle.textContent = eventTitle;
+
+      contactModal.classList.remove('is-hidden');
+      document.body.style.overflow = 'hidden';
+      contactModal.querySelector('input[name="name"]').focus();
+    });
   });
 
   // Close modal on close button click
@@ -49,8 +58,8 @@ document.addEventListener('DOMContentLoaded', () => {
     const email = contactModalForm.elements.email.value.trim();
     const message = contactModalForm.elements.message.value.trim();
 
-    if (!name || !email || !message) {
-      alert('Please fill out all fields correctly.');
+    if (!name || !email) {
+      alert('Please fill out all required fields.');
       return;
     }
 
@@ -65,10 +74,10 @@ document.addEventListener('DOMContentLoaded', () => {
     closeContactModal();
   });
 
-  // Close modal function
   function closeContactModal() {
     contactModal.classList.add('is-hidden');
     document.body.style.overflow = '';
     contactModalForm.reset();
+    contactModalSubtitle.textContent = ''; 
   }
 });
