@@ -1,25 +1,21 @@
-// Ensure DOM is loaded before attaching listeners
-document.addEventListener('DOMContentLoaded', () => {
-  const contactModal = document.getElementById('contact-modal');
-  const contactModalCloseBtn = contactModal?.querySelector(
-    '.contact-modal-close'
-  );
-  const contactModalForm = document.getElementById('contact-modal-form');
-  const contactModalSubtitle = contactModal?.querySelector(
-    '.contact-modal-subtitle'
-  );
-  const eventRegisterButtons = document.querySelectorAll('[data-event-title]');
+const contactModal = document.getElementById('contact-modal'); // 
+const contactModalCloseBtn = contactModal?.querySelector(
+  '.contact-modal-close'
+);
+const contactModalForm = document.getElementById('contact-modal-form');
+const contactModalSubtitle = contactModal?.querySelector(
+  '.contact-modal-subtitle'
+);
+const eventRegisterButtons = document.querySelectorAll('[data-event-title]');
 
-  if (
-    !contactModal ||
-    !contactModalCloseBtn ||
-    !contactModalForm ||
-    !contactModalSubtitle
-  ) {
-    console.error('Contact Modal: One or more required elements are missing.');
-    return;
-  }
-
+if (
+  !contactModal ||
+  !contactModalCloseBtn ||
+  !contactModalForm ||
+  !contactModalSubtitle
+) {
+  console.error('Contact Modal: One or more required elements are missing.');
+} else {
   // Open modal with dynamic event title
   eventRegisterButtons.forEach(button => {
     button.addEventListener('click', () => {
@@ -78,6 +74,6 @@ document.addEventListener('DOMContentLoaded', () => {
     contactModal.classList.add('is-hidden');
     document.body.style.overflow = '';
     contactModalForm.reset();
-    contactModalSubtitle.textContent = ''; 
+    contactModalSubtitle.textContent = '';
   }
-});
+}
