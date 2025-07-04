@@ -1,21 +1,208 @@
-.footer {
-  padding: 20px 0;
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
 }
-.footer-desc {
+
+.footer {
+  padding: 80px 0px;
+  background-color: #ea8d50;
+}
+
+.footer-container {
+  width: 100%;
+  margin: 0 auto;
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  flex-direction: column;
+}
+
+.footer-logo {
+  margin-bottom: 32px;
+  width: 100%;
   text-align: center;
 }
-.footer-link {
-  position: relative;
+
+.footer-logo__link {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  text-decoration: none;
+  color: inherit;
 }
-.footer-link::before {
-  content: '';
-  position: absolute;
-  bottom: 6%;
-  left: 50%;
-  transform: translateX(-50%) skewX(-12deg);
-  z-index: -1;
-  width: 110%;
-  height: 24%;
-  background-color: #41d1ff;
-  transition: 200ms ease;
+
+.footer-logo__icon {
+  fill: currentColor;
+  display: inline-block;
+}
+
+/* Список навігації */
+
+.footer-nav {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  margin-bottom: 32px;
+}
+
+.footer-list {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  gap: 32px
+}
+
+.footer-item {
+
+  font-weight: 400;
+  font-size: 16px;
+  line-height: 1.5;
+  color: #0b0500;
+}
+
+.footer-item a {
+  text-decoration: none;
+  color: inherit;
+  transition: color 0.2s;
+
+}
+
+.footer-item a:hover {
+  color: #ffffff;
+}
+
+/* Форма */
+
+.footer-form__title {
+  margin-bottom: 16px;
+  font-weight: 600;
+  font-size: 16px;
+  line-height: 1.5;
+}
+
+.footer-form__group {
+  display: flex;
+  justify-content: center;
+  gap: 16px;
+  margin-bottom: 12px;
+  width: 343px;
+
+}
+
+.footer-form__input {
+  padding: 8px 12px;
+  border: none;
+  border-radius: 8px;
+  min-width: 221px;
+  font-size: 16px;
+  font-weight: 400;
+  line-height: 1.5;
+  color: rgba(11, 5, 0, 0.6);
+  background-color: rgba(11, 5, 0, 0.05);
+  border: 1px solid rgba(11, 5, 0, 0.15);
+}
+
+.footer-form__input:focus {
+  background: rgba(11, 5, 0, 0.05);
+}
+
+.footer-form__button {
+  padding: 10px 16px;
+  border: 1px solid #0b0500;
+  border-radius: 4px;
+  background-color: transparent;
+  cursor: pointer;
+  font-family: "Rubik", sans-serif;
+  font-weight: 400;
+  font-size: 16px;
+  line-height: 1.5;
+  transition: background-color 0.3s;
+  width: 106px;
+
+}
+
+.footer-form__button:hover {
+  background-color: #0b0500;
+  color: #fff;
+}
+
+.footer-form__note {
+  font-weight: 400;
+  font-size: 12px;
+  line-height: 1.5;
+
+}
+
+/* Копірайт */
+.footer-copy {
+  font-weight: 400;
+  font-size: 14px;
+  line-height: 1.5;
+  color: #0b0500;
+  border-top: 1px solid rgba(0, 0, 0, 0.1);
+  padding-top: 32px;
+  margin: 0 auto;
+  margin-top: 80px;
+  max-width: 343px;
+  justify-content: center;
+  text-align: center;
+  align-items: center;
+
+}
+
+/* tablet */
+@media screen and (min-width: 768px) {
+
+
+  .footer-list {
+    flex-direction: row;
+    width: 324px;
+    margin-bottom: 32px;
+  }
+
+  .footer-form {
+    width: 400px;
+  }
+
+  .footer-form__group {
+    width: 400px;
+  }
+
+  .footer-form__input {
+    min-width: 278px;
+  }
+
+  .footer-copy {
+    min-width: 640px;
+  }
+}
+
+@media screen and (min-width: 1440px) {
+  .footer-container {
+    flex-direction: row;
+  }
+
+  .footer-logo {
+    height: 36px;
+    text-align: start;
+  }
+
+  .footer-form {
+    margin-left: auto;
+    align-self: flex-start;
+  }
+
+  .footer-nav {
+    margin-bottom: 26px;
+  }
+
+  .footer-list {
+    margin-bottom: 0;
+  }
+
+  .footer-copy {
+    min-width: 1312px;
+  }
 }
