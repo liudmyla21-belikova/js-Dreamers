@@ -1,4 +1,6 @@
 .events-section {
+  padding-top: 64px;
+  padding-bottom: 64px;
   background: #fceee6;
 }
 .event-name {
@@ -32,8 +34,6 @@
   padding: 0;
   margin: 0;
   list-style: none;
-}
-.events-item {
 }
 .events-title-item {
   font-weight: 400;
