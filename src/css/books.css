@@ -292,7 +292,7 @@
 
   .inline-loader {
     position: absolute;
-    top: 50%;
+    top: 150%;
     left: 50%;
     transform: translate(-50%, -50%);
     z-index: 10;
@@ -351,7 +351,7 @@
 }
 
 .loader-spinner {
-  width: 40px;
+  width: 48px;
   height: 48px;
   border: 4px solid #ccc;
   border-top-color: #ea8d50;
@@ -367,4 +367,22 @@
   to {
     transform: rotate(360deg);
   }
+}
+
+.category-btn.active,
+.dropdown-item.active {
+  font-weight: 600;
+  color: #e15d05;
+  background-color: rgba(11, 5, 0, 0.05);
+}
+
+.book-card {
+  opacity: 0;
+  transform: scale(0.95);
+  transition: opacity 0.4s ease, transform 0.4s ease;
+}
+
+.book-card.animate-in {
+  opacity: 1;
+  transform: scale(1);
 }
