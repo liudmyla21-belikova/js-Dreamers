@@ -1,10 +1,11 @@
 .feedback-section {
-  background: #fceee6;
+  background-color: #fceee6;
   padding: 64px;
 }
 
 .feedback-container {
   max-width: 1440px;
+  width: 100%;
   margin: 0 auto;
   display: flex;
   flex-direction: column;
@@ -20,8 +21,6 @@
 }
 
 .feedback-title {
-  font-family: 'Rubik', sans-serif;
-  font-weight: 600;
   font-size: 48px;
   margin: 0;
   line-height: 1.2;
@@ -37,34 +36,24 @@
   margin: 0;
 }
 
-/* Slider wrapper */
-.feedback-slider {
-  overflow: hidden;
-}
-
-.feedback-slide {
-  display: flex;
-  transition: transform 0.3s ease;
-  align-items: flex-start;
-  justify-content: flex-start;
-  flex-direction: row;
-  gap: 24px;
+.swiper {
+  max-width: 1200px;
+  margin: 0 auto;
 }
 
 /* Individual card */
 .feedback-card {
-  width: calc((100% - 48px) / 3);
-  height: 217px;
+  width: 100%;
+  height: auto;
   border: 1px solid rgba(11, 5, 0, 0.15);
   border-radius: 16px;
   padding: 32px;
   background-color: #fceee6;
   display: flex;
-  flex-direction: row;
+  flex-direction: column;
   justify-content: space-between;
   gap: 24px;
   box-sizing: border-box;
-  flex-wrap: wrap;
 }
 
 .feedback-text {
@@ -72,11 +61,12 @@
   font-size: 18px;
   line-height: 1.5;
   color: #0b0500;
-  margin: 0;
+  margin-bottom: 24px;
 }
 
 .feedback-user {
   display: flex;
+  flex-direction: row;
   align-items: center;
   gap: 16px;
 }
@@ -91,7 +81,6 @@
 .feedback-name {
   font-weight: 600;
   font-size: 16px;
-  font-weight: bold;
   line-height: 1.5;
   color: #0b0500;
   margin: 0;
@@ -105,32 +94,129 @@
   margin: 0;
 }
 
-/* Controls */
-.feedback-controls {
+.feedback-buttons-wrapper {
   display: flex;
-  justify-content: flex-end;
+  align-items: center;
+  justify-content: space-between;
   gap: 16px;
+  margin-top: 32px;
+  max-width: 1200px;
+  margin-left: auto;
+  margin-right: auto;
 }
 
-.feedback-controls button {
-  border: 1px solid rgba(11, 5, 0, 0.15);
-  padding: 12px;
+.feedback-swiper {
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.swiper-wrapper {
+  display: flex;
+  transition-property: transform;
+  box-sizing: content-box;
+}
+
+.feedback-swiper-pagination {
+  display: flex;
+  gap: 8px;
+}
+
+.feedback-swiper-pagination .swiper-pagination-bullet {
+  width: 8px;
+  height: 8px;
+  background-color: #ccc;
+  opacity: 1;
+  border-radius: 50%;
+  cursor: pointer;
+  transition: background-color 0.3s;
+}
+
+.feedback-swiper-pagination .swiper-pagination-bullet-active {
+  background-color: #000;
+}
+
+.feedback-custom-button-next,
+.feedback-custom-button-prev {
   width: 48px;
   height: 48px;
   background-color: #e15d05;
-  color: #fff;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border: none;
+  padding: 0;
   cursor: pointer;
+  transition: background-color 0.3s, fill 0.3s;
 }
 
-.feedback-controls button:hover {
-  background: #fceee6;
+.feedback-custom-button-next:hover,
+.feedback-custom-button-next:focus,
+.feedback-custom-button-prev:hover,
+.feedback-custom-button-prev:focus {
+  background-color: #fceee6;
 }
 
-.feedback-controls button:active {
-  background: #5a2502;
+.feedback-custom-button-next svg,
+.feedback-custom-button-prev svg {
+  fill: #ffffff;
+  transition: fill 0.3s ease;
 }
 
-.feedback-controls button:disabled {
-  background: #e15d05;
+.feedback-custom-button-next:hover svg,
+.feedback-custom-button-next:focus svg,
+.feedback-custom-button-prev:hover svg,
+.feedback-custom-button-prev:focus svg {
+  fill: #0b0500;
+}
+
+.feedback-custom-button-next:active,
+.feedback-custom-button-prev:active {
+  background-color: #5a2502;
+}
+
+.feedback-custom-button-next:active svg,
+.feedback-custom-button-prev:active svg {
+  fill: #fff;
+}
+
+/* Disabled state (Swiper handles it via opacity) */
+.feedback-custom-button-next.swiper-button-disabled,
+.feedback-custom-button-prev.swiper-button-disabled,
+.feedback-custom-button-next:disabled,
+.feedback-custom-button-prev:disabled {
+  background-color: #e15d05;
   opacity: 0.2;
+  pointer-events: none;
+  cursor: default;
+}
+
+.feedback-custom-button-next.swiper-button-disabled svg,
+.feedback-custom-button-prev.swiper-button-disabled svg,
+.feedback-custom-button-next:disabled svg,
+.feedback-custom-button-prev:disabled svg {
+  fill: #0b0500;
+}
+
+/* --- Swiper-specific styles --- */
+.feedback-swiper .swiper-wrapper {
+  display: flex;
+}
+
+.feedback-swiper .swiper-slide {
+  flex-shrink: 0;
+  width: auto;
+  height: auto;
+}
+
+/* Media queries */
+@media screen and (min-width: 768px) {
+  .feedback-card {
+    width: calc((100% - 24px) / 2);
+  }
+}
+
+@media screen and (min-width: 1440px) {
+  .feedback-card {
+    width: calc((100% - 48px) / 3);
+  }
 }
