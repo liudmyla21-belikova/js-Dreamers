@@ -1,6 +1,6 @@
 .feedback-section {
   background-color: #fceee6;
-  padding: 64px;
+  padding: 64px 16px;
 }
 
 .feedback-container {
@@ -210,12 +210,18 @@
 
 /* Media queries */
 @media screen and (min-width: 768px) {
+  .feedback-section {
+    padding: 64px 32px;
+  }
   .feedback-card {
     width: calc((100% - 24px) / 2);
   }
 }
 
 @media screen and (min-width: 1440px) {
+  .feedback-section {
+    padding: 64px;
+  }
   .feedback-card {
     width: calc((100% - 48px) / 3);
   }
