@@ -1,19 +1,15 @@
 .events-section {
-  padding: 64px 16px;
-  width: 375px;
-  height: 100%;
-}
-.cont-event {
-  display: flex;
-  align-items: flex-start;
-  justify-content: flex-start;
-  flex-direction: column;
-  gap: 16px;
-  padding: 64px 16px;
-  width: 375px;
+  padding-top: 64px;
+  padding-bottom: 64px;
   background: #fceee6;
 }
 .event-name {
+  font-weight: 600;
+  font-size: 16px;
+  line-height: 1.5;
+  text-transform: capitalize;
+  color: #0b0500;
+  margin-bottom: 16px;
 }
 .events-title {
   font-weight: 600;
@@ -21,6 +17,7 @@
   line-height: 1.2;
   letter-spacing: -0.01em;
   color: #0b0500;
+  margin-bottom: 16px;
 }
 
 .events-text {
@@ -28,17 +25,15 @@
   font-size: 18px;
   line-height: 1.5;
   color: #0b0500;
+  margin-bottom: 32px;
 }
 .events-list {
   display: flex;
-  flex-wrap: wrap;
+  flex-direction: column;
   gap: 24px;
-}
-.events-item {
-}
-.events-photo {
-}
-.event-content {
+  padding: 0;
+  margin: 0;
+  list-style: none;
 }
 .events-title-item {
   font-weight: 400;
@@ -46,25 +41,78 @@
   line-height: 1.4;
   letter-spacing: -0.01em;
   color: #0b0500;
+  margin-top: 24px;
 }
+
 .events-format-data {
   font-weight: 400;
   font-size: 16px;
   line-height: 1.5;
   color: #0b0500;
+  margin-bottom: 8px;
+}
+.events-item {
+  position: relative;
+  padding-bottom: 24px;
 }
 .events-description {
   font-weight: 400;
   font-size: 16px;
   line-height: 1.5;
   color: #0b0500;
+  margin-bottom: 16px;
 }
 .register-btn {
+  font-weight: 400;
+  font-size: 16px;
+  line-height: 1.5;
+  background: #fceee6;
+  color: #0b0500;
   display: flex;
   align-items: center;
-  justify-content: center;
+  justify-content: left;
   flex-direction: row;
   gap: 8px;
-  width: 95px;
-  height: 24px;
+  border: none;
+  padding: 8px 0px 0px 0px;
+  width: 342px;
+  height: 32px;
+  position: absolute;
+  bottom: 0;
+  left: 0;
+}
+
+.register-btn:hover,
+.register-btn:focus {
+  outline: none;
+}
+@media (min-width: 768px) {
+  .events-text {
+    width: 560px;
+  }
+  .events-list {
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    gap: 0;
+  }
+
+  .events-item {
+    flex: 0 1 calc(50% - 12px);
+  }
+}
+
+@media (min-width: 1440px) {
+  .events-title {
+    font-weight: 600;
+    font-size: 48px;
+  }
+  .events-photo img {
+    width: 100% !important;
+    height: auto !important;
+    display: block;
+  }
+  .events-item {
+    flex: 0 1 calc(33.333% - 16px);
+  }
 }
