@@ -9,36 +9,147 @@ import 'accordion-js/dist/accordion.min.css';
 
 const BASE_URL = 'https://books-backend.p.goit.global';
 
-
- 
 async function getBookDetails(bookId) {
-  try {
-    const response = await axios.get(`${BASE_URL}/books/${bookId}`);
-    return response.data;
-  } catch (error) {
-    console.error(`Error fetching book details for ID "${bookId}":`, error);
-    iziToast.error({ message: 'Failed to fetch book details. Please check your network.', position: 'topRight' });
-    throw error;
-  }
+    try {
+        const response = await axios.get(`${BASE_URL}/books/${bookId}`);
+        return response.data;
+    } catch (error) {
+        console.error(`Error fetching book details for ID "${bookId}":`, error);
+        iziToast.error({ message: 'Failed to fetch book details. Please check your network.', position: 'topRight' });
+        throw error;
+    }
 }
 
-const bookModal = document.querySelector('.book-modal');
-const closeBtnBookModal = document.querySelector('.close-btn-book-modal');
+let bookModal = document.querySelector('.book-modal');
 
-const bookImageModal = document.querySelector('.book-image-book-modal');
-const bookTitleModal = document.querySelector('.book-title-book-modal');
-const bookAuthorModal = document.querySelector('.book-author-book-modal');
-const bookPriceModal = document.querySelector('.book-price-book-modal');
-
-const quantityInputModal = document.querySelector('.quantity-input-book-modal');
-const decreaseBtnModal = document.querySelector('.decrease-btn-book-modal');
-const increaseBtnModal = document.querySelector('.increase-btn-book-modal');
-const addToCartBtnModal = document.querySelector('.add-to-cart-btn-book-modal');
-const buyNowBtnModal = document.querySelector('.buy-now-btn-book-modal');
-
-const bookAccordionModal = document.querySelector('.book-accordion-book-modal');
+let closeBtnBookModal = null;
+let bookImageModal = null;
+let bookTitleModal = null;
+let bookAuthorModal = null;
+let bookPriceModal = null;
+let quantityInputModal = null;
+let decreaseBtnModal = null;
+let increaseBtnModal = null;
+let addToCartBtnModal = null;
+let buyNowBtnModal = null;
+let bookAccordionModal = null;
 
 
+function createModalContent() {
+    if (!bookModal) {
+        console.error('Initial .book-modal container not found in HTML. Cannot create content.');
+        return;
+    }
+
+    const modalContentMarkup = `
+        <div class="window-book-modal">
+            <button type="button" class="close-btn-book-modal">
+                <svg class="close-icon-book-modal" width="32" height="32">
+                    <use href="/img/webp/sprite.svg#icon-x"></use>
+                </svg>
+            </button>
+
+            <div class="book-details-book-modal">
+                <img src="" alt="Book Cover" class="book-image-book-modal">
+                <div class="book-info-book-modal">
+                    <h2 class="book-title-book-modal"></h2>
+                    <p class="book-author-book-modal"></p>
+                    <p class="book-price-book-modal"></p>
+                    
+                    <form class="order-form-book-modal">
+                        <div class="quantity-control-book-modal">
+                            <button type="button" class="quantity-btn-book-modal decrease-btn">
+                                <svg class="plus-icon-book-modal" width="22" height="22">
+                                    <use href="/img/webp/sprite.svg#con-minus"></use>
+                                </svg>
+                            </button>
+                            <input type="number" class="quantity-input-book-modal" value="1" min="1" readonly>
+                            <button type="button" class="quantity-btn-book-modal increase-btn">
+                                <svg class="minus-icon-book-modal" width="22" height="22">
+                                    <use href="/img/webp/sprite.svg#icon-plus"></use>
+                                </svg>
+                            </button>
+                        </div>
+                        <div class="btn-order-book-modal">
+                            <button type="button" class="add-to-cart-btn-book-modal">Add To Cart</button>
+                            <button type="submit" class="buy-now-btn-book-modal">Buy Now</button>
+                        </div>
+                    </form>
+                    
+                    <div class="book-accordion-book-modal">
+                    </div>
+                </div>
+            </div>
+        </div>
+    `;
+
+    bookModal.innerHTML = modalContentMarkup;
+
+    
+    closeBtnBookModal = bookModal.querySelector('.close-btn-book-modal');
+    bookImageModal = bookModal.querySelector('.book-image-book-modal');
+    bookTitleModal = bookModal.querySelector('.book-title-book-modal');
+    bookAuthorModal = bookModal.querySelector('.book-author-book-modal');
+    bookPriceModal = bookModal.querySelector('.book-price-book-modal');
+    quantityInputModal = bookModal.querySelector('.quantity-input-book-modal');
+    decreaseBtnModal = bookModal.querySelector('.decrease-btn-book-modal');
+    increaseBtnModal = bookModal.querySelector('.increase-btn-book-modal');
+    addToCartBtnModal = bookModal.querySelector('.add-to-cart-btn-book-modal');
+    buyNowBtnModal = bookModal.querySelector('.buy-now-btn-book-modal');
+    bookAccordionModal = bookModal.querySelector('.book-accordion-book-modal');
+
+
+    addModalEventListeners();
+}
+
+function addModalEventListeners() {
+    if (closeBtnBookModal) {
+        closeBtnBookModal.addEventListener('click', closeBookModal);
+    } else {
+        console.warn('Close button for book modal not found after content creation.');
+    }
+
+    if (bookModal) { 
+        bookModal.addEventListener('click', (event) => {
+            if (event.target === bookModal) {
+                closeBookModal();
+            }
+        });
+    }
+
+    
+    if (decreaseBtnModal && quantityInputModal) decreaseBtnModal.addEventListener('click', () => {
+        let quantity = parseInt(quantityInputModal.value);
+        if (quantity > 1) {
+            quantityInputModal.value = quantity - 1;
+        }
+    });
+
+    if (increaseBtnModal && quantityInputModal) increaseBtnModal.addEventListener('click', () => {
+        let quantity = parseInt(quantityInputModal.value);
+        quantityInputModal.value = quantity + 1;
+    });
+
+
+    if (addToCartBtnModal) addToCartBtnModal.addEventListener('click', () => {
+        const quantity = parseInt(quantityInputModal.value);
+        console.log(`Додано до кошика: ${quantity} книга(книги)`);
+        iziToast.success({
+            message: `Додано ${quantity} книга(книги) до кошика!`,
+            position: 'bottomRight'
+        });
+    });
+
+    if (buyNowBtnModal) buyNowBtnModal.addEventListener('click', (event) => {
+        event.preventDefault();
+        iziToast.success({
+            message: 'Дякуємо за покупку!',
+            position: 'topCenter'
+        });
+        closeBookModal();
+    });
+}
+ 
 export async function openBookModal(bookId) {
     if (!bookId) {
         console.error('No book ID provided to openBookModal.');
@@ -46,27 +157,30 @@ export async function openBookModal(bookId) {
         return;
     }
 
-    
-    const loaderElement = document.querySelector('.some-loader-class');
+    if (!bookModal || !bookModal.querySelector('.window-book-modal')) {
+        createModalContent();
+    }
+
     if (loaderElement) loaderElement.classList.remove('is-hidden');
 
     try {
         const bookData = await getBookDetails(bookId);
 
-        bookImageModal.src = bookData.book_image;
-        bookImageModal.alt = bookData.title + ' cover';
-        bookTitleModal.textContent = bookData.title;
-        bookAuthorModal.textContent = bookData.author;
-        bookPriceModal.textContent = `Price: $${(typeof bookData.price === 'number' ? bookData.price : 0).toFixed(2)}`;
-        quantityInputModal.value = 1;
+        if (bookImageModal) bookImageModal.src = bookData.book_image;
+        if (bookImageModal) bookImageModal.alt = bookData.title + ' cover';
+        if (bookTitleModal) bookTitleModal.textContent = bookData.title;
+        if (bookAuthorModal) bookAuthorModal.textContent = bookData.author;
+        if (bookPriceModal) bookPriceModal.textContent = `Price: $${(typeof bookData.price === 'number' ? bookData.price : 0).toFixed(2)}`;
+        if (quantityInputModal) quantityInputModal.value = 1;
 
-       
+    
         renderAccordion(bookData);
 
-        bookModal.classList.remove('is-hidden');
-        document.body.classList.add('window-book-modal-open'); 
+    
+        if (bookModal) bookModal.classList.remove('is-hidden');
+        document.body.classList.add('window-book-modal-open');
 
-
+    
         window.addEventListener('keydown', onEscapePress);
 
     } catch (error) {
@@ -76,13 +190,13 @@ export async function openBookModal(bookId) {
     }
 }
 
-
 function closeBookModal() {
-    bookModal.classList.add('is-hidden');
-    document.body.classList.remove('window-book-modal-open'); 
-    window.removeEventListener('keydown', onEscapePress); 
+    if (bookModal) {
+        bookModal.classList.add('is-hidden');
+    }
+    document.body.classList.remove('window-book-modal-open');
+    window.removeEventListener('keydown', onEscapePress);
 }
-
 
 function onEscapePress(event) {
     if (event.key === 'Escape') {
@@ -90,58 +204,16 @@ function onEscapePress(event) {
     }
 }
 
-
-closeBtnBookModal.addEventListener('click', closeBookModal);
-
-
-bookModal.addEventListener('click', (event) => {
-    if (event.target === bookModal) { 
-        closeBookModal();
-    }
-});
-
-
-
-decreaseBtnModal.addEventListener('click', () => {
-    let quantity = parseInt(quantityInputModal.value);
-    if (quantity > 1) {
-        quantityInputModal.value = quantity - 1;
-    }
-});
-
-
-increaseBtnModal.addEventListener('click', () => {
-    let quantity = parseInt(quantityInputModal.value);
-    quantityInputModal.value = quantity + 1;
-});
-
-addToCartBtnModal.addEventListener('click', () => {
-    const quantity = parseInt(quantityInputModal.value);
-    console.log(`Додано до кошика: ${quantity} книга(книги)`);
-    iziToast.success({
-        message: `Додано ${quantity} книга(книги) до кошика!`,
-        position: 'bottomRight'
-    });
-});
-
-buyNowBtnModal.addEventListener('click', (event) => {
-    event.preventDefault();
-    iziToast.success({
-        message: 'Дякуємо за покупку!',
-        position: 'topCenter'
-    });
-    closeBookModal();
-});
-
-
 function renderAccordion(bookData) {
-    
+    if (!bookAccordionModal) {
+        console.warn('Accordion container for book modal not found.');
+        return;
+    }
     bookAccordionModal.innerHTML = '';
 
-
-    const detailsContent = bookData.description || 'I Will Find You is a gripping thriller by the master of suspense, Harlan Coben. The story follows David Burroughs, a former prisoner wrongfully convicted of murdering his own son. When he discovers a clue suggesting his son might still be alive, David escapes from prison to uncover the truth. Fast-paced, emotional, and full of unexpected twists — this novel will keep you hooked until the very last page.';
-    const shippingContent = bookData.shipping_info || 'We ship across the United States within 2–5 business days. All orders are processed through USPS or a reliable courier service. Enjoy free standard shipping on orders over $50.';
-    const returnsContent = bookData.return_policy || 'You can return an item within 14 days of receiving your order, provided it hasn’t been used and is in its original condition. To start a return, please contact our support team — we’ll guide you through the process quickly and hassle-free.';
+    const detailsContent = bookData.description || 'No detailed description available.';
+    const shippingContent = bookData.shipping_info || 'Shipping information not available.';
+    const returnsContent = bookData.return_policy || 'Return policy not available.';
 
     const accordionMarkup = `
         <div class="accordion-container-book-modal">
@@ -176,9 +248,9 @@ function renderAccordion(bookData) {
 
     bookAccordionModal.insertAdjacentHTML('beforeend', accordionMarkup);
 
-
     new Accordion('.accordion-container-book-modal', {
         duration: 300,
         showMultiple: false,
     });
 }
+

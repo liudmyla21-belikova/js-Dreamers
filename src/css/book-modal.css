@@ -1,4 +1,4 @@
-/* styles.css */
+
 
 .book-modal {
     position: fixed;
@@ -6,7 +6,7 @@
     left: 0;
     width: 100%;
     height: 100%;
-    background-color: rgba(0, 0, 0, 0.5);
+    background-color: rgba(0, 0, 0, 0.25);
     display: flex;
     justify-content: center;
     align-items: center;
@@ -24,11 +24,11 @@
 
 .window-book-modal {
     position: relative;
-    background-color: #fff;
-    padding: 20px;
-    border-radius: 8px;
-    max-width: 600px;
-    width: 90%;
+    background-color: #fceee6;
+    padding: 64px;
+    border-radius: 16px;
+    width: 1300px;
+    height: 912px;
     box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
     transform: scale(1);
     transition: transform 0.3s ease;
@@ -40,17 +40,15 @@
 
 .close-btn-book-modal {
     position: absolute;
-    top: 10px;
-    right: 10px;
+    top: 16px;
+    right: 16px;
     background: none;
     border: none;
     cursor: pointer;
-    padding: 5px;
 }
 
 .close-icon-book-modal {
     fill: #333;
-    /* Колір іконки */
     transition: fill 0.2s ease;
 }
 
@@ -60,39 +58,55 @@
 
 .book-details-book-modal {
     display: flex;
-    flex-direction: column;
-    align-items: center;
-    gap: 15px;
-    text-align: center;
+    gap: 24px;
+    text-align: left;
+    justify-content: flex-start;
+    padding: 64px 104px;
 }
-
+.book-info-book-modal {
+    width: 100%;
+}
 .book-image-book-modal {
-    max-width: 200px;
-    height: auto;
-    border-radius: 4px;
+    width: 309px;
+    height: 464;
 }
 
 .book-title-book-modal {
-    font-size: 24px;
-    margin: 0;
-    color: #333;
+    font-family: "Rubik", sans-serif;
+    font-weight: 600;
+        font-size: 40px;
+        line-height: 1.2;
+        letter-spacing: -0.01em;
+        color: #0b0500;
+        padding-bottom: 8px;
 }
 
-.book-author-book-modal,
+.book-author-book-modal {
+    font-family: "Rubik", sans-serif;
+        font-weight: 400;
+        font-size: 14px;
+        line-height: 1.5;
+        color: #0b0500;
+        padding-bottom: 8px;
+}
+
 .book-price-book-modal {
-    font-size: 18px;
-    color: #555;
-    margin: 0;
+    font-family: "Rubik", sans-serif;
+    font-weight: 400;
+        font-size: 24px;
+        line-height: 1.4;
+        letter-spacing: -0.01em;
+        color: #0b0500;
+        padding-bottom: 24px;
 }
-
-
 .order-form-book-modal {
     display: flex;
-    flex-direction: column;
-    gap: 15px;
-    margin-top: 20px;
+    flex-direction: row;
+    gap: 16px;
     width: 100%;
-    max-width: 300px;
+   justify-content: flex-start; 
+   flex-wrap: wrap;
+   
    
 }
 
@@ -102,30 +116,38 @@
     align-items: center;
     gap: 10px;
 }
-
+.btn-order-book-modal {
+display: flex;
+gap: 24px;
+width: 642px;
+height: 48px;
+}
 .quantity-btn-book-modal {
-    background-color: #007bff;
-    color: white;
-    border: none;
+    background-color: transparent;
+    color: black;
+    border: 1px solid #0b0500;
     border-radius: 4px;
-    width: 40px;
+    width: 32px;
     height: 40px;
-    font-size: 20px;
+    text-align: center;
     cursor: pointer;
-    transition: background-color 0.2s ease;
+   
 }
-
-.quantity-btn-book-modal:hover {
-    background-color: #0056b3;
+.minus-icon-book-modal {
+    fill: black;
 }
-
+.plus-icon-book-modal {
+    fill: black;
+}
 .quantity-input-book-modal {
-    width: 60px;
     text-align: center;
     font-size: 18px;
-    border: 1px solid #ccc;
+    width: 42px;
+    height: 40px;
+    border: 1px solid rgba(11, 5, 0, 0.15);
     border-radius: 4px;
-    padding: 5px;
+    color: #0b0500;    
+    background-color: transparent;    
 }
 
 .add-to-cart-btn-book-modal,
@@ -139,8 +161,13 @@
 }
 
 .add-to-cart-btn-book-modal {
-    background-color: #28a745;
-    color: white;
+    border: 1px solid #e15d05;
+        border-radius: 4px;
+        padding: 12px 24px;
+        width: 309px;
+        height: 48px;
+        background-color: #e15d05;
+        color: white;
 }
 
 .add-to-cart-btn-book-modal:hover {
@@ -148,8 +175,13 @@
 }
 
 .buy-now-btn-book-modal {
-    background-color: #ffc107;
+    background-color: transparent;
     color: #333;
+    border: 1px solid #0b0500;
+        border-radius: 4px;
+        padding: 12px 24px;
+        width: 309px;
+        height: 48px;
 }
 
 .buy-now-btn-book-modal:hover {
