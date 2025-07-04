@@ -1,4 +1,4 @@
-<section class="books-section books-container" id="books">
+<section class="books-section books-container animate" id="books">
   <div class="books-subsection">
     <h2 class="visually-hidden">Trending books</h2>
     <div class="books-categories-info">
@@ -7,7 +7,7 @@
     </div>
     <div class="category-dropdown">
       <button class="category-dropdown-btn">
-        Category
+        <span class="category-dropdown-label">Category</span>
         <svg width="24" height="24">
           <use href="../img/webp/sprite.svg#icon-chevron-down"></use>
         </svg>
@@ -18,6 +18,9 @@
   </div>
   <div class="books-list-wrapper">
     <ul class="books-list"></ul>
+    <div class="loader-backdrop inline-loader hidden">
+      <span class="loader-spinner"></span>
+    </div>
     <div class="pagination-wrapper">
       <button class="pagination-btn hidden">Show More</button>
     </div>
