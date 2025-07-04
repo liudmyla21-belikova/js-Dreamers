@@ -1,4 +1,7 @@
-const contactModal = document.getElementById('contact-modal'); // 
+import iziToast from 'izitoast';
+import 'izitoast/dist/css/iziToast.min.css';
+
+const contactModal = document.getElementById('contact-modal');
 const contactModalCloseBtn = contactModal?.querySelector(
   '.contact-modal-close'
 );
@@ -31,15 +34,9 @@ if (
 
   // Close modal on close button click
   contactModalCloseBtn.addEventListener('click', closeContactModal);
-
-  // Close modal on backdrop click
   contactModal.addEventListener('click', e => {
-    if (e.target === contactModal) {
-      closeContactModal();
-    }
+    if (e.target === contactModal) closeContactModal();
   });
-
-  // Close modal on Escape key press
   document.addEventListener('keydown', e => {
     if (e.key === 'Escape' && !contactModal.classList.contains('is-hidden')) {
       closeContactModal();
@@ -53,20 +50,33 @@ if (
     const name = contactModalForm.elements.name.value.trim();
     const email = contactModalForm.elements.email.value.trim();
     const message = contactModalForm.elements.message.value.trim();
-
-    if (!name || !email) {
-      alert('Please fill out all required fields.');
+  // Check for required fields
+    if (!name || !email) { 
+      iziToast.error({
+        title: 'Error',
+        message: 'Please fill out all required fields.',
+        position: 'topRight',
+      });
       return;
     }
 
     const emailPattern = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
     if (!emailPattern.test(email)) {
-      alert('Please enter a valid email address.');
+      iziToast.error({
+        title: 'Error',
+        message: 'Please enter a valid email address.',
+        position: 'topRight',
+      });
       return;
     }
 
+    iziToast.success({
+      title: 'Success',
+      message: `Thank you, ${name}! Your message has been sent.`,
+      position: 'topRight',
+    });
+
     console.log('Name:', name, 'Email:', email, 'Message:', message);
-    alert(`Thank you, ${name}! Your message has been sent.`);
     closeContactModal();
   });
 
