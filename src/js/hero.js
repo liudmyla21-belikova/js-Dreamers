@@ -8,7 +8,9 @@ Swiper.use([Navigation]);
 const prevBtnHero = document.querySelector('.hero-btn-slide-prev');
 const nextBtnHero = document.querySelector('.hero-btn-slide-next');
 
+
 const swiperHero = new Swiper('.hero-swiper', {
+
   slidesPerView: 1,
   spaceBetween: 16,
   loop: false,

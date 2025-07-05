@@ -2,6 +2,7 @@ import iziToast from 'izitoast';
 import 'izitoast/dist/css/iziToast.min.css';
 
 const contactModal = document.getElementById('contact-modal');
+
 const contactModalCloseBtn = contactModal?.querySelector(
   '.contact-modal-close'
 );
