@@ -104,6 +104,7 @@
   border: 1px solid rgba(11, 5, 0, 0.15);
 }
 
+
 .footer-form__input:focus {
   background: rgba(11, 5, 0, 0.05);
 }
