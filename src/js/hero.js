@@ -1,14 +1,16 @@
 import Swiper from 'swiper';
-import { Navigation } from 'swiper/modules'; // ✅ додаємо модуль
+import { Navigation } from 'swiper/modules';
 import 'swiper/css';
 import 'swiper/css/navigation';
 
-Swiper.use([Navigation]); // ✅ реєструємо Navigation
+Swiper.use([Navigation]);
 
 const prevBtnHero = document.querySelector('.hero-btn-slide-prev');
 const nextBtnHero = document.querySelector('.hero-btn-slide-next');
 
-const swiperHero = new Swiper('.swiper', {
+
+const swiperHero = new Swiper('.hero-swiper', {
+
   slidesPerView: 1,
   spaceBetween: 16,
   loop: false,
