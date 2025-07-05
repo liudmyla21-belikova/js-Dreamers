@@ -1,0 +1,30 @@
+<div id="contact-modal" class="contact-modal is-hidden" role="dialog" aria-modal="true">
+  <div class="contact-modal-content">
+    <button class="contact-modal-close" aria-label="Close modal">
+      <svg class="contact-modal-icon-x" width="24" height="24">
+        <use href="img/webp/sprite.svg#icon-x"></use>
+      </svg>
+    </button>
+    <h2 class="contact-modal-title">Register</h2>
+    <p class="contact-modal-subtitle"></p>
+    <form id="contact-modal-form" class="contact-modal-form">
+      <label class="contact-modal-label">
+        Name*
+        <input type="text" name="name" required class="contact-modal-input" />
+      </label>
+      <label class="contact-modal-label">
+        Email*
+        <input type="email" name="email" required class="contact-modal-input" />
+      </label>
+      <label class="contact-modal-label">
+        Message
+        <textarea
+          name="message"
+          placeholder="Type your message..."
+          class="contact-modal-textarea"
+        ></textarea>
+      </label>
+      <button type="submit" class="contact-modal-submit">Register</button>
+    </form>
+  </div>
+</div>
