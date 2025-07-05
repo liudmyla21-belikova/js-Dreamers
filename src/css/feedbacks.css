@@ -225,4 +225,8 @@
   .feedback-card {
     width: calc((100% - 48px) / 3);
   }
+  .feedback-custom-button-next,
+  .feedback-custom-button-prev {
+    display: none;
+  }
 }
