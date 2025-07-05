@@ -36,7 +36,7 @@
   margin: 0;
 }
 
-.swiper {
+.feedback-section .feedback-swiper {
   max-width: 1200px;
   margin: 0 auto;
 }
@@ -105,12 +105,7 @@
   margin-right: auto;
 }
 
-.feedback-swiper {
-  max-width: 1200px;
-  margin: 0 auto;
-}
-
-.swiper-wrapper {
+.feedback-section .swiper-wrapper {
   display: flex;
   transition-property: transform;
   box-sizing: content-box;
@@ -135,8 +130,8 @@
   background-color: #000;
 }
 
-.feedback-custom-button-next,
-.feedback-custom-button-prev {
+.feedback-section .feedback-custom-button-next,
+.feedback-section .feedback-custom-button-prev {
   width: 48px;
   height: 48px;
   background-color: #e15d05;
@@ -149,63 +144,63 @@
   transition: background-color 0.3s, fill 0.3s;
 }
 
-.feedback-custom-button-next:hover,
-.feedback-custom-button-next:focus,
-.feedback-custom-button-prev:hover,
-.feedback-custom-button-prev:focus {
+.feedback-section .feedback-custom-button-next:hover,
+.feedback-section .feedback-custom-button-next:focus,
+.feedback-section .feedback-custom-button-prev:hover,
+.feedback-section .feedback-custom-button-prev:focus {
   background-color: #fceee6;
 }
 
-.feedback-custom-button-next svg,
-.feedback-custom-button-prev svg {
+.feedback-section .feedback-custom-button-next svg,
+.feedback-section .feedback-custom-button-prev svg {
   fill: #ffffff;
   transition: fill 0.3s ease;
 }
 
-.feedback-custom-button-next:hover svg,
-.feedback-custom-button-next:focus svg,
-.feedback-custom-button-prev:hover svg,
-.feedback-custom-button-prev:focus svg {
+.feedback-section .feedback-custom-button-next:hover svg,
+.feedback-section .feedback-custom-button-next:focus svg,
+.feedback-section .feedback-custom-button-prev:hover svg,
+.feedback-section .feedback-custom-button-prev:focus svg {
   fill: #0b0500;
 }
 
-.feedback-custom-button-next:active,
-.feedback-custom-button-prev:active {
+.feedback-section .feedback-custom-button-next:active,
+.feedback-section .feedback-custom-button-prev:active {
   background-color: #5a2502;
 }
 
-.feedback-custom-button-next:active svg,
-.feedback-custom-button-prev:active svg {
+.feedback-section .feedback-custom-button-next:active svg,
+.feedback-section .feedback-custom-button-prev:active svg {
   fill: #fff;
 }
 
-/* Disabled state (Swiper handles it via opacity) */
-.feedback-custom-button-next.swiper-button-disabled,
-.feedback-custom-button-prev.swiper-button-disabled,
-.feedback-custom-button-next:disabled,
-.feedback-custom-button-prev:disabled {
+/* Disabled (неактивна кнопка) */
+.feedback-section .feedback-custom-button-next.swiper-button-disabled,
+.feedback-section .feedback-custom-button-prev.swiper-button-disabled,
+.feedback-section .feedback-custom-button-next:disabled,
+.feedback-section .feedback-custom-button-prev:disabled {
   background-color: #e15d05;
   opacity: 0.2;
   pointer-events: none;
   cursor: default;
 }
 
-.feedback-custom-button-next.swiper-button-disabled svg,
-.feedback-custom-button-prev.swiper-button-disabled svg,
-.feedback-custom-button-next:disabled svg,
-.feedback-custom-button-prev:disabled svg {
+.feedback-section .feedback-custom-button-next.swiper-button-disabled svg,
+.feedback-section .feedback-custom-button-prev.swiper-button-disabled svg,
+.feedback-section .feedback-custom-button-next:disabled svg,
+.feedback-section .feedback-custom-button-prev:disabled svg {
   fill: #0b0500;
 }
 
 /* --- Swiper-specific styles --- */
-.feedback-swiper .swiper-wrapper {
+.feedback-section .feedback-swiper .swiper-wrapper {
   display: flex;
 }
 
-.feedback-swiper .swiper-slide {
-  flex-shrink: 0;
-  width: auto;
+.feedback-section .feedback-swiper .swiper-slide {
+  width: 100%;
   height: auto;
+  box-sizing: border-box;
 }
 
 /* Media queries */
@@ -214,7 +209,7 @@
     padding: 64px 32px;
   }
   .feedback-card {
-    width: calc((100% - 24px) / 2);
+    width: 100%;
   }
 }
 
@@ -223,10 +218,11 @@
     padding: 64px;
   }
   .feedback-card {
-    width: calc((100% - 48px) / 3);
+    width: 100%;
   }
-  .feedback-custom-button-next,
-  .feedback-custom-button-prev {
-    display: none;
+
+  .feedback-section .feedback-custom-button-next,
+  .feedback-section .feedback-custom-button-prev {
+    display: none !important;
   }
 }
