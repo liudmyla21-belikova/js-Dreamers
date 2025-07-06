@@ -1,0 +1,29 @@
+/* src/css/scroll-up.css */
+
+.scroll-up-btn {
+    position: fixed;
+    bottom: 40px;
+    right: 40px;
+    background-color: #e15d05;
+    border: none;
+    border-radius: 50%;
+    padding: 12px;
+    cursor: pointer;
+    opacity: 0.8;
+    transition: opacity 0.3s, transform 0.3s;
+    z-index: 999;
+  }
+  
+  .scroll-up-btn:hover {
+    opacity: 1;
+    transform: translateY(-4px);
+  }
+  
+  .scroll-up-btn.is-hidden {
+    display: none;
+  }
+  
+  .scroll-up-icon {
+    fill: #fff;
+  }
+  
