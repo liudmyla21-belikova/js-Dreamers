@@ -1,1 +1,135 @@
+.header {
+    position: relative;
+}
 
+
+.header-nav {
+    display: none;
+}
+
+.header-wrapper,
+.header-mobile-window {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 14px 8px 14px 4px;
+}
+
+.header-logo {
+    display: flex;
+    align-items: center;
+    padding: 7.4px 0;
+    margin: 0;
+}
+
+.header-burger-btn {
+    border: none;
+    background-color: #fceee6;
+    padding: 0;
+}
+
+
+/*Mobile-menu*/
+
+
+.header-mobile-list {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 40px;
+
+}
+
+.header-mobile-window {
+    margin-bottom: 16px;
+}
+
+.header-mobile-menu {
+    position: fixed;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 999;
+    background-color: #fceee6;
+    opacity: 0;
+    visibility: hidden;
+    pointer-events: none;
+
+    transform: translateX(-100%);
+    transition: transform 0.5s ease, opacity 0.5s ease, visibility 0.5s;
+}
+
+.header-mobile-menu.is-open {
+    opacity: 1;
+    visibility: visible;
+    pointer-events: auto;
+
+    transform: translateX(0);
+}
+
+#header-mobile-menu-close {
+    display: block;
+}
+
+.header-mobile-link {
+    font-weight: 500;
+    font-size: 20px;
+    line-height: 1.5;
+    color: #0b0500;
+    display: inline-block;
+
+    transition: transform 0.5s ease, color 0.5s ease;
+}
+
+.header-mobile-link:hover,
+.header-mobile-link:focus {
+    transform: scale(1.2);
+    color: #7b4e2f;
+
+}
+
+html.no-scroll,
+body.no-scroll {
+    position: fixed;
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+    top: var(--scroll-y, 0);
+    left: 0;
+}
+
+@media screen and (min-width: 768px) {
+    .header-wrapper {
+        padding: 16px 0;
+    }
+
+    .header-burger-btn {
+        display: none;
+    }
+
+    .header-nav {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        gap: 32px;
+    }
+
+    .header-link {
+        font-weight: 400;
+        font-size: 16px;
+        line-height: 1.5;
+        color: #0b0500;
+        transition: transform 0.5s ease, color 0.5s ease;
+    }
+
+    .header-link:visited {
+        color: rgba(0, 0, 0, 0.15)
+    }
+
+    .header-link:hover,
+    .header-link:focus {
+        transform: scale(1.2);
+        color: #7b4e2f;
+    }
+}
