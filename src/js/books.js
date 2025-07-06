@@ -187,16 +187,11 @@ function updateCategoryView(categoriesData) {
 
   const width = window.innerWidth;
 
-  if (width < 768) {
+  if (width < 1440) {
     renderDropdown(categoriesData);
     refs.categoryList.innerHTML = '';
     refs.categoryDropdown.classList.remove('hidden');
     refs.categoryList.classList.add('hidden');
-  } else if (width >= 768 && width < 1440) {
-    renderDropdown(categoriesData);
-    renderCategoryList(categoriesData);
-    refs.categoryDropdown.classList.remove('hidden');
-    refs.categoryList.classList.remove('hidden');
   } else {
     renderCategoryList(categoriesData);
     refs.dropdownList.innerHTML = '';
@@ -276,9 +271,28 @@ async function initBooksSection() {
 
   updateCategoryView(categories);
 
+  if (window.innerWidth >= 1440) {
+    currentCategory = 'All categories';
+    setActiveCategory(currentCategory);
+  }
+
   window.addEventListener('resize', () => {
-    booksPerPage = getBooksPerPage();
+    const newBooksPerPage = getBooksPerPage();
+    const layoutChanged = newBooksPerPage !== booksPerPage;
+
+    booksPerPage = newBooksPerPage;
     updateCategoryView(categories);
+
+    if (layoutChanged && allBooks.length) {
+      const sliced = allBooks.slice(0, booksPerPage);
+      visibleBooks = sliced.length;
+      renderBooks(sliced);
+      updateCounter(visibleBooks, allBooks.length);
+      refs.showMoreBtn.classList.toggle(
+        'hidden',
+        visibleBooks >= allBooks.length
+      );
+    }
   });
 
   refs.dropdownBtn.addEventListener('click', () => {
