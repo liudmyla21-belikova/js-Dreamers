@@ -37,11 +37,9 @@
 }
 
 .feedback-section .feedback-swiper {
-  max-width: 1200px;
   margin: 0 auto;
 }
 
-/* Individual card */
 .feedback-card {
   width: 100%;
   height: auto;
@@ -174,7 +172,6 @@
   fill: #fff;
 }
 
-/* Disabled (неактивна кнопка) */
 .feedback-section .feedback-custom-button-next.swiper-button-disabled,
 .feedback-section .feedback-custom-button-prev.swiper-button-disabled,
 .feedback-section .feedback-custom-button-next:disabled,
@@ -192,7 +189,6 @@
   fill: #0b0500;
 }
 
-/* --- Swiper-specific styles --- */
 .feedback-section .feedback-swiper .swiper-wrapper {
   display: flex;
 }
