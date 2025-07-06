@@ -6,8 +6,10 @@ const BASE_URL = 'https://books-backend.p.goit.global/books';
 
 const refs = {
   counter: document.querySelector('.books-count'),
+  categoryDropdown: document.querySelector('.category-dropdown'),
   dropdownBtn: document.querySelector('.category-dropdown-btn'),
   dropdownList: document.querySelector('.dropdown-list'),
+  categoryDropdownLabel: document.querySelector('.category-dropdown-label'),
   categoryList: document.querySelector('.category-list'),
   booksList: document.querySelector('.books-list'),
   showMoreBtn: document.querySelector('.pagination-btn'),
@@ -16,16 +18,29 @@ const refs = {
 
 let visibleBooks = 0;
 let allBooks = [];
-let booksPerPage = window.innerWidth < 768 ? 10 : 24;
 const BATCH_SIZE = 4;
-let currentView = isDesktop() ? 'desktop' : 'mobile';
 let categories = [];
+let currentCategory = 'All categories';
+let booksPerPage = 0;
+
+function getBooksPerPage() {
+  return window.innerWidth < 768 ? 10 : 24;
+}
 
 async function fetchCategories() {
   try {
     const { data } = await axios.get(`${BASE_URL}/category-list`);
-    const result = ['All categories', ...data.map(cat => cat.list_name)];
-    return result;
+    const categoryNames = data.map(cat => cat.list_name);
+
+    const booksArrays = await Promise.all(
+      categoryNames.map(name => fetchBooksByCategory(name))
+    );
+
+    const filtered = categoryNames.filter(
+      (name, idx) => booksArrays[idx].length > 0
+    );
+
+    return ['All categories', ...filtered];
   } catch (error) {
     iziToast.error({ message: 'Failed to load categories' });
     return [];
@@ -43,6 +58,10 @@ async function fetchTopBooks() {
 }
 
 async function fetchBooksByCategory(category) {
+  if (!category || category.trim() === '') {
+    return [];
+  }
+
   try {
     const { data } = await axios.get(
       `${BASE_URL}/category?category=${category}`
@@ -55,7 +74,6 @@ async function fetchBooksByCategory(category) {
 }
 
 function renderDropdown(categories) {
-  console.log('Rendering dropdown...');
   refs.dropdownList.innerHTML = categories
     .map(
       name => `<li class="dropdown-item" data-category="${name}">${name}</li>`
@@ -92,8 +110,9 @@ function renderBooks(books, { append = false } = {}) {
     .join('');
 
   if (append) {
-    refs.booksList.insertAdjacentHTML('beforeend', markup);
-    const newCards = refs.booksList.querySelectorAll('.book-card');
+    const fragment = document.createRange().createContextualFragment(markup);
+    refs.booksList.appendChild(fragment);
+    const newCards = Array.from(refs.booksList.children).slice(-books.length);
     requestAnimationFrame(() => {
       newCards.forEach(card => card.classList.add('animate-in'));
     });
@@ -145,23 +164,18 @@ async function loadMoreBooks() {
 async function loadTrendingBooks() {
   showLoader();
   const books = await fetchTopBooks();
-  renderFirstBooks(books);
+  await renderFirstBooks(books);
 }
 
 async function loadBooksByCategory(category) {
   showLoader();
   if (category === 'All categories') {
     await loadTrendingBooks();
-    return;
+  } else {
+    const books = await fetchBooksByCategory(category);
+    await renderFirstBooks(books);
   }
-
-  const books = await fetchBooksByCategory(category);
   hideLoader();
-  renderFirstBooks(books);
-}
-
-function isDesktop() {
-  return window.innerWidth >= 1440;
 }
 
 function showLoader() {
@@ -178,36 +192,36 @@ function waitForImagesToLoad(container) {
     img =>
       new Promise(resolve => {
         if (img.complete) {
-          resolve(); // already loaded
+          resolve();
         } else {
           img.addEventListener('load', resolve);
-          img.addEventListener('error', resolve); // на випадок помилки
+          img.addEventListener('error', resolve);
         }
       })
   );
   return Promise.all(promises);
 }
 
-window.addEventListener('resize', () => {
-  const isNowDesktop = isDesktop();
-  if (
-    (isNowDesktop && currentView === 'mobile') ||
-    (!isNowDesktop && currentView === 'desktop')
-  ) {
-    currentView = isNowDesktop ? 'desktop' : 'mobile';
-    updateCategoryView(categories);
-  }
-});
-
 function updateCategoryView(categoriesData) {
   if (!categoriesData || !categoriesData.length) return;
 
-  if (isDesktop()) {
-    renderCategoryList(categoriesData);
-    refs.dropdownList.innerHTML = '';
-  } else {
+  const width = window.innerWidth;
+
+  if (width < 768) {
     renderDropdown(categoriesData);
     refs.categoryList.innerHTML = '';
+    refs.categoryDropdown.classList.remove('hidden');
+    refs.categoryList.classList.add('hidden');
+  } else if (width >= 768 && width < 1440) {
+    renderDropdown(categoriesData);
+    renderCategoryList(categoriesData);
+    refs.categoryDropdown.classList.remove('hidden');
+    refs.categoryList.classList.remove('hidden');
+  } else {
+    renderCategoryList(categoriesData);
+    refs.dropdownList.innerHTML = '';
+    refs.categoryDropdown.classList.add('hidden');
+    refs.categoryList.classList.remove('hidden');
   }
 }
 
@@ -221,14 +235,16 @@ function setActiveCategory(category) {
   });
 }
 
-export async function initBooksSection() {
+async function initBooksSection() {
+  booksPerPage = getBooksPerPage();
   categories = await fetchCategories();
+
   updateCategoryView(categories);
-  if (isDesktop()) {
-    renderCategoryList(categories);
-  } else {
-    renderDropdown(categories);
-  }
+
+  window.addEventListener('resize', () => {
+    booksPerPage = getBooksPerPage();
+    updateCategoryView(categories);
+  });
 
   refs.dropdownBtn.addEventListener('click', () => {
     refs.dropdownList.classList.toggle('is-open');
@@ -237,19 +253,21 @@ export async function initBooksSection() {
   refs.dropdownList.addEventListener('click', e => {
     const li = e.target.closest('li[data-category]');
     if (!li) return;
-    const category = li.dataset.category;
-    refs.dropdownBtn.querySelector('.category-dropdown-label').textContent =
-      category;
-    loadBooksByCategory(category);
-    setActiveCategory(category);
+    currentCategory = li.dataset.category;
+
+    refs.categoryDropdownLabel.textContent = currentCategory;
+
+    loadBooksByCategory(currentCategory);
+    setActiveCategory(currentCategory);
     refs.dropdownList.classList.remove('is-open');
   });
 
   refs.categoryList.addEventListener('click', e => {
     const btn = e.target.closest('[data-category]');
     if (!btn) return;
-    loadBooksByCategory(btn.dataset.category);
-    setActiveCategory(category);
+    currentCategory = btn.dataset.category;
+    loadBooksByCategory(currentCategory);
+    setActiveCategory(currentCategory);
   });
 
   refs.showMoreBtn.addEventListener('click', loadMoreBooks);

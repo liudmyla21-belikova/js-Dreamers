@@ -288,6 +288,7 @@
 
   .books-list-wrapper {
     position: relative;
+    width: 100%;
   }
 
   .inline-loader {
@@ -373,7 +374,6 @@
 .dropdown-item.active {
   font-weight: 600;
   color: #e15d05;
-  background-color: rgba(11, 5, 0, 0.05);
 }
 
 .book-card {
