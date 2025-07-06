@@ -1,0 +1,228 @@
+.feedback-section {
+  background-color: #fceee6;
+  padding: 64px 16px;
+}
+
+.feedback-container {
+  max-width: 1440px;
+  width: 100%;
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+  gap: 80px;
+}
+
+.feedback-title-box {
+  display: flex;
+  align-items: flex-start;
+  justify-content: flex-start;
+  flex-direction: column;
+  gap: 24px;
+}
+
+.feedback-title {
+  font-size: 48px;
+  margin: 0;
+  line-height: 1.2;
+  letter-spacing: -0.01em;
+  color: #0b0500;
+}
+
+.feedback-subtitle {
+  font-weight: 400;
+  font-size: 18px;
+  line-height: 1.5;
+  color: #0b0500;
+  margin: 0;
+}
+
+.feedback-section .feedback-swiper {
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+/* Individual card */
+.feedback-card {
+  width: 100%;
+  height: auto;
+  border: 1px solid rgba(11, 5, 0, 0.15);
+  border-radius: 16px;
+  padding: 32px;
+  background-color: #fceee6;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  gap: 24px;
+  box-sizing: border-box;
+}
+
+.feedback-text {
+  font-weight: 400;
+  font-size: 18px;
+  line-height: 1.5;
+  color: #0b0500;
+  margin-bottom: 24px;
+}
+
+.feedback-user {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  gap: 16px;
+}
+
+.feedback-avatar {
+  width: 48px;
+  height: 48px;
+  border-radius: 100%;
+  object-fit: cover;
+}
+
+.feedback-name {
+  font-weight: 600;
+  font-size: 16px;
+  line-height: 1.5;
+  color: #0b0500;
+  margin: 0;
+}
+
+.feedback-role {
+  font-weight: 400;
+  font-size: 16px;
+  line-height: 1.5;
+  color: #0b0500;
+  margin: 0;
+}
+
+.feedback-buttons-wrapper {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
+  margin-top: 32px;
+  max-width: 1200px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.feedback-section .swiper-wrapper {
+  display: flex;
+  transition-property: transform;
+  box-sizing: content-box;
+}
+
+.feedback-swiper-pagination {
+  display: flex;
+  gap: 8px;
+}
+
+.feedback-swiper-pagination .swiper-pagination-bullet {
+  width: 8px;
+  height: 8px;
+  background-color: #ccc;
+  opacity: 1;
+  border-radius: 50%;
+  cursor: pointer;
+  transition: background-color 0.3s;
+}
+
+.feedback-swiper-pagination .swiper-pagination-bullet-active {
+  background-color: #000;
+}
+
+.feedback-section .feedback-custom-button-next,
+.feedback-section .feedback-custom-button-prev {
+  width: 48px;
+  height: 48px;
+  background-color: #e15d05;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border: none;
+  padding: 0;
+  cursor: pointer;
+  transition: background-color 0.3s, fill 0.3s;
+}
+
+.feedback-section .feedback-custom-button-next:hover,
+.feedback-section .feedback-custom-button-next:focus,
+.feedback-section .feedback-custom-button-prev:hover,
+.feedback-section .feedback-custom-button-prev:focus {
+  background-color: #fceee6;
+}
+
+.feedback-section .feedback-custom-button-next svg,
+.feedback-section .feedback-custom-button-prev svg {
+  fill: #ffffff;
+  transition: fill 0.3s ease;
+}
+
+.feedback-section .feedback-custom-button-next:hover svg,
+.feedback-section .feedback-custom-button-next:focus svg,
+.feedback-section .feedback-custom-button-prev:hover svg,
+.feedback-section .feedback-custom-button-prev:focus svg {
+  fill: #0b0500;
+}
+
+.feedback-section .feedback-custom-button-next:active,
+.feedback-section .feedback-custom-button-prev:active {
+  background-color: #5a2502;
+}
+
+.feedback-section .feedback-custom-button-next:active svg,
+.feedback-section .feedback-custom-button-prev:active svg {
+  fill: #fff;
+}
+
+/* Disabled (неактивна кнопка) */
+.feedback-section .feedback-custom-button-next.swiper-button-disabled,
+.feedback-section .feedback-custom-button-prev.swiper-button-disabled,
+.feedback-section .feedback-custom-button-next:disabled,
+.feedback-section .feedback-custom-button-prev:disabled {
+  background-color: #e15d05;
+  opacity: 0.2;
+  pointer-events: none;
+  cursor: default;
+}
+
+.feedback-section .feedback-custom-button-next.swiper-button-disabled svg,
+.feedback-section .feedback-custom-button-prev.swiper-button-disabled svg,
+.feedback-section .feedback-custom-button-next:disabled svg,
+.feedback-section .feedback-custom-button-prev:disabled svg {
+  fill: #0b0500;
+}
+
+/* --- Swiper-specific styles --- */
+.feedback-section .feedback-swiper .swiper-wrapper {
+  display: flex;
+}
+
+.feedback-section .feedback-swiper .swiper-slide {
+  width: 100%;
+  height: auto;
+  box-sizing: border-box;
+}
+
+/* Media queries */
+@media screen and (min-width: 768px) {
+  .feedback-section {
+    padding: 64px 32px;
+  }
+  .feedback-card {
+    width: 100%;
+  }
+}
+
+@media screen and (min-width: 1440px) {
+  .feedback-section {
+    padding: 64px;
+  }
+  .feedback-card {
+    width: 100%;
+  }
+
+  .feedback-section .feedback-custom-button-next,
+  .feedback-section .feedback-custom-button-prev {
+    display: none !important;
+  }
+}
