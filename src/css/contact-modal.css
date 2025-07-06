@@ -1,0 +1,137 @@
+/* contact-modal.css */
+
+.contact-modal {
+  position: fixed;
+  width: 100vw;
+  height: 100vh;
+  inset: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background: rgba(0, 0, 0, 0.25);
+  z-index: 100;
+  overflow: hidden;
+}
+
+.contact-modal.is-hidden {
+  display: none;
+}
+
+.contact-modal-content {
+  background: #fceee6;
+  padding: 64px 16px;
+  border-radius: 16px;
+  width: 90%;
+  max-width: 860px;
+  max-height: 90vh;
+  overflow-y: auto;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  font-family: 'Rubik', sans-serif;
+  position: relative;
+}
+
+.contact-modal-close {
+  position: absolute;
+  top: 16px;
+  right: 16px;
+  background: none;
+  border: none;
+  font-size: 24px;
+  cursor: pointer;
+  color: #0b0500;
+}
+
+.contact-modal-icon-x {
+  fill: #0b0500;
+}
+
+.contact-modal-title {
+  font-size: 48px;
+  font-weight: 600;
+  color: #0b0500;
+  text-align: center;
+  line-height: 1.2;
+  letter-spacing: -0.01em;
+  margin-bottom: 16px;
+}
+
+.contact-modal-subtitle {
+  font-size: 24px;
+  font-weight: 400;
+  color: #0b0500;
+  text-align: center;
+  line-height: 1.4;
+  letter-spacing: -0.01em;
+  margin-bottom: 48px;
+}
+
+.contact-modal-form {
+  width: 100%;
+  max-width: 738px;
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+}
+
+.contact-modal-label {
+  display: flex;
+  flex-direction: column;
+  font-size: 16px;
+  color: #0b0500;
+  gap: 8px;
+}
+
+.contact-modal-input,
+.contact-modal-textarea {
+  padding: 12px;
+  border: 1px solid rgba(11, 5, 0, 0.15);
+  border-radius: 8px;
+  background: rgba(11, 5, 0, 0.05);
+  font-family: 'Rubik', sans-serif;
+  padding: 8px 12px;
+  color: rgba(11, 5, 0, 0.6);
+}
+
+.contact-modal-textarea {
+  min-height: 160px;
+  resize: none;
+  padding: 12px;
+}
+
+.contact-modal-submit {
+  background: #e15d05;
+  color: #fff;
+  border: none;
+  padding: 12px 24px;
+  border-radius: 4px;
+  font-size: 16px;
+  cursor: pointer;
+  transition: background 0.3s;
+  max-width: 311px;
+  height: 48px;
+}
+
+.contact-modal-submit:hover {
+  background: #0b0500;
+}
+
+@media (min-width: 768px) {
+  .contact-modal-content {
+    padding: 64px 32px;
+  }
+
+  .contact-modal-submit {
+    width: 100%;
+    max-width: 342px;
+    height: 48px;
+    margin: 0 auto;
+  }
+}
+
+@media (min-width: 1440px) {
+  .contact-modal-content {
+    padding: 64px;
+  }
+}
