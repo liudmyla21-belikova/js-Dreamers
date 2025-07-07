@@ -27,29 +27,23 @@
   color: #0b0500;
   margin-bottom: 32px;
   max-width: 560px;
-} /* Swiper list */
+}
+/* Swiper list */
 .swiper-slide {
   display: flex !important;
   height: auto !important;
   flex-direction: column;
 }
 .events-swiper {
-  /* position: relative; */
   height: 100%;
 }
 .events-list {
-  height: 100%;
-  display: flex;
   padding: 0;
   margin: 0;
   list-style: none;
 }
 .events-item {
-  display: flex;
   flex-direction: column;
-  height: 100%;
-  width: auto;
-  flex: 0 0 auto;
 } /* Card content */
 .event-card {
   flex-grow: 1;
@@ -83,6 +77,15 @@
   color: #0b0500;
   margin-bottom: 16px;
 } /* Button */
+.events-nav-wraper {
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  gap: 16px;
+  margin-top: 32px;
+  margin-left: auto;
+  margin-right: auto;
+}
 .events-btn {
   margin-top: auto;
   width: 95px;
@@ -92,7 +95,6 @@
   justify-content: center;
   flex-direction: row;
   gap: 8px;
-  cursor: pointer;
   font-size: 16px;
   color: #0b0500;
   background: #fceee6;
@@ -103,31 +105,15 @@
 .events-btn:focus {
   outline: none;
 } /* Swiper-controls */
-.events-nav {
-  display: flex;
-  justify-content: flex-end;
-  align-items: center;
-  max-width: 100%;
-  gap: 16px;
-}
 .events-button-prev,
 .events-button-next {
-  pointer-events: all;
-  width: 48px;
-  height: 48px;
   background-color: #e15d05;
-  display: flex;
-  align-items: center;
-  justify-content: center;
   position: static !important;
   border: 1px solid rgba(11, 5, 0, 0.15);
-  cursor: pointer;
   transition: background-color 0.3s;
 }
 .events-pagination {
   display: flex;
-  justify-content: flex-start;
-  align-items: center;
   gap: 8px;
 }
 .events-button-prev svg,
@@ -211,7 +197,6 @@
     flex: 0 0 calc((100% - 48px) / 3);
     max-width: calc((100% - 48px) / 3);
   }
-  .events-nav,
   .events-pagination,
   .events-button-prev,
   .events-button-next {
