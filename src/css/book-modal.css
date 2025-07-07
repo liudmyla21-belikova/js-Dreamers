@@ -214,3 +214,6 @@
         gap: 24px;
     }
 }
+.books-modal-backdrop {
+    z-index: 999;
+}
