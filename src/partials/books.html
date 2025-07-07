@@ -1,0 +1,30 @@
+<section class="books-section animate" id="books">
+  <div class="container books-container">
+    <div class="books-subsection">
+      <h2 class="visually-hidden">Trending books</h2>
+      <div class="books-categories-info">
+        <h3 class="books-subtitle">Books</h3>
+        <p class="books-count"></p>
+      </div>
+      <div class="category-dropdown">
+        <button class="category-dropdown-btn">
+          <span class="category-dropdown-label">Categories</span>
+          <svg class="books-icon-arrow" width="24" height="24">
+            <use href="/img/webp/sprite.svg#icon-chevron-down"></use>
+          </svg>
+        </button>
+        <ul class="dropdown-list"></ul>
+      </div>
+      <ul class="category-list"></ul>
+    </div>
+    <div class="books-list-wrapper">
+      <ul class="books-list"></ul>
+      <div class="loader-backdrop inline-loader hidden">
+        <span class="loader-spinner"></span>
+      </div>
+      <div class="pagination-wrapper">
+        <button class="pagination-btn hidden">Show More</button>
+      </div>
+    </div>
+  </div>
+</section>
