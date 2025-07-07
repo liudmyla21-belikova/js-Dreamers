@@ -131,7 +131,6 @@ body {
 
 .dark-theme .picture,
 .dark-theme .events-photo img {
-  width: 100%;
   object-fit: cover;
   border-radius: 16px;
   display: block;
