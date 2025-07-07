@@ -9,3 +9,4 @@ import './js/article';
 import './js/location';
 import './js/footer';
 import './js/scroll-up';
+import './js/dark-theme';
