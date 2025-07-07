@@ -1,15 +1,19 @@
-<section class="events-section" id="events">
-  <div class="container">
-    <p class="event-heading">Events</p>
-    <h2 class="events-title">Upcoming Events at Booksy</h2>
-    <p class="events-description-top">
-      Discover readings, workshops, and bookish gatherings — online and offline.
-      Everyone’s welcome.
-    </p>
-    <div class="events-swiper-wrapper">
-      <div class="events-swiper swiper">
-        <ul class="events-list swiper-wrapper">
-          <li class="events-item swiper-slide">
+<section class="event-section" id="event">
+  <div class="event-container container">
+    <div class="event-title-box">
+      <h2 class="event-title">
+        <span class="event-title-span">Events</span>Upcoming Events at Booksy
+      </h2>
+      <p>
+        Discover readings, workshops, and bookish gatherings — online and
+        offline. Everyone’s welcome.
+      </p>
+    </div>
+
+    <div class="event-swiper-container-wrapper">
+      <div class="swiper event-swiper">
+        <ul class="swiper-wrapper">
+          <li class="swiper-slide">
             <picture class="events-photo">
               <source
                 srcset="
@@ -59,7 +63,7 @@
               </button>
             </div>
           </li>
-          <li class="events-item swiper-slide">
+          <li class="swiper-slide">
             <picture class="events-photo">
               <source
                 srcset="
@@ -100,7 +104,7 @@
               </button>
             </div>
           </li>
-          <li class="events-item swiper-slide">
+          <li class="swiper-slide">
             <picture class="events-photo">
               <source
                 srcset="
@@ -135,28 +139,24 @@
             </div>
           </li>
         </ul>
-        <div class="events-pagination swiper-pagination"></div>
-        <div class="events-nav">
-          <button
-            class="events-button-prev swiper-button-prev"
-            aria-label="Previous slide"
-          >
-            <svg class="events-slide-icon" width="24" height="24">
-              <use href="/img/webp/sprite.svg#icon-left-arrow-alt"></use>
-            </svg>
-          </button>
-          <button
-            class="events-button-next swiper-button-next"
-            aria-label="Next slide"
-          >
-            <svg width="24" height="24">
-              <use href="/img/webp/sprite.svg#icon-right-arrow-alt"></use>
-            </svg>
-          </button>
-        </div>
+      </div>
+
+      <!-- Navigation buttons -->
+      <div class="event-buttons-wrapper">
+        <!-- Pagination -->
+        <div class="event-swiper-pagination"></div>
+        <button class="event-custom-button-prev">
+          <svg width="24" height="24">
+            <use href="img/webp/sprite.svg#icon-left-arrow-alt"></use>
+          </svg>
+        </button>
+
+        <button class="event-custom-button-next">
+          <svg width="24" height="24">
+            <use href="img/webp/sprite.svg#icon-right-arrow-alt"></use>
+          </svg>
+        </button>
       </div>
     </div>
   </div>
 </section>
-<script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
-<script type="module" src="./js/events.js"></script>

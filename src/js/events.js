@@ -1,37 +1,77 @@
 import Swiper from 'swiper/bundle';
 import 'swiper/css/bundle';
+
 document.addEventListener('DOMContentLoaded', () => {
-  const eventsSwiperEl = document.querySelector('.events-swiper');
-  let eventsSwiperInstance = null;
-  const enableEventsSwiper = () => {
-    if (eventsSwiperInstance) return;
-    eventsSwiperInstance = new Swiper(eventsSwiperEl, {
+  const eventSections = document.querySelectorAll('.event-section');
+
+  eventSections.forEach(section => {
+    const eventSwiperEl = section.querySelector('.event-swiper');
+    const nextButton = section.querySelector('.event-custom-button-next');
+    const prevButton = section.querySelector('.event-custom-button-prev');
+    const paginationEl = section.querySelector('.event-swiper-pagination');
+
+    if (!eventSwiperEl) return;
+
+    const swiper = new Swiper(eventSwiperEl, {
+      loop: false,
+      observer: true,
+      observeParents: true,
+      navigation: {
+        nextEl: nextButton || null,
+        prevEl: prevButton || null,
+      },
+      keyboard: {
+        enabled: true,
+        onlyInViewport: true,
+      },
+      simulateTouch: true,
       slidesPerView: 1,
       spaceBetween: 24,
-      loop: false,
-      simulateTouch: true,
-      keyboard: { enabled: true, onlyInViewport: true },
-      navigation: {
-        nextEl: '.events-button-next',
-        prevEl: '.events-button-prev',
+      pagination: {
+        el: paginationEl || null,
+        clickable: true,
       },
-      pagination: { el: '.events-pagination', clickable: true },
-      breakpoints: { 768: { slidesPerView: 2 }, 1440: { enabled: false } },
+      breakpoints: {
+        768: {
+          slidesPerView: 2,
+          spaceBetween: 24,
+        },
+        1440: {
+          slidesPerView: 3,
+          spaceBetween: 24,
+        },
+      },
     });
-  };
-  const disableEventsSwiper = () => {
-    if (eventsSwiperInstance) {
-      eventsSwiperInstance.destroy(true, true);
-      eventsSwiperInstance = null;
+
+    swiper.update();
+
+    function updateButtonStates() {
+      if (prevButton) {
+        if (swiper.isBeginning) {
+          prevButton.classList.remove('active-swiper-btn');
+        } else {
+          prevButton.classList.add('active-swiper-btn');
+        }
+      }
+
+      if (nextButton) {
+        if (swiper.isEnd) {
+          nextButton.classList.remove('active-swiper-btn');
+        } else {
+          nextButton.classList.add('active-swiper-btn');
+        }
+      }
     }
-  };
-  const handleResize = () => {
-    if (window.innerWidth >= 1440) {
-      disableEventsSwiper();
-    } else {
-      enableEventsSwiper();
-    }
-  };
-  handleResize();
-  window.addEventListener('resize', handleResize);
+
+    updateButtonStates();
+
+    swiper.on('slideChange', () => {
+      updateButtonStates();
+    });
+
+    window.addEventListener('resize', () => {
+      swiper.update();
+      updateButtonStates();
+    });
+  });
 });
