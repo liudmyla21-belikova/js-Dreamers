@@ -1,4 +1,68 @@
-<div class="book-modal is-hidden">
+html
+<div class="books-modal-backdrop container " id="books-modal-backdrop">
+    <div class="books-modal" id="books-modal">
+        <div class="books-modal-close-wrap">
+            <button class="books-modal-close" id="books-modal-close" aria-label="Close modal">
+                <svg class="books-icon-close books-icon-arrow" width="32" height="32">
+                    <use href="img/webp/sprite.svg#icon-x"></use>
+                </svg></button>
+        </div>
+        <div class="books-modal-wrap-tablet">
+            <img id="books-modal-image" src="" alt="" class="books-modal-img" />
+            <div class="books-modal-info">
+                <div class="books-modal-info-text">
+                    <h3 id="books-modal-title"></h3>
+                    <p class="books-modal-author" id="books-modal-author"></p>
+                    <p class="books-modal-price">$<span id="books-modal-price"></span></p>
+                </div>
+                <form id="books-modal-form">
+                    <div class="books-qty">
+                        <button type="button" id="books-qty-dec">-</button>
+                        <input type="number" id="books-qty-input" value="1" min="1" />
+                        <button type="button" id="books-qty-inc">+</button>
+                    </div>
+                    <button type="button" id="books-add-to-cart">Add To Cart</button>
+                    <button type="submit" id="books-buy-now">Buy Now</button>
+                </form>
+                <div class="accordion-container">
+                    <div class="ac" id="accordion-details">
+                        <h2 class="ac-header">
+                            <button class="ac-trigger"><span>Details</span>
+                                <svg width="24" height="24">
+                                    <use href="img/webp/sprite.svg#icon-chevron-down"></use>
+                                </svg>
+                            </button>
+                        </h2>
+                        <div class="ac-panel">
+                            <p id="books-details-text"></p>
+                        </div>
+                    </div>
+                    <div class="ac">
+                        <h2 class="ac-header">
+                            <button class="ac-trigger"><span>Shipping</span>
+                                <svg width="24" height="24">
+                                    <use href="img/webp/sprite.svg#icon-chevron-down"></use>
+                                </svg>
+                            </button>
+                        </h2>
+                        <div class="ac-panel">
+                            <p id="books-shipping-text">Ships worldwide</p>
+                        </div>
+                    </div>
+                    <div class="ac">
+                        <h2 class="ac-header">
+                            <button class="ac-trigger"><span>Returns</span>
+                                <svg width="24" height="24">
+                                    <use href="img/webp/sprite.svg#icon-chevron-down"></use>
+                                </svg>
+                            </button>
+                        </h2>
+                        <div class="ac-panel">
+                            <p id="books-returns-text">14-day return policy</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
         </div>
     </div>
 </div>
