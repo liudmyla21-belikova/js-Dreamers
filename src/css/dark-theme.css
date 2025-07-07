@@ -1,48 +1,59 @@
 .theme-toggle {
-  position: fixed;
-  bottom: 25px;
-  right: 25px;
-  background-color: #e15d05;
-  border: none;
-  border-radius: 50%;
-  width: 48px;
-  height: 48px;
-  cursor: pointer;
-  z-index: 99;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  transition: background-color 0.3s;
+    position: fixed;
+    bottom: 25px;
+    right: 25px;
+    background: linear-gradient(to right, #fc4a1a, #f7b733);
+    border: none;
+    border-radius: 50%;
+    width: 48px;
+    height: 48px;
+    cursor: pointer;
+    z-index: 99;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: background 0.3s, transform 0.3s;
 }
 
-.theme-toggle:hover {
-  background-color: #fceee6;
+.theme-toggle svg .icon-sun {
+    width: 24px;
+    height: 24px;
+    transition: all 0.3s;
+    fill: #d3d3d3;
+    stroke: #d3d3d3;
 }
 
-.theme-toggle svg {
-  width: 24px;
-  height: 24px;
-  stroke: #fff;
-  transition: stroke 0.3s;
+.theme-toggle-light svg .icon-moon {
+    width: 24px;
+        height: 24px;
+        transition: all 0.3s;
+        fill: yellow;
+        stroke: yellow
 }
 
-.theme-toggle:hover svg {
-  stroke: #0b0500;
+.icon-moon {
+    display: block;
+    fill: yellow;
 }
 
 .icon-sun {
-  display: none;
+    display: none;
+    color: #d3d3d3;
+    stroke: #d3d3d3;
+}
+
+.dark-theme .theme-toggle {
+    background: linear-gradient(to right, #0f0c29, #302b63, #24243e);
 }
 
 .dark-theme .icon-sun {
-  display: block;
+    display: block;
 }
 
 .dark-theme .icon-moon {
-  display: none;
+    display: none;
 }
 
-/* Приклад стилів темної теми */
 body {
   transition: background-color 0.3s, color 0.3s;
 }
@@ -52,7 +63,6 @@ body {
   color: #e7e7e7;
 }
 
-/* Твої секції */
 .dark-theme .events-section,
 .dark-theme .feedback-section {
   background-color: #1e1e1e;
@@ -113,7 +123,7 @@ body {
 .dark-theme .hero-btn,
 .dark-theme .footer-form__button,
 .dark-theme .scroll-up-btn,
-.theme-toggle {
+.dark-theme .contact-modal-submit {
   background: linear-gradient(to right, #0f0c29, #302b63, #24243e);
   border: none;
   color: #d3d3d3;
@@ -122,7 +132,6 @@ body {
 .dark-theme .picture,
 .dark-theme .events-photo img {
   width: 100%;
-  height: 100%;
   object-fit: cover;
   border-radius: 16px;
   display: block;
@@ -196,21 +205,33 @@ body {
 }
 
 .dark-theme .pagination-btn {
-  background: linear-gradient(to right, #0f0c29, #302b63, #24243e);
-  border: 1px solid #d3d3d3;
+background: linear-gradient(to right, #1488cc, #2b32b2);
+  border: none;
 }
 
 .dark-theme .hero-btn-slide,
 .dark-theme .feedback-custom-button-next,
-.dark-theme .feedback-custom-button-prev {
+.dark-theme .feedback-custom-button-prev,
+.dark-theme .swiper-button-next,
+.dark-theme .swiper-button-prev{
   background: linear-gradient(to right, #0f0c29, #302b63, #24243e);
   border: none;
   color: #d3d3d3;
   border-radius: 50%;
-    width: 58px;
+    width: 48px;
     height: 48px;
     box-sizing: border-box;
     display: flex;
     align-items: center;
     justify-content: center;
+}
+
+.dark-theme .swiper-button-next svg,
+.dark-theme .swiper-button-prev svg {
+    width: 24px;
+    height: 24px;
+}
+
+.dark-theme .footer-item a:hover {
+    color: #272647;
 }

@@ -4,6 +4,8 @@
     position: fixed;
     bottom: 90px;
     right: 27px;
+    width: 48px;
+    height: 48px;
     background-color: #e15d05;
     border: none;
     border-radius: 50%;
