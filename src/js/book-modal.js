@@ -112,7 +112,7 @@ function initModalEvents() {
   refs.modalForm.onsubmit = e => {
     e.preventDefault();
     iziToast.success({
-      title: ':segno_spunta_bianco:',
+      title: '✅',
       message: 'Дякуємо за покупку',
       backgroundColor: '#E15D05',
       titleColor: '#fff',
