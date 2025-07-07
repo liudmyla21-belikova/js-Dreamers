@@ -1,10 +1,11 @@
 .feedback-section {
   background-color: #fceee6;
-  padding: 64px 16px;
+  margin: 64px 0;
 }
 
 .feedback-container {
-  max-width: 1440px;
+  max-width: 375px;
+  padding: 0 16px;
   width: 100%;
   margin: 0 auto;
   display: flex;
@@ -204,18 +205,23 @@
 
 /* Media queries */
 @media screen and (min-width: 768px) {
-  .feedback-section {
-    padding: 64px 32px;
-  }
+
+.feedback-container {
+  max-width: 768px;
+  padding: 0 32px;
+}
+
   .feedback-card {
     width: 100%;
   }
 }
 
 @media screen and (min-width: 1440px) {
-  .feedback-section {
-    padding: 64px;
-  }
+
+    .feedback-container {
+      max-width: 1440px;
+      padding: 0 64px;
+    }
 
   .feedback-title {
     font-size: 48px;
