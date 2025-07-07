@@ -1,10 +1,11 @@
 .feedback-section {
   background-color: #fceee6;
-  padding: 64px 16px;
+  margin: 64px 0;
 }
 
 .feedback-container {
-  max-width: 1440px;
+  max-width: 375px;
+  padding: 0 16px;
   width: 100%;
   margin: 0 auto;
   display: flex;
@@ -21,7 +22,7 @@
 }
 
 .feedback-title {
-  font-size: 48px;
+  font-size: 36px;
   margin: 0;
   line-height: 1.2;
   letter-spacing: -0.01em;
@@ -36,12 +37,10 @@
   margin: 0;
 }
 
-.swiper {
-  max-width: 1200px;
+.feedback-section .feedback-swiper {
   margin: 0 auto;
 }
 
-/* Individual card */
 .feedback-card {
   width: 100%;
   height: auto;
@@ -105,15 +104,13 @@
   margin-right: auto;
 }
 
-.feedback-swiper {
-  max-width: 1200px;
-  margin: 0 auto;
-}
-
-.swiper-wrapper {
+.feedback-section .swiper-wrapper {
   display: flex;
-  transition-property: transform;
-  box-sizing: content-box;
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  width: 100%;
+  overflow: visible;
 }
 
 .feedback-swiper-pagination {
@@ -135,8 +132,8 @@
   background-color: #000;
 }
 
-.feedback-custom-button-next,
-.feedback-custom-button-prev {
+.feedback-section .feedback-custom-button-next,
+.feedback-section .feedback-custom-button-prev {
   width: 48px;
   height: 48px;
   background-color: #e15d05;
@@ -149,80 +146,93 @@
   transition: background-color 0.3s, fill 0.3s;
 }
 
-.feedback-custom-button-next:hover,
-.feedback-custom-button-next:focus,
-.feedback-custom-button-prev:hover,
-.feedback-custom-button-prev:focus {
+.feedback-section .feedback-custom-button-next:hover,
+.feedback-section .feedback-custom-button-next:focus,
+.feedback-section .feedback-custom-button-prev:hover,
+.feedback-section .feedback-custom-button-prev:focus {
   background-color: #fceee6;
 }
 
-.feedback-custom-button-next svg,
-.feedback-custom-button-prev svg {
+.feedback-section .feedback-custom-button-next svg,
+.feedback-section .feedback-custom-button-prev svg {
   fill: #ffffff;
   transition: fill 0.3s ease;
 }
 
-.feedback-custom-button-next:hover svg,
-.feedback-custom-button-next:focus svg,
-.feedback-custom-button-prev:hover svg,
-.feedback-custom-button-prev:focus svg {
+.feedback-section .feedback-custom-button-next:hover svg,
+.feedback-section .feedback-custom-button-next:focus svg,
+.feedback-section .feedback-custom-button-prev:hover svg,
+.feedback-section .feedback-custom-button-prev:focus svg {
   fill: #0b0500;
 }
 
-.feedback-custom-button-next:active,
-.feedback-custom-button-prev:active {
+.feedback-section .feedback-custom-button-next:active,
+.feedback-section .feedback-custom-button-prev:active {
   background-color: #5a2502;
 }
 
-.feedback-custom-button-next:active svg,
-.feedback-custom-button-prev:active svg {
+.feedback-section .feedback-custom-button-next:active svg,
+.feedback-section .feedback-custom-button-prev:active svg {
   fill: #fff;
 }
 
-/* Disabled state (Swiper handles it via opacity) */
-.feedback-custom-button-next.swiper-button-disabled,
-.feedback-custom-button-prev.swiper-button-disabled,
-.feedback-custom-button-next:disabled,
-.feedback-custom-button-prev:disabled {
+.feedback-section .feedback-custom-button-next.swiper-button-disabled,
+.feedback-section .feedback-custom-button-prev.swiper-button-disabled,
+.feedback-section .feedback-custom-button-next:disabled,
+.feedback-section .feedback-custom-button-prev:disabled {
   background-color: #e15d05;
   opacity: 0.2;
   pointer-events: none;
   cursor: default;
 }
 
-.feedback-custom-button-next.swiper-button-disabled svg,
-.feedback-custom-button-prev.swiper-button-disabled svg,
-.feedback-custom-button-next:disabled svg,
-.feedback-custom-button-prev:disabled svg {
+.feedback-section .feedback-custom-button-next.swiper-button-disabled svg,
+.feedback-section .feedback-custom-button-prev.swiper-button-disabled svg,
+.feedback-section .feedback-custom-button-next:disabled svg,
+.feedback-section .feedback-custom-button-prev:disabled svg {
   fill: #0b0500;
 }
 
-/* --- Swiper-specific styles --- */
-.feedback-swiper .swiper-wrapper {
+.feedback-section .feedback-swiper .swiper-wrapper {
   display: flex;
 }
 
-.feedback-swiper .swiper-slide {
-  flex-shrink: 0;
-  width: auto;
+.feedback-section .feedback-swiper .swiper-slide {
+  width: 100%;
   height: auto;
+  box-sizing: border-box;
 }
 
 /* Media queries */
 @media screen and (min-width: 768px) {
-  .feedback-section {
-    padding: 64px 32px;
-  }
+
+.feedback-container {
+  max-width: 768px;
+  padding: 0 32px;
+}
+
   .feedback-card {
-    width: calc((100% - 24px) / 2);
+    width: 100%;
   }
 }
 
 @media screen and (min-width: 1440px) {
-  .feedback-section {
-    padding: 64px;
+
+    .feedback-container {
+      max-width: 1440px;
+      padding: 0 64px;
+    }
+
+  .feedback-title {
+    font-size: 48px;
   }
+
   .feedback-card {
-    width: calc((100% - 48px) / 3);
+    width: 100%;
+  }
+
+  .feedback-section .feedback-custom-button-next,
+  .feedback-section .feedback-custom-button-prev {
+    display: none !important;
   }
 }

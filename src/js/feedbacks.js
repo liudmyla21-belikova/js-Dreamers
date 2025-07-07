@@ -2,14 +2,23 @@ import Swiper from 'swiper/bundle';
 import 'swiper/css/bundle';
 
 document.addEventListener('DOMContentLoaded', () => {
-  const feedbackSwiperEl = document.querySelector('.feedback-swiper');
+  const feedbackSections = document.querySelectorAll('.feedback-section');
 
-  if (feedbackSwiperEl) {
+  feedbackSections.forEach(section => {
+    const feedbackSwiperEl = section.querySelector('.feedback-swiper');
+    const nextButton = section.querySelector('.feedback-custom-button-next');
+    const prevButton = section.querySelector('.feedback-custom-button-prev');
+    const paginationEl = section.querySelector('.feedback-swiper-pagination');
+
+    if (!feedbackSwiperEl) return;
+
     const swiper = new Swiper(feedbackSwiperEl, {
-      loop: false,
+        loop: false,
+        observer: true,           
+        observeParents: true,
       navigation: {
-        nextEl: '.feedback-custom-button-next',
-        prevEl: '.feedback-custom-button-prev',
+        nextEl: nextButton || null,
+        prevEl: prevButton || null,
       },
       keyboard: {
         enabled: true,
@@ -19,7 +28,7 @@ document.addEventListener('DOMContentLoaded', () => {
       slidesPerView: 1,
       spaceBetween: 24,
       pagination: {
-        el: '.feedback-swiper-pagination',
+        el: paginationEl || null,
         clickable: true,
       },
       breakpoints: {
@@ -33,9 +42,10 @@ document.addEventListener('DOMContentLoaded', () => {
         },
       },
     });
-
-    window.addEventListener('resize', () => {
       swiper.update();
-    });
-  }
+      
+      window.addEventListener('resize', () => {
+        swiper.update();
+      });
+  });
 });

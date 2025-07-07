@@ -1,83 +1,162 @@
-<section class="events-section">
-    <div class="container">
-        <p class="event-name">Events</p>
-        <h2 class="events-title">Upcoming Events at Booksy</h2>
-        <p class="events-text">Discover readings, workshops, and bookish gatherings — online and offline. Everyone’s
-            welcome.</p>
-        <ul class="events-list">
-            <li class="events-item">
-                <picture class="events-photo">
-                    <source
-                        srcset="./img/webp/events/libraryDesktop@1x.jpg 1x, ./img/webp/events/libraryDesktop@2x.jpg 2x"
-                        media="(min-width: 1440px)" />
-                    <source
-                        srcset="./img/webp/events/libraryTablet@1x.jpg 1x, ./img/webp/events/libraryTablet@2x.jpg 2x"
-                        media="(min-width: 768px)" />
-                    <source
-                        srcset="./img/webp/events/libraryMobile@1x.jpg 1x, ./img/webp/events/libraryMobile@2x.jpg 2x"
-                        media="(min-width: 375px)" />
-                    <img src="./img/webp/events/libraryMobile@1x.jpg" alt="Cozy Book Club" width="342" height="277" />
-                </picture>
-                <div class="event-content">
-                    <h3 class="events-title-item">Cozy Book Club — “The Midnight Library”</h3>
-                    <p class="events-format-data">In-store | June 5, 6:30 PM</p>
-                    <p class="events-description">Join us for an evening of tea, thoughtful conversation, and shared
-                        reflections as we dive into Matt
-                        Haig’s bestseller.</p>
-                    <button class="register-btn" data-event-title="Cozy Book Club — “The Midnight Library”">
-                        Register
-                        <svg class="register-btn-icon" width="24" height="24">
-                            <use href="/img/webp/sprite.svg#icon-chevron-right"></use>
-                        </svg>
-                    </button>
-                </div>
-            </li>
-            <li class="events-item">
-                <picture class="events-photo">
-                    <source
-                        srcset="./img/webp/events/workshopDesktop@1x.jpg 1x, ./img/webp/events/workshopDesktop@2x.jpg 2x"
-                        media="(min-width: 1440px)" />
-                    <source
-                        srcset="./img/webp/events/workshopTablet@1x.jpg 1x, ./img/webp/events/workshopTablet@2x.jpg 2x"
-                        media="(min-width: 768px)" />
-                    <img src="./img/webp/events/workshopTablet@1x.jpg" alt="Book Cover Design Workshop" width="342"
-                        height="277" />
-                </picture>
-                <div class="event-content">
-                    <h3 class="events-title-item">Book Cover Design Workshop</h3>
-                    <p class="events-format-data">Online | June 12, 7:00 PM</p>
-                    <p class="events-description">A hands-on session for aspiring designers and curious readers. Learn
-                        what
-                        makes a cover stand out — from concept to
-                        print.</p>
-                    <button class="register-btn" data-event-title="Book Cover Design Workshop">Register
-                        <svg class="register-btn-icon" width="24" height="24">
-                            <use href="/img/webp/sprite.svg#icon-chevron-right"></use>
-                        </svg>
-                    </button>
-                </div>
-            </li>
-            <li class="events-item">
-                <picture class="events-photo">
-                    <source
-                        srcset="./img/webp/events/childrensDesktop@1x.jpg 1x, ./img/webp/events/childrensDesktop@2x.jpg 2x"
-                        media="(min-width: 1440px)" />
-                    <img src="./img/webp/events/childrensDesktop@1x.jpg" alt="Children’s Story Hour" width="342"
-                        height="277" />
-                </picture>
-                <div class="event-content">
-                    <h3 class="events-title-item">Children’s Story Hour</h3>
-                    <p class="events-format-data">In-store | June 15, 11:00 AM</p>
-                    <p class="events-description">A magical morning of stories, games, and imagination for our youngest
-                        book
-                        lovers (ages 4–8).</p>
-                    <button class="register-btn" data-event-title="Children’s Story Hour">Register
-                        <svg class="register-btn-icon" width="24" height="24">
-                            <use href="/img/webp/sprite.svg#icon-chevron-right"></use>
-                        </svg>
-                    </button>
-                </div>
-            </li>
+<section class="events-section" id="events">
+  <div class="container">
+    <p class="event-heading">Events</p>
+    <h2 class="events-title">Upcoming Events at Booksy</h2>
+    <p class="events-description-top">
+      Discover readings, workshops, and bookish gatherings — online and offline.
+      Everyone’s welcome.
+    </p>
+    <div class="events-swiper-wrapper">
+      <div class="events-swiper swiper">
+        <ul class="events-list swiper-wrapper">
+          <li class="events-item swiper-slide">
+            <picture class="events-photo">
+              <source
+                srcset="
+                  ./img/webp/events/libraryDesktop@1x.jpg 1x,
+                  ./img/webp/events/libraryDesktop@2x.jpg 2x
+                "
+                media="(min-width: 1440px)"
+              />
+              <source
+                srcset="
+                  ./img/webp/events/libraryTablet@1x.jpg 1x,
+                  ./img/webp/events/libraryTablet@2x.jpg 2x
+                "
+                media="(min-width: 768px)"
+              />
+              <source
+                srcset="
+                  ./img/webp/events/libraryMobile@1x.jpg 1x,
+                  ./img/webp/events/libraryMobile@2x.jpg 2x
+                "
+                media="(min-width: 375px)"
+              />
+              <img
+                src="./img/webp/events/libraryMobile@1x.jpg"
+                alt="Cozy Book Club"
+                width="342"
+                height="277"
+              />
+            </picture>
+            <div class="event-card">
+              <h3 class="events-card-title">
+                Cozy Book Club — “The Midnight Library”
+              </h3>
+              <p class="events-meta">In-store | June 5, 6:30 PM</p>
+              <p class="events-summary">
+                Join us for an evening of tea, thoughtful conversation, and
+                shared reflections as we dive into Matt Haig’s bestseller.
+              </p>
+              <button
+                class="events-btn btn-1"
+                data-event-title="Cozy Book Club — “The Midnight Library”"
+              >
+                Register
+                <svg class="events-btn-icon" width="24" height="24">
+                  <use href="/img/webp/sprite.svg#icon-chevron-right"></use>
+                </svg>
+              </button>
+            </div>
+          </li>
+          <li class="events-item swiper-slide">
+            <picture class="events-photo">
+              <source
+                srcset="
+                  ./img/webp/events/workshopDesktop@1x.jpg 1x,
+                  ./img/webp/events/workshopDesktop@2x.jpg 2x
+                "
+                media="(min-width: 1440px)"
+              />
+              <source
+                srcset="
+                  ./img/webp/events/workshopTablet@1x.jpg 1x,
+                  ./img/webp/events/workshopTablet@2x.jpg 2x
+                "
+                media="(min-width: 768px)"
+              />
+              <img
+                src="./img/webp/events/workshopTablet@1x.jpg"
+                alt="Book Cover Design Workshop"
+                width="342"
+                height="277"
+              />
+            </picture>
+            <div class="event-card">
+              <h3 class="events-card-title">Book Cover Design Workshop</h3>
+              <p class="events-meta">Online | June 12, 7:00 PM</p>
+              <p class="events-summary">
+                A hands-on session for aspiring designers and curious readers.
+                Learn what makes a cover stand out — from concept to print.
+              </p>
+              <button
+                class="events-btn btn-2"
+                data-event-title="Book Cover Design Workshop"
+              >
+                Register
+                <svg class="events-btn-icon" width="24" height="24">
+                  <use href="/img/webp/sprite.svg#icon-chevron-right"></use>
+                </svg>
+              </button>
+            </div>
+          </li>
+          <li class="events-item swiper-slide">
+            <picture class="events-photo">
+              <source
+                srcset="
+                  ./img/webp/events/childrensDesktop@1x.jpg 1x,
+                  ./img/webp/events/childrensDesktop@2x.jpg 2x
+                "
+                media="(min-width: 1440px)"
+              />
+              <img
+                src="./img/webp/events/childrensDesktop@1x.jpg"
+                alt="Children’s Story Hour"
+                width="342"
+                height="277"
+              />
+            </picture>
+            <div class="event-card">
+              <h3 class="events-card-title">Children’s Story Hour</h3>
+              <p class="events-meta">In-store | June 15, 11:00 AM</p>
+              <p class="events-summary">
+                A magical morning of stories, games, and imagination for our
+                youngest book lovers (ages 4–8).
+              </p>
+              <button
+                class="events-btn btn-3"
+                data-event-title="Children’s Story Hour"
+              >
+                Register
+                <svg class="events-btn-icon" width="24" height="24">
+                  <use href="/img/webp/sprite.svg#icon-chevron-right"></use>
+                </svg>
+              </button>
+            </div>
+          </li>
         </ul>
+        <div class="events-pagination swiper-pagination"></div>
+        <div class="events-nav">
+          <button
+            class="events-button-prev swiper-button-prev"
+            aria-label="Previous slide"
+          >
+            <svg width="24" height="24">
+              <use href="/img/webp/sprite.svg#icon-left-arrow-alt"></use>
+            </svg>
+          </button>
+          <button
+            class="events-button-next swiper-button-next"
+            aria-label="Next slide"
+          >
+            <svg width="24" height="24">
+              <use href="/img/webp/sprite.svg#icon-right-arrow-alt"></use>
+            </svg>
+          </button>
+        </div>
+      </div>
     </div>
+  </div>
 </section>
+<script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
+<script type="module" src="./js/events.js"></script>
