@@ -51,11 +51,10 @@
   align-items: center;
   justify-content: center;
   flex-direction: column;
-  gap: 32px
+  gap: 32px;
 }
 
 .footer-item {
-
   font-weight: 400;
   font-size: 16px;
   line-height: 1.5;
@@ -66,7 +65,6 @@
   text-decoration: none;
   color: inherit;
   transition: color 0.2s;
-
 }
 
 .footer-item a:hover {
@@ -74,6 +72,9 @@
 }
 
 /* Форма */
+.footer-form {
+  width: 100%;
+}
 
 .footer-form__title {
   margin-bottom: 16px;
@@ -87,15 +88,12 @@
   justify-content: center;
   gap: 16px;
   margin-bottom: 12px;
-  width: 343px;
-
 }
 
 .footer-form__input {
   padding: 8px 12px;
   border: none;
   border-radius: 8px;
-  min-width: 221px;
   font-size: 16px;
   font-weight: 400;
   line-height: 1.5;
@@ -103,7 +101,6 @@
   background-color: rgba(11, 5, 0, 0.05);
   border: 1px solid rgba(11, 5, 0, 0.15);
 }
-
 
 .footer-form__input:focus {
   background: rgba(11, 5, 0, 0.05);
@@ -115,13 +112,12 @@
   border-radius: 4px;
   background-color: transparent;
   cursor: pointer;
-  font-family: "Rubik", sans-serif;
+  font-family: 'Rubik', sans-serif;
   font-weight: 400;
   font-size: 16px;
   line-height: 1.5;
   transition: background-color 0.3s;
   width: 106px;
-
 }
 
 .footer-form__button:hover {
@@ -133,7 +129,6 @@
   font-weight: 400;
   font-size: 12px;
   line-height: 1.5;
-
 }
 
 /* Копірайт */
@@ -150,13 +145,10 @@
   justify-content: center;
   text-align: center;
   align-items: center;
-
 }
 
 /* tablet */
 @media screen and (min-width: 768px) {
-
-
   .footer-list {
     flex-direction: row;
     width: 324px;
