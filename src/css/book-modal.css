@@ -1,0 +1,219 @@
+.no-scroll {
+    overflow: hidden;
+    position: fixed;
+    width: 100%;
+    top: 0;
+}
+
+.books-modal-backdrop {
+    position: fixed;
+    inset: 0;
+    background-color: rgb(0, 0, 0, 0.4);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    visibility: hidden;
+    opacity: 0;
+    pointer-events: none;
+    transition: opacity 0.3s ease, visibility 0.3s ease;
+    transform: translateX(-100%);
+    transition: transform 0.5s ease, opacity 0.5s ease, visibility 0.5s;
+}
+
+.books-modal-backdrop--visible {
+    visibility: visible;
+    opacity: 1;
+    pointer-events: auto;
+    transform: translateX(0);
+}
+
+.books-modal {
+    background: #FCEEE6;
+    padding: 24px 24px 32px;
+    border-radius: 16px;
+    width: 90%;
+    max-height: 90vh;
+    overflow-y: auto;
+    position: relative;
+    box-shadow: 0 12px 32px rgba(0, 0, 0, 0.25);
+}
+
+.books-modal-close-wrap {
+    display: flex;
+    justify-content: flex-end;
+    margin-bottom: 16px;
+}
+
+.books-modal-close {
+    background: none;
+    border: none;
+    padding: 0;
+    cursor: pointer;
+}
+
+.books-modal-close svg {
+    transition: transform 0.2s ease;
+}
+
+.books-modal-close:hover svg,
+.books-modal-close:focus svg {
+    transform: rotate(90deg);
+}
+
+.books-modal-img {
+    width: 100%;
+    border-radius: 8px;
+    margin-bottom: 24px;
+    object-fit: cover;
+    display: block;
+}
+
+.books-modal-info {
+    display: flex;
+    flex-direction: column;
+}
+
+.books-modal-info-text {
+    display: flex;
+    gap: 8px;
+    flex-direction: column;
+    margin-bottom: 24px;
+}
+
+.books-modal-title {
+    font-weight: 600;
+    font-size: 40px;
+    line-height: 1.2;
+    letter-spacing: -0.01em;
+}
+
+.books-modal-author {
+    font-weight: 400;
+    font-size: 14px;
+    line-height: 1.5;
+}
+
+.books-modal-price {
+    font-weight: 400;
+    font-size: 24px;
+}
+
+#books-modal-form {
+    display: flex;
+    flex-direction: column;
+}
+
+.books-qty {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    margin-bottom: 16px;
+}
+
+.books-qty button {
+    width: 32px;
+    height: 40px;
+    font-weight: 400;
+    font-size: 16px;
+    line-height: 1.5;
+    border: 1px solid #0B0500;
+    background-color: inherit;
+    cursor: pointer;
+    border-radius: 4px;
+}
+
+#books-qty-input {
+    font-weight: 400;
+    font-size: 16px;
+    border-radius: 4px;
+    border: 1px solid rgba(11, 5, 0, 0.15);
+    text-align: center;
+    line-height: 1.5;
+    font-size: 16px;
+    padding: 8px 12px;
+    border: 1px solid #ccc;
+    width: 42px;
+    height: 40px;
+    background: rgba(11, 5, 0, 0.05);
+}
+
+#books-qty-input::-webkit-inner-spin-button,
+#books-qty-input::-webkit-outer-spin-button {
+    -webkit-appearance: none;
+    margin: 0;
+}
+
+#books-add-to-cart {
+    border: 1px solid #E15D05;
+    border-radius: 4px;
+    padding: 12px 24px;
+    height: 48px;
+    background: #E15D05;
+    font-weight: 400;
+    font-size: 16px;
+    line-height: 1.5;
+    color: #fff;
+    margin-bottom: 24px;
+}
+
+#books-buy-now {
+    border: 1px solid #0B0500;
+    border-radius: 4px;
+    padding: 12px 24px;
+    height: 48px;
+    margin-bottom: 32px;
+    background-color: inherit;
+}
+
+.no-scroll {
+    overflow: hidden;
+}
+
+.ac {
+    background-color: #FCEEE6 !important;
+}
+
+.ac.js-enabled {
+    margin-bottom: 0 !important;
+}
+
+.ac .ac-trigger {
+    border-top: 1px solid rgba(11, 5, 0, 0.15) !important;
+    display: flex !important;
+   
+    align-items: center !important;
+    justify-content: space-between !important;
+    background-color: #FCEEE6 !important;
+    padding: 16px 0 !important;
+    font-family: "Rubik", sans-serif !important;
+    font-size: 18px !important;
+    line-height: 1.5 !important;
+    transition: background-color 0.3s ease;
+}
+
+.ac:last-child .ac-trigger {
+    border-bottom: 1px solid rgba(11, 5, 0, 0.15) !important;
+}
+
+
+.ac .ac-trigger::after {
+    display: none;
+}
+
+.ac-trigger svg {
+    transition: transform 0.3s ease;
+}
+
+.ac.is-active .ac-trigger svg {
+    transform: rotate(180deg);
+}
+
+@media screen and (min-width: 768px) {
+    .books-modal-wrap-tablet {
+        display: flex;
+        gap: 24px;
+    }
+}
+.books-modal-backdrop {
+    z-index: 999;
+}
