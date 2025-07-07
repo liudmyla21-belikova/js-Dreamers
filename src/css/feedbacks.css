@@ -115,8 +115,8 @@
   background-color: #000;
 }
 
-.feedback-section .feedback-custom-button-next,
-.feedback-section .feedback-custom-button-prev {
+.feedback-custom-button-next,
+.feedback-custom-button-prev {
   width: 48px;
   height: 48px;
   background-color: #e15d05;
@@ -132,41 +132,42 @@
   flex: 0 0 48px;
 }
 
-.feedback-section .feedback-custom-button-next:hover,
-.feedback-section .feedback-custom-button-next:focus,
-.feedback-section .feedback-custom-button-prev:hover,
-.feedback-section .feedback-custom-button-prev:focus {
+.feedback-custom-button-next:hover,
+.feedback-custom-button-next:focus,
+.feedback-custom-button-prev:hover,
+.feedback-custom-button-prev:focus {
   background-color: #fceee6;
 }
 
-.feedback-section .feedback-custom-button-next svg,
-.feedback-section .feedback-custom-button-prev svg {
-  fill: #ffffff;
+.feedback-custom-button-next svg,
+.feedback-custom-button-prev svg {
+  fill: #fff;
   transition: fill 0.3s ease;
 }
 
-.feedback-section .feedback-custom-button-next:hover svg,
-.feedback-section .feedback-custom-button-next:focus svg,
-.feedback-section .feedback-custom-button-prev:hover svg,
-.feedback-section .feedback-custom-button-prev:focus svg {
+.feedback-custom-button-next:hover svg,
+.feedback-custom-button-next:focus svg,
+.feedback-custom-button-prev:hover svg,
+.feedback-custom-button-prev:focus svg {
   fill: #0b0500;
 }
 
-.feedback-section .feedback-custom-button-next:active,
-.feedback-section .feedback-custom-button-prev:active {
+.feedback-custom-button-next:active,
+.feedback-custom-button-prev:active {
   background-color: #5a2502;
 }
 
-.feedback-section .feedback-custom-button-next:active svg,
-.feedback-section .feedback-custom-button-prev:active svg {
+.feedback-custom-button-next:active svg,
+.feedback-custom-button-prev:active svg {
   fill: #fff;
 }
 
-.feedback-section .feedback-custom-button-next.swiper-button-disabled,
-.feedback-section .feedback-custom-button-prev.swiper-button-disabled,
-.feedback-section .feedback-custom-button-next:disabled,
-.feedback-section .feedback-custom-button-prev:disabled {
+.feedback-custom-button-next.swiper-button-disabled,
+.feedback-custom-button-prev.swiper-button-disabled,
+.feedback-custom-button-next:disabled,
+.feedback-custom-button-prev:disabled {
   background-color: #e15d05;
+  fill: #fff;
   opacity: 0.2;
   pointer-events: none;
   cursor: default;
@@ -176,7 +177,19 @@
 .feedback-section .feedback-custom-button-prev.swiper-button-disabled svg,
 .feedback-section .feedback-custom-button-next:disabled svg,
 .feedback-section .feedback-custom-button-prev:disabled svg {
-  fill: #0b0500;
+  fill: #fff;
+}
+
+.feedback-custom-button-next.active-swiper-btn,
+.feedback-custom-button-prev.active-swiper-btn {
+  background: #e15d05;
+  fill: #fff;
+  cursor: pointer;
+}
+
+.feedback-custom-button-next.active-swiper-btn svg,
+.feedback-custom-button-prev.active-swiper-btn svg {
+  fill: #fff !important;
 }
 
 .feedback-section .feedback-swiper .swiper-wrapper {
@@ -197,10 +210,6 @@
 }
 
 @media screen and (min-width: 1440px) {
-  .feedback-section {
-    padding: 64px;
-  }
-
   .feedback-title {
     font-size: 48px;
   }
@@ -209,8 +218,8 @@
     width: 100%;
   }
 
-  .feedback-section .feedback-custom-button-next,
-  .feedback-section .feedback-custom-button-prev {
+  .feedback-custom-button-next,
+  .feedback-custom-button-prev {
     display: none !important;
   }
 }

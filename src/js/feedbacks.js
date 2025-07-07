@@ -42,10 +42,38 @@ document.addEventListener('DOMContentLoaded', () => {
         },
       },
     });
+
       swiper.update();
       
-      window.addEventListener('resize', () => {
-        swiper.update();
-      });
+     function updateButtonStates() {
+      if (prevButton) {
+        if (swiper.isBeginning) {
+          prevButton.classList.remove('active-swiper-btn');
+        } else {
+          prevButton.classList.add('active-swiper-btn');
+        }
+      }
+
+      if (nextButton) {
+        if (swiper.isEnd) {
+          nextButton.classList.remove('active-swiper-btn');
+        } else {
+          nextButton.classList.add('active-swiper-btn');
+        }
+      }
+    }
+
+    updateButtonStates();
+
+    swiper.on('slideChange', () => {
+      updateButtonStates();
+    });
+
+    window.addEventListener('resize', () => {
+      swiper.update();
+      updateButtonStates();
+    });
   });
 });
+      
+  
