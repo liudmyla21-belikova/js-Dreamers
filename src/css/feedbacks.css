@@ -1,31 +1,15 @@
 .feedback-section {
   background-color: #fceee6;
-  padding: 64px 16px;
-}
-
-.feedback-container {
-  max-width: 1440px;
-  width: 100%;
-  margin: 0 auto;
-  display: flex;
-  flex-direction: column;
-  gap: 80px;
-}
-
-.feedback-title-box {
-  display: flex;
-  align-items: flex-start;
-  justify-content: flex-start;
-  flex-direction: column;
-  gap: 24px;
+  padding-top: 64px;
+  padding-bottom: 64px;
 }
 
 .feedback-title {
   font-size: 36px;
-  margin: 0;
   line-height: 1.2;
   letter-spacing: -0.01em;
   color: #0b0500;
+  margin-bottom: 24px;
 }
 
 .feedback-subtitle {
@@ -33,7 +17,7 @@
   font-size: 18px;
   line-height: 1.5;
   color: #0b0500;
-  margin: 0;
+  margin-bottom: 80px;
 }
 
 .feedback-section .feedback-swiper {
@@ -139,10 +123,13 @@
   display: flex;
   align-items: center;
   justify-content: center;
-  border: none;
+  position: static !important;
+  border: 1px solid rgba(11, 5, 0, 0.15);
   padding: 0;
   cursor: pointer;
   transition: background-color 0.3s, fill 0.3s;
+  box-sizing: border-box;
+  flex: 0 0 48px;
 }
 
 .feedback-section .feedback-custom-button-next:hover,
@@ -204,9 +191,6 @@
 
 /* Media queries */
 @media screen and (min-width: 768px) {
-  .feedback-section {
-    padding: 64px 32px;
-  }
   .feedback-card {
     width: 100%;
   }
