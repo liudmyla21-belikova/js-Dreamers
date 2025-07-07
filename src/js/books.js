@@ -4,6 +4,8 @@ import 'izitoast/dist/css/iziToast.min.css';
 import './book-modal.js';
 
 const BASE_URL = 'https://books-backend.p.goit.global/books';
+const BASE_URL_NYT = 'https://api.nytimes.com/svc/books/v3';
+const API_KEY = import.meta.env.VITE_NYT_API_KEY;
 
 const refs = {
   counter: document.querySelector('.books-count'),
@@ -13,7 +15,6 @@ const refs = {
   categoryDropdownLabel: document.querySelector('.category-dropdown-label'),
   categoryList: document.querySelector('.category-list'),
   booksList: document.querySelector('.books-list'),
-
   showMoreBtn: document.querySelector('.pagination-btn'),
   loader: document.querySelector('.inline-loader'),
 };
@@ -25,7 +26,31 @@ let categories = [];
 let currentCategory = 'All categories';
 let booksPerPage = 0;
 
+async function fetchNYTOverview() {
+  try {
+    const { data } = await axios.get(`${BASE_URL_NYT}/lists/overview.json`, {
+      params: { 'api-key': API_KEY },
+    });
+    const books = data.results.lists.flatMap(list => list.books);
+    return books;
+  } catch (error) {
+    console.error('NYT Overview Error:', error.message);
+    return [];
+  }
+}
+
+async function loadNYTBestSellers() {
+  showLoader();
+  const nytBooks = await fetchNYTOverview();
+  const filtered = filterDuplicateBooks(nytBooks);
+  await renderFirstBooks(filtered);
+  hideLoader();
+}
+
 function getFakeRandomPrice(id, min = 4.9, max = 25.0) {
+  if (typeof id !== 'string' || !id.length) {
+    id = 'default-id';
+  }
   const step = 0.1;
   const stepsCount = Math.floor((max - min) / step) + 1;
 
@@ -46,16 +71,13 @@ async function fetchCategories() {
   try {
     const { data } = await axios.get(`${BASE_URL}/category-list`);
     const categoryNames = data.map(cat => cat.list_name);
-
     const booksArrays = await Promise.all(
       categoryNames.map(name => fetchBooksByCategory(name))
     );
-
     const filtered = categoryNames.filter(
       (name, idx) => booksArrays[idx].length > 0
     );
-
-    return ['All categories', ...filtered];
+    return ['NYT Bestsellers', 'All categories', ...filtered];
   } catch (error) {
     iziToast.error({ message: 'Failed to load categories' });
     return [];
@@ -93,7 +115,7 @@ async function renderFirstBooks(books) {
   visibleBooks = 0;
   allBooks = books;
   allBooks.forEach(book => {
-    const id = book._id || book.title?.trim();
+    const id = book._id || book.primary_isbn13 || book.title?.trim();
     if (!id) return;
     const bookWithPrice = {
       ...book,
@@ -115,21 +137,23 @@ async function renderFirstBooks(books) {
 
 function renderBooks(books, { append = false } = {}) {
   const markup = books
-    .map(
-      ({ book_image, title, author, _id }) => `
+    .map(book => {
+      const id = book._id || book.primary_isbn13 || book.title || 'default-id';
+      const price = getFakeRandomPrice(id);
+      return `
         <li class="book-card">
-          <img src="${book_image}" alt="${title}" width="340" height="484" loading="lazy"/>
+          <img src="${book.book_image}" alt="${book.title}" width="340" height="484" loading="lazy"/>
           <div class="book-card-elements-wrapper">
             <div class="book-card-title-wrapper">
-              <h4>${title}</h4>
-              <p>${author}</p>
+              <h4>${book.title}</h4>
+              <p>${book.author}</p>
             </div>
-            <p>${getFakeRandomPrice(_id)} $</p>
+            <p>${price} $</p>
           </div>
-          <button class="learn-more-btn" data-id="${_id}">Learn More</button>
+          <button class="learn-more-btn" data-id="${id}">Learn More</button>
         </li>
-      `
-    )
+      `;
+    })
     .join('');
 
   if (append) {
@@ -233,15 +257,21 @@ async function loadTrendingBooks() {
 
 async function loadBooksByCategory(category) {
   showLoader();
-  if (category === 'All categories') {
-    const books = await fetchTopBooks();
-    const filtered = filterDuplicateBooks(books);
-    await renderFirstBooks(filtered);
-  } else {
-    const books = await fetchBooksByCategory(category);
-    const filtered = filterDuplicateBooks(books);
-    await renderFirstBooks(filtered);
+  currentCategory = category;
+  if (category === 'NYT Bestsellers') {
+    await loadNYTBestSellers();
+    hideLoader();
+    return;
   }
+
+  let books = [];
+  if (category === 'All categories') {
+    books = await fetchTopBooks();
+  } else {
+    books = await fetchBooksByCategory(category);
+  }
+  const filtered = filterDuplicateBooks(books);
+  await renderFirstBooks(filtered);
   hideLoader();
 }
 
