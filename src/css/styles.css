@@ -5,7 +5,6 @@
 
 /* Sections style */
 @import url('./header.css');
-@import url('./article.css');
 @import url('./book-modal.css');
 @import url('./books.css');
 @import url('./contact-modal.css');
@@ -16,4 +15,3 @@
 @import url('./footer.css');
 @import url('./scroll-up.css');
 @import url('./dark-theme.css');
-

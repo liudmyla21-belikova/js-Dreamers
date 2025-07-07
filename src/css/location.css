@@ -34,11 +34,11 @@
   font-size: 18px;
   line-height: 1.5;
   color: #0b0500;
-
   margin-bottom: 32px;
 }
 
 .location-image {
+  width: 100%;
   margin-bottom: 128px;
   margin: auto;
 }

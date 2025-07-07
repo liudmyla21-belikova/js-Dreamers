@@ -5,8 +5,6 @@ import './js/book-modal';
 import './js/feedbacks';
 import './js/events';
 import './js/contact-modal';
-import './js/article';
-import './js/location';
 import './js/footer';
 import './js/scroll-up';
 import './js/dark-theme';
