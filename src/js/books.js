@@ -1,6 +1,7 @@
 import axios from 'axios';
 import iziToast from 'izitoast';
 import 'izitoast/dist/css/iziToast.min.css';
+import './book-modal.js';
 
 const BASE_URL = 'https://books-backend.p.goit.global/books';
 
@@ -12,6 +13,7 @@ const refs = {
   categoryDropdownLabel: document.querySelector('.category-dropdown-label'),
   categoryList: document.querySelector('.category-list'),
   booksList: document.querySelector('.books-list'),
+
   showMoreBtn: document.querySelector('.pagination-btn'),
   loader: document.querySelector('.inline-loader'),
 };
@@ -81,7 +83,6 @@ function setActiveCategory(category) {
   document.querySelectorAll('.category-btn').forEach(btn => {
     btn.classList.toggle('active', btn.dataset.category === category);
   });
-
   document.querySelectorAll('.dropdown-item').forEach(item => {
     item.classList.toggle('active', item.dataset.category === category);
   });
@@ -89,13 +90,16 @@ function setActiveCategory(category) {
 
 async function renderFirstBooks(books) {
   showLoader();
-
   visibleBooks = 0;
   allBooks = books;
   allBooks.forEach(book => {
     const id = book._id || book.title?.trim();
     if (!id) return;
-    localStorage.setItem(`book-${id}`, JSON.stringify(book));
+    const bookWithPrice = {
+      ...book,
+      price: getFakeRandomPrice(id),
+    };
+    localStorage.setItem(`book-${id}`, JSON.stringify(bookWithPrice));
   });
 
   const initialBooks = books.slice(0, booksPerPage);
@@ -324,6 +328,20 @@ async function initBooksSection() {
   refs.showMoreBtn.addEventListener('click', loadMoreBooks);
 
   await loadTrendingBooks();
+
+  document.addEventListener('click', e => {
+    const btn = e.target.closest('.learn-more-btn');
+    if (!btn) return;
+    const bookId = btn.dataset.id;
+    if (!bookId) return;
+    import('./book-modal.js')
+      .then(({ openModal }) => {
+        openModal(bookId);
+      })
+      .catch(err => {
+        console.log('Failed to open modal:', err);
+      });
+  });
 
   document.addEventListener('click', e => {
     const isClickInside =
