@@ -217,6 +217,8 @@
 
   .event-custom-button-next,
   .event-custom-button-prev {
+    display: none !important;
+  }
 
   .events-pagination,
   .events-button-prev,
