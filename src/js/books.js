@@ -78,6 +78,24 @@ export function getBookId(book) {
   return rawId;
 }
 
+function cacheBook(book) {
+  const id = getBookId(book);
+  if (!id) return;
+
+  const bookWithPrice = {
+    ...book,
+    price: getFakeRandomPrice(id),
+  };
+
+  bookCache.set(id, bookWithPrice);
+
+  if (!localStorage.getItem(`book-${id}`)) {
+    localStorage.setItem(`book-${id}`, JSON.stringify(bookWithPrice));
+  }
+
+  return bookWithPrice;
+}
+
 function getBooksPerPage() {
   return window.innerWidth < 768 ? 10 : 24;
 }
@@ -270,6 +288,11 @@ function updateCounter(visible, total) {
 async function loadMoreBooks() {
   showLoader();
   const nextBatch = allBooks.slice(visibleBooks, visibleBooks + BATCH_SIZE);
+
+  nextBatch.forEach(book => {
+    cacheBook(book);
+  });
+
   renderBooks(nextBatch, { append: true });
   visibleBooks += nextBatch.length;
   updateCounter(visibleBooks, allBooks.length);
