@@ -217,18 +217,11 @@
     .books-modal-img {
         width: 309px;
         height: 467px;
-        border-radius: 8px;
-        margin-bottom: 24px;
-        display: block;
+
     }
 }
 
 @media screen and (min-width: 1440px) {
-    .books-modal-img {
-        width: 309px;
-        height: 467px;
-
-    }
 
     .books-modal {
         padding-top: 64px;
