@@ -15,9 +15,9 @@
     visibility: hidden;
     opacity: 0;
     pointer-events: none;
-    transition: opacity 0.3s ease, visibility 0.3s ease;
     transform: translateX(-100%);
     transition: transform 0.5s ease, opacity 0.5s ease, visibility 0.5s;
+    z-index: 999;
 }
 
 .books-modal-backdrop--visible {
@@ -180,7 +180,7 @@
 .ac .ac-trigger {
     border-top: 1px solid rgba(11, 5, 0, 0.15) !important;
     display: flex !important;
-   
+
     align-items: center !important;
     justify-content: space-between !important;
     background-color: #FCEEE6 !important;
@@ -213,7 +213,29 @@
         display: flex;
         gap: 24px;
     }
+
+    .books-modal-img {
+        width: 309px;
+        height: 467px;
+        border-radius: 8px;
+        margin-bottom: 24px;
+        display: block;
+    }
 }
-.books-modal-backdrop {
-    z-index: 999;
+
+@media screen and (min-width: 1440px) {
+    .books-modal-img {
+        width: 309px;
+        height: 467px;
+
+    }
+
+    .books-modal {
+        padding-top: 64px;
+        padding-bottom: 80px;
+        padding-left: 104px;
+        padding-right: 104px;
+
+    }
+
 }
