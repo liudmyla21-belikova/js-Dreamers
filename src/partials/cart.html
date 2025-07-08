@@ -1,33 +1,42 @@
 <div class="container">
-    <button id="open-cart-btn" class="cart-button"><svg class="open-cart-icon" width="50" height="50"
-            viewBox="0 0 28 28" fill="none" xmlns="http://www.w3.org/2000/svg">
-            <path d="M4 7H6L9 17H21L24 10H10" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"></path>
-            <rect x="6" y="3" width="4" height="6" rx="1"></rect>
-            <path
-                d="M11 21C11 22.1046 10.1046 23 9 23C7.89543 23 7 22.1046 7 21C7 19.8954 7.89543 19 9 19C10.1046 19 11 19.8954 11 21Z">
-            </path>
-            <path
-                d="M21 21C21 22.1046 20.1046 23 19 23C17.8954 23 17 22.1046 17 21C17 19.8954 17.8954 19 19 19C20.1046 19 21 19.8954 21 21Z">
-            </path>
-        </svg>
-        <span id="cart-count-badge" class="cart-count-badge"></span>
-    </button>
+  <button id="open-cart-btn" class="cart-button">
+    <svg
+      class="open-cart-icon"
+      width="50"
+      height="50"
+      viewBox="0 0 28 28"
+      fill="none"
+      xmlns="http://www.w3.org/2000/svg"
+    >
+      <path
+        d="M4 7H6L9 17H21L24 10H10"
+        stroke-width="2"
+        stroke-linecap="round"
+        stroke-linejoin="round"
+      ></path>
+      <rect x="6" y="3" width="4" height="6" rx="1"></rect>
+      <path
+        d="M11 21C11 22.1046 10.1046 23 9 23C7.89543 23 7 22.1046 7 21C7 19.8954 7.89543 19 9 19C10.1046 19 11 19.8954 11 21Z"
+      ></path>
+      <path
+        d="M21 21C21 22.1046 20.1046 23 19 23C17.8954 23 17 22.1046 17 21C17 19.8954 17.8954 19 19 19C20.1046 19 21 19.8954 21 21Z"
+      ></path>
+    </svg>
+    <span id="cart-count-badge" class="cart-count-badge"></span>
+  </button>
 
-    <!-- Cart Modal -->
+  <!-- Cart Modal -->
 
-
-
-    <div id="cart-modal-backdrop" class="cart-modal-backdrop hidden">
-
-        <!-- hidden -->
-        <div class="cart-modal">
-            <button id="cart-close-btn" class="cart-close-btn">✖</button>
-            <h2 class="cart-title">Your Cart</h2>
-            <ul id="cart-items-list" class="cart-items-list"></ul>
-            <div class="cart-total">
-                Total: <span id="cart-total-price">$0.00</span>
-            </div>
-            <button id="cart-buy-btn" class="cart-buy-btn">Buy</button>
-        </div>
+  <div id="cart-modal-backdrop" class="cart-modal-backdrop hidden">
+    <!-- hidden -->
+    <div class="cart-modal">
+      <button id="cart-close-btn" class="cart-close-btn">✖</button>
+      <h2 class="cart-title">Your Cart</h2>
+      <ul id="cart-items-list" class="cart-items-list"></ul>
+      <div class="cart-total">
+        Total: <span id="cart-total-price">$0.00</span>
+      </div>
+      <button id="cart-buy-btn" class="cart-buy-btn">Buy</button>
     </div>
+  </div>
 </div>
