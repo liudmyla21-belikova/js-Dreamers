@@ -65,8 +65,8 @@
   text-decoration: none;
   color: inherit;
   display: inline-block;
-  transition: transform 0.5s ease,
-    color 0.5s ease }
+  transition: transform 0.5s ease, color 0.5s ease;
+}
 
 .footer-item a:hover {
   color: #ffffff;

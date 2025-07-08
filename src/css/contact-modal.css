@@ -12,17 +12,17 @@
   z-index: 100;
   opacity: 1;
   visibility: visible;
-    opacity: 1;
-    pointer-events: auto;
-    transform: translateX(0);
-    transition: transform 0.5s ease, opacity 0.5s ease;
+  opacity: 1;
+  pointer-events: auto;
+  transform: translateX(0);
+  transition: transform 0.5s ease, opacity 0.5s ease;
 }
 
 .contact-modal.is-hidden {
   visibility: hidden;
-    opacity: 0;
-    pointer-events: none;
-    transform: translateX(-100%);
+  opacity: 0;
+  pointer-events: none;
+  transform: translateX(-100%);
 }
 
 .contact-modal-content {

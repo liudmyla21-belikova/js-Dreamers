@@ -220,13 +220,10 @@
 }
 
 @media screen and (min-width: 1440px) {
-
   .books-modal {
     padding-top: 64px;
     padding-bottom: 80px;
     padding-left: 104px;
     padding-right: 104px;
-
   }
-
 }
