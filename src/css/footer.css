@@ -125,7 +125,7 @@
 .footer-form__button:hover {
   background-color: #0b0500;
   color: #fff;
-  scale: scale(1.1);
+  transform: scale(1.1);
 }
 
 .footer-form__note {

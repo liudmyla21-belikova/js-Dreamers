@@ -178,7 +178,6 @@
 .book-card-title-wrapper {
   display: flex;
   flex-direction: column;
-  justify-content: baseline;
   white-space: nowrap;
   overflow: hidden;
 }
