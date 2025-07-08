@@ -8,3 +8,4 @@ import './js/contact-modal';
 import './js/footer';
 import './js/scroll-up';
 import './js/dark-theme';
+import './js/cart';
