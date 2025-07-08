@@ -170,7 +170,7 @@
   overflow: visible;
 }
 
-.book-card-elements-wrapper>p {
+.book-card-elements-wrapper > p {
   min-width: 60px;
   margin-left: 5px;
 }
