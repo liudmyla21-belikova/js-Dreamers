@@ -227,9 +227,4 @@
   .feedback-card {
     width: 100%;
   }
-
-  .feedback-custom-button-next,
-  .feedback-custom-button-prev {
-    display: none !important;
-  }
 }
