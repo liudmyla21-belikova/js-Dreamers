@@ -58,17 +58,12 @@ function fillModal(book) {
 }
 
 // ======= Modal control =======
-export function openModal(book) {
-  if (!book || typeof book !== 'object') return;
+export function openModal(id) {
+  const raw = localStorage.getItem(`book-${id}`);
+  if (!raw) return;
 
-  const id =
-    book._id ||
-    book.primary_isbn13 ||
-    `${book.title?.trim()}|${book.author?.trim()}` ||
-    'default-id';
-
-  currentBook = book;
-  refs.modal.dataset.bookId = id;
+  currentBook = JSON.parse(raw);
+  refs.modal.dataset.bookId = id; // fallback id
 
   fillModal(currentBook);
 
