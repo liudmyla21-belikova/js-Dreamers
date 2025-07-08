@@ -3,6 +3,7 @@
 // ============================
 import iziToast from 'izitoast';
 import 'izitoast/dist/css/iziToast.min.css';
+import { getBookId } from './books';
 
 // ======= DOM refs =======
 const refs = {
@@ -27,7 +28,7 @@ export function saveCart(cart) {
 // ======= Core API =======
 export function addToCart(book, qty = 1, openCartAfter = false) {
   if (!book || !qty) return;
-  const id = book.id ?? book._id ?? book.isbn ?? null;
+  const id = getBookId(book);
   if (!id) {
     console.error('Book has no stable id – cannot add to cart');
     return;

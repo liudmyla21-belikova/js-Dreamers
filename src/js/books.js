@@ -64,6 +64,20 @@ function getFakeRandomPrice(id, min = 4.9, max = 25.0) {
   return (min + stepIndex * step).toFixed(2);
 }
 
+export function getBookId(book) {
+  const title = book.title?.trim() || '';
+  const author = book.author?.trim() || '';
+  const isbn = book.primary_isbn13 || book.primary_isbn10 || '';
+  const rawId = book._id || isbn || `${title}|${author}`;
+
+  if (!rawId) {
+    console.warn('Book has no valid ID fallback, generating hash');
+    return btoa(`${title}-${author}`).slice(0, 12); // base64 хеш, обрізаний
+  }
+
+  return rawId;
+}
+
 function getBooksPerPage() {
   return window.innerWidth < 768 ? 10 : 24;
 }
@@ -139,6 +153,12 @@ async function renderFirstBooks(books) {
   renderBooks(initialBooks);
   visibleBooks = initialBooks.length;
   updateCounter(visibleBooks, books.length);
+
+  if (visibleBooks < allBooks.length) {
+    refs.showMoreBtn.classList.remove('hidden');
+  } else {
+    refs.showMoreBtn.classList.add('hidden');
+  }
 }
 
 function renderBooks(books, { append = false } = {}) {
