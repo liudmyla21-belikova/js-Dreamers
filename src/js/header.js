@@ -1,8 +1,8 @@
-const headerOpenMenuButton = document.querySelector('[header-menu-open]');
+const headerOpenMenuButton = document.querySelector('[data-header-menu-open]');
 const headerCloseMenuButton = document.querySelector(
-  '[header-data-menu-close]'
+  '[data-header-menu-close]'
 );
-const headerModalBackdrop = document.querySelector('[header-data-menu]');
+const headerModalBackdrop = document.querySelector('[data-header-menu]');
 const headerMenuLinks = headerModalBackdrop.querySelectorAll('a[href^="#"]');
 
 let headerSavedScrollY = 0;
