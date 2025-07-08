@@ -25,6 +25,7 @@ const BATCH_SIZE = 4;
 let categories = [];
 let currentCategory = 'All categories';
 let booksPerPage = 0;
+const bookCache = new Map();
 
 async function fetchNYTOverview() {
   try {
@@ -111,48 +112,54 @@ function setActiveCategory(category) {
 }
 
 async function renderFirstBooks(books) {
-  showLoader();
+  booksPerPage = getBooksPerPage();
   visibleBooks = 0;
   allBooks = books;
-  allBooks.forEach(book => {
-    const id = book._id || book.primary_isbn13 || book.title?.trim();
-    if (!id) return;
-    const bookWithPrice = {
-      ...book,
-      price: getFakeRandomPrice(id),
-    };
-    localStorage.setItem(`book-${id}`, JSON.stringify(bookWithPrice));
-  });
 
   const initialBooks = books.slice(0, booksPerPage);
+
+  initialBooks.forEach(book => {
+    const id = book._id || book.primary_isbn13 || book.title?.trim();
+    if (!id) return;
+
+    const cached = bookCache.get(id);
+    if (!cached) {
+      const bookWithPrice = {
+        ...book,
+        price: getFakeRandomPrice(id),
+      };
+      bookCache.set(id, bookWithPrice);
+
+      if (!localStorage.getItem(`book-${id}`)) {
+        localStorage.setItem(`book-${id}`, JSON.stringify(bookWithPrice));
+      }
+    }
+  });
+
   renderBooks(initialBooks);
   visibleBooks = initialBooks.length;
-  updateCounter(initialBooks.length, books.length);
-
-  await waitForImagesToLoad(refs.booksList);
-  hideLoader();
-
-  refs.showMoreBtn.classList.toggle('hidden', books.length <= booksPerPage);
+  updateCounter(visibleBooks, books.length);
 }
 
 function renderBooks(books, { append = false } = {}) {
   const markup = books
     .map(book => {
       const id = book._id || book.primary_isbn13 || book.title || 'default-id';
-      const price = getFakeRandomPrice(id);
+      const cached = bookCache.get(id);
+      const price = cached?.price || getFakeRandomPrice(id);
       return `
-        <li class="book-card">
-          <img src="${book.book_image}" alt="${book.title}" width="340" height="484" loading="lazy"/>
-          <div class="book-card-elements-wrapper">
-            <div class="book-card-title-wrapper">
-              <h4>${book.title}</h4>
-              <p>${book.author}</p>
-            </div>
-            <p>${price} $</p>
+      <li class="book-card">
+        <img src="${book.book_image}" alt="${book.title}" width="340" height="484" loading="lazy"/>
+        <div class="book-card-elements-wrapper">
+          <div class="book-card-title-wrapper">
+            <h4>${book.title}</h4>
+            <p>${book.author}</p>
           </div>
-          <button class="learn-more-btn" data-id="${id}">Learn More</button>
-        </li>
-      `;
+          <p>${price} $</p>
+        </div>
+        <button class="learn-more-btn" data-id="${id}">Learn More</button>
+      </li>
+    `;
     })
     .join('');
 
@@ -160,14 +167,22 @@ function renderBooks(books, { append = false } = {}) {
     const fragment = document.createRange().createContextualFragment(markup);
     refs.booksList.appendChild(fragment);
     const newCards = Array.from(refs.booksList.children).slice(-books.length);
+
     requestAnimationFrame(() => {
-      newCards.forEach(card => card.classList.add('animate-in'));
+      newCards.forEach((card, index) => {
+        setTimeout(() => card.classList.add('animate-in'), index * 40);
+      });
+      hideLoader();
     });
   } else {
     refs.booksList.innerHTML = markup;
     const newCards = refs.booksList.querySelectorAll('.book-card');
+
     requestAnimationFrame(() => {
-      newCards.forEach(card => card.classList.add('animate-in'));
+      newCards.forEach((card, index) => {
+        setTimeout(() => card.classList.add('animate-in'), index * 40);
+      });
+      hideLoader();
     });
   }
 }
