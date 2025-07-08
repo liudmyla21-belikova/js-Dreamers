@@ -1,73 +1,47 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Booksy</title>
-    <link
-      rel="stylesheet"
-      href="https://cdnjs.cloudflare.com/ajax/libs/modern-normalize/3.0.1/modern-normalize.min.css"
-      integrity="sha512-q6WgHqiHlKyOqslT/lgBgodhd03Wp4BEqKeW6nNtlOY4quzyG3VoQKFrieaCeSnuVseNKRGpGeDU3qPmabCANg=="
-      crossorigin="anonymous"
-      referrerpolicy="no-referrer"
-    />
-    <link rel="stylesheet" href="./css/styles.css" />
-    <link rel="preconnect" href="https://fonts.googleapis.com" />
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    <link
-      href="https://fonts.googleapis.com/css2?family=Rubik:wght@400;500;600&display=swap"
-      rel="stylesheet"
-    />
-  </head>
-  <body>
-    <load src="./partials/header.html" />
-    <load src="./partials/mobile-menu.html" />
-    <main>
-      <load src="./partials/hero.html" />
-      <load src="./partials/books.html" />
-      <load src="./partials/book-modal.html" />
-      <load src="./partials/feedbacks.html" />
-      <load src="./partials/events.html" />
-      <load src="./partials/contact-modal.html" />
-      <load src="./partials/location.html" />
-      <load src="./partials/scroll-up.html" />
-      <button
-        id="theme-toggle"
-        class="theme-toggle theme-toggle-light"
-        aria-label="Toggle theme"
-      >
-        <svg
-          class="icon-sun"
-          width="24"
-          height="24"
-          viewBox="0 0 24 24"
-          fill="none"
-        >
-          <path
-            d="M12 4V2M12 22v-2M4.22 4.22L2.81 2.81M21.19 21.19l-1.41-1.41M2 12H4m16 0h2M4.22 19.78L2.81 21.19M21.19 2.81l-1.41 1.41M12 8a4 4 0 100 8 4 4 0 000-8z"
-            stroke="currentColor"
-            stroke-width="2"
-            stroke-linecap="round"
-          />
-        </svg>
-        <svg
-          class="icon-moon"
-          width="24"
-          height="24"
-          viewBox="0 0 24 24"
-          fill="none"
-        >
-          <path
-            d="M21 12.79A9 9 0 1111.21 3 7 7 0 0021 12.79z"
-            stroke="currentColor"
-            stroke-width="2"
-            stroke-linecap="round"
-          />
-        </svg>
-      </button>
-    </main>
-    <load src="./partials/footer.html" />
-    <script type="module" src="./main.js"></script>
-  </body>
+
+<head>
+  <meta charset="UTF-8" />
+  <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Booksy</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/modern-normalize/3.0.1/modern-normalize.min.css"
+    integrity="sha512-q6WgHqiHlKyOqslT/lgBgodhd03Wp4BEqKeW6nNtlOY4quzyG3VoQKFrieaCeSnuVseNKRGpGeDU3qPmabCANg=="
+    crossorigin="anonymous" referrerpolicy="no-referrer" />
+  <link rel="stylesheet" href="./css/styles.css" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Rubik:wght@400;500;600&display=swap" rel="stylesheet" />
+</head>
+
+<body>
+  <load src="./partials/header.html" />
+  <load src="./partials/mobile-menu.html" />
+  <main>
+    <load src="./partials/hero.html" />
+    <load src="./partials/books.html" />
+    <load src="./partials/book-modal.html" />
+    <load src="./partials/feedbacks.html" />
+    <load src="./partials/events.html" />
+    <load src="./partials/contact-modal.html" />
+    <load src="./partials/location.html" />
+    <load src="./partials/scroll-up.html" />
+    <load src="./partials/cart.html" />
+    <button id="theme-toggle" class="theme-toggle theme-toggle-light" aria-label="Toggle theme">
+      <svg class="icon-sun" width="24" height="24" viewBox="0 0 24 24" fill="none">
+        <path
+          d="M12 4V2M12 22v-2M4.22 4.22L2.81 2.81M21.19 21.19l-1.41-1.41M2 12H4m16 0h2M4.22 19.78L2.81 21.19M21.19 2.81l-1.41 1.41M12 8a4 4 0 100 8 4 4 0 000-8z"
+          stroke="currentColor" stroke-width="2" stroke-linecap="round" />
+      </svg>
+      <svg class="icon-moon" width="24" height="24" viewBox="0 0 24 24" fill="none">
+        <path d="M21 12.79A9 9 0 1111.21 3 7 7 0 0021 12.79z" stroke="currentColor" stroke-width="2"
+          stroke-linecap="round" />
+      </svg>
+    </button>
+  </main>
+  <load src="./partials/footer.html" />
+  <script type="module" src="./main.js"></script>
+</body>
+
 </html>
