@@ -5,6 +5,7 @@
 .hero-swiper {
     overflow: hidden;
 }
+
 .hero-wrap {
     width: 172px;
     position: absolute;
@@ -51,6 +52,14 @@
     transition: all 1s cubic-bezier(0.175, 0.885, 0.32, 1.275);
 }
 
+.hero-btn:focus,
+.hero-btn:hover {
+    color: #fff;
+    background-color: #0b0500;
+    border: 1px solid #0b0500;
+    transform: scale(1.1);
+}
+
 .hero-box {
     margin-top: 16px;
 }
@@ -78,6 +87,7 @@
     .picture {
         border-radius: 11px;
     }
+
     .hero-third-wrap,
     .hero-fourth-wrap {
         width: 390px;
@@ -95,13 +105,6 @@
         width: 164px;
         height: 32px;
         font-size: 16px;
-    }
-
-    .hero-btn:focus,
-    .hero-btn:hover {
-        color: #fff;
-        background-color: #0b0500;
-        transform: scale(1.2);
     }
 
     .hero-box {
@@ -134,25 +137,29 @@
         transition: all 2s cubic-bezier(0.175, 0.885, 0.32, 1.275);
     }
 
-    .hero-btn-slide:hover {
-        background-color: #fff;
-        fill: #0b0500;
-        border: none;
+    .hero-btn-slide:hover,
+    .hero-btn-slide:focus{
+        background: #e15d05;
+        opacity: 0.8;
+        fill: #fff
     }
 
-    .hero-btn-slide:focus {
+    .hero-btn-slide:active {
         background: #5a2502;
+        fill: #fff;
     }
 
     .hero-btn-slide:hover>svg {
-        transform: scale(1.6);
+        transform: scale(1.1);
     }
 
     .hero-btn-slide:disabled {
-        opacity: 0.2;
         transform: none;
-        color: #fff;
+        background-color: transparent;
         cursor: no-drop;
+        border: 1px solid;
+        color: #fff;
+        fill: #fff;
     }
 }
 

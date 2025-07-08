@@ -64,11 +64,13 @@
 .footer-item a {
   text-decoration: none;
   color: inherit;
-  transition: color 0.2s;
-}
+  display: inline-block;
+  transition: transform 0.5s ease,
+    color 0.5s ease }
 
 .footer-item a:hover {
   color: #ffffff;
+  transform: scale(1.2);
 }
 
 /* Форма */
@@ -116,13 +118,14 @@
   font-weight: 400;
   font-size: 16px;
   line-height: 1.5;
-  transition: background-color 0.3s;
+  transition: all 2s cubic-bezier(0.175, 0.885, 0.32, 1.275);
   width: 106px;
 }
 
 .footer-form__button:hover {
   background-color: #0b0500;
   color: #fff;
+  scale: scale(1.1);
 }
 
 .footer-form__note {

@@ -72,6 +72,11 @@
   margin-top: auto;
 }
 
+.events-btn:hover,
+.events-btn:focus {
+font-weight: 600;
+}
+
 .event-buttons-wrapper {
   display: flex;
   align-items: center;
@@ -126,47 +131,17 @@
   flex: 0 0 48px;
 }
 
-.event-custom-button-next:hover,
-.event-custom-button-next:focus,
-.event-custom-button-prev:hover,
-.event-custom-button-prev:focus {
-  background-color: #fceee6;
-}
-
-.event-custom-button-next svg,
-.event-custom-button-prev svg {
-  fill: #fff;
-  transition: fill 0.3s ease;
-  width: 24px;
-  height: 24px;
-}
-
-.event-custom-button-next:hover svg,
-.event-custom-button-next:focus svg,
-.event-custom-button-prev:hover svg,
-.event-custom-button-prev:focus svg {
-  fill: #0b0500;
-}
-
-.event-custom-button-next:active,
-.event-custom-button-prev:active {
-  background-color: #5a2502;
-}
-
-.event-custom-button-next:active svg,
-.event-custom-button-prev:active svg {
-  fill: #fff;
-}
 
 .event-custom-button-next.swiper-button-disabled,
 .event-custom-button-prev.swiper-button-disabled,
 .event-custom-button-next:disabled,
 .event-custom-button-prev:disabled {
-  background-color: #e15d05;
-  fill: #fff;
-  opacity: 0.2;
-  pointer-events: none;
-  cursor: default;
+  transform: none;
+    background-color: transparent;
+    cursor: no-drop;
+    border: 1px solid;
+    color: #fff;
+    fill: #fff;
 }
 
 .event-section .event-custom-button-next.swiper-button-disabled svg,
@@ -181,6 +156,21 @@
   background: #e15d05;
   fill: #fff;
   cursor: pointer;
+}
+
+.event-custom-button-next.active-swiper-btn:hover,
+.event-custom-button-prev.active-swiper-btn:hover,
+.event-custom-button-next.active-swiper-btn:focus,
+.event-custom-button-prev.active-swiper-btn:focus {
+background: #e15d05;
+  opacity: 0.8;
+  fill: #fff;
+}
+
+.event-custom-button-next.active-swiper-btn:active,
+.event-custom-button-prev.active-swiper-btn:active {
+background: #5a2502;
+  fill: #fff;
 }
 
 .event-custom-button-next.active-swiper-btn svg,

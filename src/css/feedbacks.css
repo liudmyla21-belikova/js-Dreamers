@@ -120,77 +120,46 @@
   height: 48px;
   background-color: #e15d05;
   display: flex;
+  fill: #fff;
   align-items: center;
   justify-content: center;
   position: static !important;
   border: 1px solid rgba(11, 5, 0, 0.15);
   padding: 0;
   cursor: pointer;
-  transition: background-color 0.3s, fill 0.3s;
+  transition: all 2s cubic-bezier(0.175, 0.885, 0.32, 1.275);
   box-sizing: border-box;
   flex: 0 0 48px;
 }
 
 .feedback-custom-button-next:hover,
-.feedback-custom-button-next:focus,
 .feedback-custom-button-prev:hover,
+.feedback-custom-button-next:focus,
 .feedback-custom-button-prev:focus {
-  background-color: #fceee6;
-}
-
-.feedback-custom-button-next svg,
-.feedback-custom-button-prev svg {
+  background: #e15d05;
+  opacity: 0.8;
   fill: #fff;
-  transition: fill 0.3s ease;
-  width: 24px;
-  height: 24px;
-}
-
-.feedback-custom-button-next:hover svg,
-.feedback-custom-button-next:focus svg,
-.feedback-custom-button-prev:hover svg,
-.feedback-custom-button-prev:focus svg {
-  fill: #0b0500;
 }
 
 .feedback-custom-button-next:active,
 .feedback-custom-button-prev:active {
-  background-color: #5a2502;
-}
-
-.feedback-custom-button-next:active svg,
-.feedback-custom-button-prev:active svg {
+  background: #5a2502;
   fill: #fff;
 }
 
-.feedback-custom-button-next.swiper-button-disabled,
-.feedback-custom-button-prev.swiper-button-disabled,
+.feedback-custom-button-next>svg,
+.feedback-custom-button-prev>svg {
+  transform: scale(1.1);
+}
+
 .feedback-custom-button-next:disabled,
 .feedback-custom-button-prev:disabled {
-  background-color: #e15d05;
+  transform: none;
+  background-color: transparent;
+  cursor: no-drop;
+  border: 1px solid;
+  color: #fff;
   fill: #fff;
-  opacity: 0.2;
-  pointer-events: none;
-  cursor: default;
-}
-
-.feedback-section .feedback-custom-button-next.swiper-button-disabled svg,
-.feedback-section .feedback-custom-button-prev.swiper-button-disabled svg,
-.feedback-section .feedback-custom-button-next:disabled svg,
-.feedback-section .feedback-custom-button-prev:disabled svg {
-  fill: #fff;
-}
-
-.feedback-custom-button-next.active-swiper-btn,
-.feedback-custom-button-prev.active-swiper-btn {
-  background: #e15d05;
-  fill: #fff;
-  cursor: pointer;
-}
-
-.feedback-custom-button-next.active-swiper-btn svg,
-.feedback-custom-button-prev.active-swiper-btn svg {
-  fill: #fff !important;
 }
 
 .feedback-section .feedback-swiper .swiper-wrapper {
@@ -209,6 +178,7 @@
     max-width: 768px;
     padding: 0 32px;
   }
+
   .feedback-card {
     width: 100%;
   }
