@@ -64,15 +64,6 @@ function getFakeRandomPrice(id, min = 4.9, max = 25.0) {
   return (min + stepIndex * step).toFixed(2);
 }
 
-export function getBookId(book) {
-  return (
-    book._id ||
-    book.primary_isbn13 ||
-    `${book.title?.trim()}|${book.author?.trim()}` ||
-    'default-id'
-  );
-}
-
 function getBooksPerPage() {
   return window.innerWidth < 768 ? 10 : 24;
 }
@@ -121,7 +112,6 @@ function setActiveCategory(category) {
 }
 
 async function renderFirstBooks(books) {
-  showLoader();
   booksPerPage = getBooksPerPage();
   visibleBooks = 0;
   allBooks = books;
@@ -129,18 +119,20 @@ async function renderFirstBooks(books) {
   const initialBooks = books.slice(0, booksPerPage);
 
   initialBooks.forEach(book => {
-    const id = getBookId(book);
+    const id = book._id || book.primary_isbn13 || book.title?.trim();
     if (!id) return;
 
-    const bookWithPrice = {
-      ...book,
-      price: getFakeRandomPrice(id),
-    };
+    const cached = bookCache.get(id);
+    if (!cached) {
+      const bookWithPrice = {
+        ...book,
+        price: getFakeRandomPrice(id),
+      };
+      bookCache.set(id, bookWithPrice);
 
-    bookCache.set(id, bookWithPrice);
-
-    if (!localStorage.getItem(`book-${id}`)) {
-      localStorage.setItem(`book-${id}`, JSON.stringify(bookWithPrice));
+      if (!localStorage.getItem(`book-${id}`)) {
+        localStorage.setItem(`book-${id}`, JSON.stringify(bookWithPrice));
+      }
     }
   });
 
@@ -152,10 +144,9 @@ async function renderFirstBooks(books) {
 function renderBooks(books, { append = false } = {}) {
   const markup = books
     .map(book => {
-      const id = getBookId(book);
+      const id = book._id || book.primary_isbn13 || book.title || 'default-id';
       const cached = bookCache.get(id);
       const price = cached?.price || getFakeRandomPrice(id);
-
       return `
       <li class="book-card">
         <img src="${book.book_image}" alt="${book.title}" width="340" height="484" loading="lazy"/>
@@ -178,8 +169,8 @@ function renderBooks(books, { append = false } = {}) {
     const newCards = Array.from(refs.booksList.children).slice(-books.length);
 
     requestAnimationFrame(() => {
-      newCards.forEach((card, i) => {
-        setTimeout(() => card.classList.add('animate-in'), i * 40);
+      newCards.forEach((card, index) => {
+        setTimeout(() => card.classList.add('animate-in'), index * 40);
       });
       hideLoader();
     });
@@ -188,8 +179,8 @@ function renderBooks(books, { append = false } = {}) {
     const newCards = refs.booksList.querySelectorAll('.book-card');
 
     requestAnimationFrame(() => {
-      newCards.forEach((card, i) => {
-        setTimeout(() => card.classList.add('animate-in'), i * 40);
+      newCards.forEach((card, index) => {
+        setTimeout(() => card.classList.add('animate-in'), index * 40);
       });
       hideLoader();
     });
@@ -388,17 +379,9 @@ async function initBooksSection() {
     if (!btn) return;
     const bookId = btn.dataset.id;
     if (!bookId) return;
-
     import('./book-modal.js')
       .then(({ openModal }) => {
-        const book =
-          bookCache.get(bookId) ||
-          JSON.parse(localStorage.getItem(`book-${bookId}`));
-        if (!book) {
-          iziToast.error({ message: 'Book data not found' });
-          return;
-        }
-        openModal(book);
+        openModal(bookId);
       })
       .catch(err => {
         console.log('Failed to open modal:', err);
