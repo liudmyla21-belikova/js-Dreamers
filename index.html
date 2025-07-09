@@ -1,0 +1,763 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <link rel="icon" type="image/svg+xml" href="/js_dreamers/favicon.svg" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Booksy</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/modern-normalize/3.0.1/modern-normalize.min.css"
+    integrity="sha512-q6WgHqiHlKyOqslT/lgBgodhd03Wp4BEqKeW6nNtlOY4quzyG3VoQKFrieaCeSnuVseNKRGpGeDU3qPmabCANg=="
+    crossorigin="anonymous" referrerpolicy="no-referrer" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Rubik:wght@400;500;600&display=swap" rel="stylesheet" />
+  <script type="module" crossorigin src="/js_dreamers/index.js"></script>
+  <link rel="modulepreload" crossorigin href="/js_dreamers/assets/vendor-BHbBlzG1.js">
+  <link rel="stylesheet" crossorigin href="/js_dreamers/assets/vendor-BX_8G9yh.css">
+  <link rel="stylesheet" crossorigin href="/js_dreamers/assets/index-mtCudUNP.css">
+</head>
+
+<body>
+  <header class="header container">
+    <div class="header-wrapper">
+        <a class="header-logo" href="./index.html"><svg class="header-logo-icon" width="83 " height="21">
+                <use href="/js_dreamers/assets/sprite-Ds2XgIgJ.svg#icon-logo"></use>
+            </svg> </a>
+        <nav class="header-nav">
+            <a href="./index.html" class="header-link ">Home</a>
+            <a href="#books" class="header-link">Books</a>
+            <a href="#feedbacks" class="header-link">Feedbacks</a>
+            <a href="#events" class="header-link">Events</a>
+            <a href="#location" class="header-link">Location</a>
+
+
+        </nav>
+
+
+        <button class="header-burger-btn" type="button" data-header-menu-open>
+            <svg class="header-burger-icon" width="24" height="24">
+                <use href="/js_dreamers/assets/sprite-Ds2XgIgJ.svg#icon-menu-alt-right"></use>
+            </svg>
+        </button>
+    </div>
+
+    <!--Mobile menu-->
+    <div class="header-mobile-menu " data-header-menu>
+        <div class="header-mobile-wrap container ">
+            <div class="header-mobile-window">
+                <a class="header-logo" href="./index.html"><svg class="header-logo-icon" width="84 " height="36">
+                        <use href="/js_dreamers/assets/sprite-Ds2XgIgJ.svg#icon-logo"></use>
+                    </svg> </a>
+                <button class="header-burger-btn" type="button" id="header-mobile-menu-close" data-header-menu-close>
+                    <svg class="header-icon-close" width="24" height="24">
+                        <use href="/js_dreamers/assets/sprite-Ds2XgIgJ.svg#icon-x"></use>
+                    </svg>
+                </button>
+            </div>
+
+            <nav>
+                <ul class="header-mobile-list">
+                    <li>
+                        <a href="./index.html" class="header-mobile-link">Home</a>
+                    </li>
+                    <li>
+                        <a href="#books" class="header-mobile-link">Books</a>
+                    </li>
+                    <li>
+                        <a href="#feedbacks" class="header-mobile-link">Feedbacks</a>
+                    </li>
+                    <li>
+                        <a href="#events" class="header-mobile-link">Events</a>
+                    </li>
+                    <li>
+                        <a href="#location" class="header-mobile-link">Location</a>
+                    </li>
+                </ul>
+            </nav>
+
+
+        </div>
+    </div>
+</header>
+  
+  <main>
+    <section class="hero">
+    <div class="container hero-container">
+        <div class="hero-swiper">
+            <ul class="hero-list swiper-wrapper">
+                <li class="hero-item swiper-slide">
+                    <picture>
+                        <source srcset="/js_dreamers/assets/hero-baner1desk-CleGoxqp.jpg 1x, /js_dreamers/assets/hero-baner1desk@2-Dk1znQF3.jpg 2x" media="(min-width: 1440px)" />
+                        <source srcset="/js_dreamers/assets/hero-baner1tab-9z-ca0eI.jpg 1x, /js_dreamers/assets/hero-baner1tab@2-DxfTZkDS.jpg 2x" media="(min-width: 768px)" />
+                        <source srcset="/js_dreamers/assets/hero-baner1mob-BNjcy_Wy.jpg 1x, /js_dreamers/assets/hero-baner1mob@2-ChOiTg6r.jpg 2x" media="(max-width: 767px)" />
+                        <img class="picture" src="/js_dreamers/assets/hero-baner1mob-BNjcy_Wy.jpg" alt="BankApp" />
+                    </picture>
+                    <div class="hero-wrap hero-first-wrap">
+                        <h2 class="hero-subtitle">Get 10% off your first order</h2>
+                        <a class="hero-link hero-btn" href="#books">Shop
+                            Now!</a>
+                    </div>
+                </li>
+                <li class="hero-item swiper-slide">
+                    <picture>
+                        <source srcset="/js_dreamers/assets/hero-baner2desk-D5Jx3Ljf.jpg 1x, /js_dreamers/assets/hero-baner2desk@2-B3woD0uz.jpg 2x" media="(min-width: 1440px)" />
+                        <source srcset="/js_dreamers/assets/hero-baner2tab-Ds-WxC0Y.jpg 1x, /js_dreamers/assets/hero-baner2tab@2-BbhZoH-4.jpg 2x" media="(min-width: 768px)" />
+                        <source srcset="data:image/jpeg;base64,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 1x, /js_dreamers/assets/hero-baner2mob@2-BaiJb8Pc.jpg 2x" media="(max-width: 767px)" />
+                        <img class="picture" src="data:image/jpeg;base64,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" alt="BankApp" />
+                    </picture>
+                    <div class="hero-wrap hero-second-wrap">
+                        <h2 class="hero-subtitle">Save 15% on some books</h2>
+                        <a class="hero-link hero-btn" href="#books">Shop
+                            Now!</a>
+                    </div>
+                </li>
+                <li class="hero-item swiper-slide">
+                    <picture class="picture">
+                        <source srcset="/js_dreamers/assets/hero-baner3desk-BbJfuwss.jpg 1x, /js_dreamers/assets/hero-baner3desk@2-BBVYyRF-.jpg 2x" media="(min-width: 1440px)" />
+                        <source srcset="/js_dreamers/assets/hero-baner3tab-Dc9p4XGv.jpg 1x, /js_dreamers/assets/hero-baner3tab@2-BMcOsNRV.jpg 2x" media="(min-width: 768px)" />
+                        <source srcset="/js_dreamers/assets/hero-baner3mob-Dy2Kx8sJ.jpg 1x, /js_dreamers/assets/hero-baner3mob@2-CLsFp4E1.jpg 2x" media="(max-width: 767px)" />
+                        <img class="picture" src="/js_dreamers/assets/hero-baner3mob-Dy2Kx8sJ.jpg" alt="BankApp" />
+                    </picture>
+                    <div class="hero-wrap hero-third-wrap">
+                        <h2 class="hero-subtitle">Summer Sale! <br>Up to -40% discounts</h2>
+                        <a class="hero-link hero-btn" href="#books">Shop
+                            Now!</a>
+                    </div>
+                </li>
+                <li class="hero-item swiper-slide">
+                    <picture>
+                        <source srcset="/js_dreamers/assets/hero-baner4desk-B3kOy84H.jpg 1x, /js_dreamers/assets/hero-baner4desk@2-0mLRYFTB.jpg 2x" media="(min-width: 1440px)" />
+                        <source srcset="/js_dreamers/assets/hero-baner4tab-BbXLu85n.jpg 1x, /js_dreamers/assets/hero-baner4tab@2-BdrxSzP9.jpg 2x" media="(min-width: 768px)" />
+                        <source srcset="/js_dreamers/assets/hero-baner4mob-Cl_a7leJ.jpg 1x, /js_dreamers/assets/hero-baner4mob@2-bD4ncMZV.jpg 2x" media="(max-width: 767px)" />
+                        <img class="picture" src="/js_dreamers/assets/hero-baner4mob-Cl_a7leJ.jpg" alt="BankApp" />
+                    </picture>
+                    <div class="hero-wrap hero-fourth-wrap">
+                        <h2 class="hero-subtitle">Last chance to buy our spring bestsellers</h2>
+                        <a class="hero-link hero-btn" href="#books">Shop
+                            Now!</a>
+                    </div>
+                </li>
+            </ul>
+        </div>
+        <div class="hero-box">
+            <h1 class="hero-title">Discover Your Next Great Read Today!</h1>
+            <div class="hero-btn-box">
+                <button class="hero-btn-slide hero-btn-slide-prev" aria-label="Previous slide" disabled>
+                    <svg class="hero-arrow-btn-prev" width="24" height="24">
+                        <use href="/js_dreamers/assets/sprite-Ds2XgIgJ.svg#icon-left-arrow-alt"></use>
+                    </svg></button>
+                <button class="hero-btn-slide hero-btn-slide-next" aria-label="Next slide">
+                    <svg class="hero-arrow-btn-next " width="24" height="24">
+                        <use href="/js_dreamers/assets/sprite-Ds2XgIgJ.svg#icon-right-arrow-alt"></use>
+                    </svg>
+                </button>
+            </div>
+        </div>
+    </div>
+</section>
+    <section class="books-section animate" id="books">
+  <div class="container books-container">
+    <div class="books-subsection">
+      <h2 class="visually-hidden">Trending books</h2>
+      <div class="books-categories-info">
+        <h3 class="books-subtitle">Books</h3>
+        <p class="books-count"></p>
+      </div>
+      <div class="category-dropdown">
+        <button class="category-dropdown-btn">
+          <span class="category-dropdown-label">Categories</span>
+          <svg class="books-icon-arrow" width="24" height="24">
+            <use href="/js_dreamers/assets/sprite-Ds2XgIgJ.svg#icon-chevron-down"></use>
+          </svg>
+        </button>
+        <ul class="dropdown-list"></ul>
+      </div>
+      <ul class="category-list"></ul>
+    </div>
+    <div class="books-list-wrapper">
+      <ul class="books-list"></ul>
+      <div class="loader-backdrop inline-loader hidden">
+        <span class="loader-spinner"></span>
+      </div>
+      <div class="pagination-wrapper">
+        <button class="pagination-btn hidden">Show More</button>
+      </div>
+    </div>
+  </div>
+</section>
+
+    
+<div class="books-modal-backdrop container " id="books-modal-backdrop">
+    <div class="books-modal" id="books-modal">
+        <div class="books-modal-close-wrap">
+            <button class="books-modal-close" id="books-modal-close" aria-label="Close modal">
+                <svg class="books-icon-close books-icon-arrow" width="32" height="32">
+                    <use href="/js_dreamers/assets/sprite-Ds2XgIgJ.svg#icon-x"></use>
+                </svg></button>
+        </div>
+        <div class="books-modal-wrap-tablet">
+            <img id="books-modal-image" src="#" alt="books" class="books-modal-img" />
+            <div class="books-modal-info">
+                <div class="books-modal-info-text">
+                    <h3 id="books-modal-title"></h3>
+                    <p class="books-modal-author" id="books-modal-author"></p>
+                    <p class="books-modal-price">$<span id="books-modal-price"></span></p>
+                </div>
+                <form id="books-modal-form">
+                    <div class="books-qty">
+                        <button type="button" id="books-qty-dec">-</button>
+                        <input type="number" id="books-qty-input" value="1" min="1" />
+                        <button type="button" id="books-qty-inc">+</button>
+                    </div>
+                    <button type="button" id="books-add-to-cart">Add To Cart</button>
+                    <button type="submit" id="books-buy-now">Buy Now</button>
+                </form>
+                <div class="accordion-container">
+                    <div class="ac" id="accordion-details">
+                        <h2 class="ac-header">
+                            <button class="ac-trigger"><span>Details</span>
+                                <svg width="24" height="24">
+                                    <use href="/js_dreamers/assets/sprite-Ds2XgIgJ.svg#icon-chevron-down"></use>
+                                </svg>
+                            </button>
+                        </h2>
+                        <div class="ac-panel">
+                            <p id="books-details-text"></p>
+                        </div>
+                    </div>
+                    <div class="ac">
+                        <h2 class="ac-header">
+                            <button class="ac-trigger"><span>Shipping</span>
+                                <svg width="24" height="24">
+                                    <use href="/js_dreamers/assets/sprite-Ds2XgIgJ.svg#icon-chevron-down"></use>
+                                </svg>
+                            </button>
+                        </h2>
+                        <div class="ac-panel">
+                            <p id="books-shipping-text">Ships worldwide</p>
+                        </div>
+                    </div>
+                    <div class="ac">
+                        <h2 class="ac-header">
+                            <button class="ac-trigger"><span>Returns</span>
+                                <svg width="24" height="24">
+                                    <use href="/js_dreamers/assets/sprite-Ds2XgIgJ.svg#icon-chevron-down"></use>
+                                </svg>
+                            </button>
+                        </h2>
+                        <div class="ac-panel">
+                            <p id="books-returns-text">14-day return policy</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+    <section class="feedback-section" id="feedbacks">
+  <div class="feedback-container container">
+    <div class="feedback-title-box">
+      <h2 class="feedback-title">Customer Feedbacks</h2>
+      <p class="feedback-subtitle">See what our readers are saying about us!</p>
+    </div>
+
+    <div class="feedback-swiper-container-wrapper">
+      <div class="swiper feedback-swiper">
+        <ul class="swiper-wrapper">
+          <li class="swiper-slide feedback-card">
+            <p class="feedback-text">
+              Great selection, fast delivery, and beautifully packaged books. My
+              go-to store for weekend reads!
+            </p>
+            <div class="feedback-user">
+              <img
+                src="data:image/jpeg;base64,/9j/4AAQSkZJRgABAQAAAQABAAD/2wCEAAgICAgJCAkKCgkNDgwODRMREBARExwUFhQWFBwrGx8bGx8bKyYuJSMlLiZENS8vNUROQj5CTl9VVV93cXecnNEBCAgICAkICQoKCQ0ODA4NExEQEBETHBQWFBYUHCsbHxsbHxsrJi4lIyUuJkQ1Ly81RE5CPkJOX1VVX3dxd5yc0f/CABEIADEAMAMBIgACEQEDEQH/xAAyAAACAwEAAwAAAAAAAAAAAAAHCAAFBgMBAgQBAAMBAQAAAAAAAAAAAAAAAAACAwUB/9oADAMBAAIQAxAAAAA//HzXMCRQBP3Vm60SRt0y1artGrobi0z2izdQQlIV7rRzGWUJ3FuODKw4+IWoy9XM/ePaSdAr2kUMkkY//8QALxAAAgEDAwIEBAYDAAAAAAAAAQIDBAURABIhBhMHMTJREEFhchQVIjRxgUKC8f/aAAgBAQABPwDVTc4ocKjKoLbQzHG5vYavXidabdM8UUstZKPPsEBB/vqk8YBvPfts/wByOG10/wBW26+Uyz0zkjJGGG1gR7j4V9SIkZd2FUZc6656rqKxpaOmysJ2hn5BdSM7cH/A6pLVX1qF4Iy20+YOBn+9XG0XC3bfxULIG5RvMatlyq7ZWRVNO+2WMg/QgHODrpLqGC7W6GVJN36Bu+j4yRrqSZVtlZLI+1ApY+5K8hf7PGrm7zVMlQ6kGYmTk5JyddKfi+1TU6xIvez2mZfnt3ZPPI1eEvNZ09chWRJHHAofc/qyPJVCAAazznA89eHF1/L66Il9sLvsY/VsbddRW56+lEDOFhD7pfME7CCAMEce+royPVysgA9GAvAGF8hrpO6yySU8R5aKN48YUjDEe4PJ11jXTQ2uaEv2453G2PcTu/nIGhroRopbqtLLzHUDtMM/Ngcca6jpHNFWKqB+7Ew25wCSPI/Q6uzTCpmWQONzmUKcjPcAIcDAxuGNWlK8VayUblH5H6fb+Dq+vVSlWqZmlmHrZjn/AJoEcEjjI14TdPT1t5/NpYyKajO5SRw8p06B1KnXVvhrfqGsmqqcPX07uXDj1p940e9FIBuw6ADjj06naSpHbfukkjgsTrpfwtvd4eOauRqGh+buMSP9i6t1BQ2iggoKCER08K4UD4+JH77Xhz+6+P8A/8QAHREAAgEFAQEAAAAAAAAAAAAAAQIQAAMREiEiQf/aAAgBAgEBPwCt1JxsMw1elvHyOtBpkJuK/J+x/8QAHxEAAgEEAgMAAAAAAAAAAAAAAQISAAMQIQQRIDFR/9oACAEDAQE/AKgwWUT19wPRrpW44MtBcrcAtMm9+P8A/9k="
+                srcset="data:image/jpeg;base64,/9j/4AAQSkZJRgABAQAAAQABAAD/2wCEAAgICAgJCAkKCgkNDgwODRMREBARExwUFhQWFBwrGx8bGx8bKyYuJSMlLiZENS8vNUROQj5CTl9VVV93cXecnNEBCAgICAkICQoKCQ0ODA4NExEQEBETHBQWFBYUHCsbHxsbHxsrJi4lIyUuJkQ1Ly81RE5CPkJOX1VVX3dxd5yc0f/CABEIADEAMAMBIgACEQEDEQH/xAAyAAACAwEAAwAAAAAAAAAAAAAHCAAFBgMBAgQBAAMBAQAAAAAAAAAAAAAAAAACAwUB/9oADAMBAAIQAxAAAAA//HzXMCRQBP3Vm60SRt0y1artGrobi0z2izdQQlIV7rRzGWUJ3FuODKw4+IWoy9XM/ePaSdAr2kUMkkY//8QALxAAAgEDAwIEBAYDAAAAAAAAAQIDBAURABIhBhMHMTJREEFhchQVIjRxgUKC8f/aAAgBAQABPwDVTc4ocKjKoLbQzHG5vYavXidabdM8UUstZKPPsEBB/vqk8YBvPfts/wByOG10/wBW26+Uyz0zkjJGGG1gR7j4V9SIkZd2FUZc6656rqKxpaOmysJ2hn5BdSM7cH/A6pLVX1qF4Iy20+YOBn+9XG0XC3bfxULIG5RvMatlyq7ZWRVNO+2WMg/QgHODrpLqGC7W6GVJN36Bu+j4yRrqSZVtlZLI+1ApY+5K8hf7PGrm7zVMlQ6kGYmTk5JyddKfi+1TU6xIvez2mZfnt3ZPPI1eEvNZ09chWRJHHAofc/qyPJVCAAazznA89eHF1/L66Il9sLvsY/VsbddRW56+lEDOFhD7pfME7CCAMEce+royPVysgA9GAvAGF8hrpO6yySU8R5aKN48YUjDEe4PJ11jXTQ2uaEv2453G2PcTu/nIGhroRopbqtLLzHUDtMM/Ngcca6jpHNFWKqB+7Ew25wCSPI/Q6uzTCpmWQONzmUKcjPcAIcDAxuGNWlK8VayUblH5H6fb+Dq+vVSlWqZmlmHrZjn/AJoEcEjjI14TdPT1t5/NpYyKajO5SRw8p06B1KnXVvhrfqGsmqqcPX07uXDj1p940e9FIBuw6ADjj06naSpHbfukkjgsTrpfwtvd4eOauRqGh+buMSP9i6t1BQ2iggoKCER08K4UD4+JH77Xhz+6+P8A/8QAHREAAgEFAQEAAAAAAAAAAAAAAQIQAAMREiEiQf/aAAgBAgEBPwCt1JxsMw1elvHyOtBpkJuK/J+x/8QAHxEAAgEEAgMAAAAAAAAAAAAAAQISAAMQIQQRIDFR/9oACAEDAQE/AKgwWUT19wPRrpW44MtBcrcAtMm9+P8A/9k= 1x, data:image/jpeg;base64,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 2x"
+                alt="Jane Doe"
+                class="feedback-avatar"
+              />
+              <div>
+                <p class="feedback-name">Jane Doe</p>
+                <p class="feedback-role">Book Lover, Reader</p>
+              </div>
+            </div>
+          </li>
+
+          <li class="swiper-slide feedback-card">
+            <p class="feedback-text">
+              Customer service was super helpful, and my order arrived earlier
+              than expected. Highly recommend!
+            </p>
+            <div class="feedback-user">
+              <img
+                src="data:image/jpeg;base64,/9j/4AAQSkZJRgABAQAAAQABAAD/2wCEAAgICAgJCAkKCgkNDgwODRMREBARExwUFhQWFBwrGx8bGx8bKyYuJSMlLiZENS8vNUROQj5CTl9VVV93cXecnNEBCAgICAkICQoKCQ0ODA4NExEQEBETHBQWFBYUHCsbHxsbHxsrJi4lIyUuJkQ1Ly81RE5CPkJOX1VVX3dxd5yc0f/CABEIADEAMAMBIgACEQEDEQH/xAAzAAACAgMBAQAAAAAAAAAAAAAABwUGAgQIAwEBAQEBAQEBAAAAAAAAAAAAAAEDBQIABP/aAAwDAQACEAMQAAAAfynyT6TnhOUaVHW0+KnxaS9j9yFeegE/fKhnayms9Zm9HKble6Q1uVfxDVxj9NYjb/tWgAHtf6Ce4A//xAAxEAACAQMDAgMHAgcAAAAAAAABAgMABAUREiEGMQcTYRAiMlFxcoIUQjM0YoORocH/2gAIAQEAAT8AZlRSzEBQNSTwABWf8TYoZGgwsaSkd55Pg/AVcdTdW3Y84Ze9+kRMQGvpHSdX9V2JV1zF7/dYyD/EldNeKCzCOLORrGSdBcxggfmtKyuqsrAqQCCOQQa8TeoZm1w1q+kY0NyQe5PIjqxt0lu4o3HDuq9+ffO0AUcDk761VYbXZagHUMwCvIG/ic6aqB20rOY3MWMzmd4pOWLFSf3HUk1b3RcgcadxroBXhr1Q5c4S7m4dS9r6acmOsvkDdXt7O+paa5eT8SfhqC5jguoZyfcjlRyO/ANSS5F5reOGCA2RiZhIxO/hdV2gECsiMle2kV7M0Rjc/CmmoY910/ppNdxHyJ+nFYa//QZGwvFfmG5jkP0BrIQGJ5bbsySsjcEaFSaJ26jQhewJIP8AqsNewZXFWyidzdW9qYp4g4R/d0CvqOQp4JK1k7RcTjMlGqaTShvKRWLbQF03CgpGnFY63a4urW3Tl5JVjA+4gV4jYCexyzZGL+Wu+T6S1huj8tlYxcbEt7Y9pZtff9VUcmsf0daYbZcxG4ubhzsduwRX+Ua0vTF/enf5Attz8tIvwp9vdian6Vwd3BHb3GOhlSFBHGzDRwPR10NYPw3xtjnbXJQXM3kwEv5Emjjf6NWRsLO/sZrO6iDwyLtI/wCg1LaGNUREAQABQOwAGgFKdAfpQ50J+W41FCx78UoCgAe2X9321B39v//EAB4RAQACAgEFAAAAAAAAAAAAAAEAAgMRMRASEyBx/9oACAECAQE/AJ5qdxXZtidHElxeRhNy+CuS5Zs/JwaPT//EACARAAEEAgEFAAAAAAAAAAAAAAEAAgMREjEEEBMgQXH/2gAIAQMBAT8AtdiTAvxNBA+j0bKx0VDRGkVSi5LooyxrR9WzZ8P/2Q=="
+                srcset="data:image/jpeg;base64,/9j/4AAQSkZJRgABAQAAAQABAAD/2wCEAAgICAgJCAkKCgkNDgwODRMREBARExwUFhQWFBwrGx8bGx8bKyYuJSMlLiZENS8vNUROQj5CTl9VVV93cXecnNEBCAgICAkICQoKCQ0ODA4NExEQEBETHBQWFBYUHCsbHxsbHxsrJi4lIyUuJkQ1Ly81RE5CPkJOX1VVX3dxd5yc0f/CABEIADEAMAMBIgACEQEDEQH/xAAzAAACAgMBAQAAAAAAAAAAAAAABwUGAgQIAwEBAQEBAQEBAAAAAAAAAAAAAAEDBQIABP/aAAwDAQACEAMQAAAAfynyT6TnhOUaVHW0+KnxaS9j9yFeegE/fKhnayms9Zm9HKble6Q1uVfxDVxj9NYjb/tWgAHtf6Ce4A//xAAxEAACAQMDAgMHAgcAAAAAAAABAgMABAUREiEGMQcTYRAiMlFxcoIUQjM0YoORocH/2gAIAQEAAT8AZlRSzEBQNSTwABWf8TYoZGgwsaSkd55Pg/AVcdTdW3Y84Ze9+kRMQGvpHSdX9V2JV1zF7/dYyD/EldNeKCzCOLORrGSdBcxggfmtKyuqsrAqQCCOQQa8TeoZm1w1q+kY0NyQe5PIjqxt0lu4o3HDuq9+ffO0AUcDk761VYbXZagHUMwCvIG/ic6aqB20rOY3MWMzmd4pOWLFSf3HUk1b3RcgcadxroBXhr1Q5c4S7m4dS9r6acmOsvkDdXt7O+paa5eT8SfhqC5jguoZyfcjlRyO/ANSS5F5reOGCA2RiZhIxO/hdV2gECsiMle2kV7M0Rjc/CmmoY910/ppNdxHyJ+nFYa//QZGwvFfmG5jkP0BrIQGJ5bbsySsjcEaFSaJ26jQhewJIP8AqsNewZXFWyidzdW9qYp4g4R/d0CvqOQp4JK1k7RcTjMlGqaTShvKRWLbQF03CgpGnFY63a4urW3Tl5JVjA+4gV4jYCexyzZGL+Wu+T6S1huj8tlYxcbEt7Y9pZtff9VUcmsf0daYbZcxG4ubhzsduwRX+Ua0vTF/enf5Attz8tIvwp9vdian6Vwd3BHb3GOhlSFBHGzDRwPR10NYPw3xtjnbXJQXM3kwEv5Emjjf6NWRsLO/sZrO6iDwyLtI/wCg1LaGNUREAQABQOwAGgFKdAfpQ50J+W41FCx78UoCgAe2X9321B39v//EAB4RAQACAgEFAAAAAAAAAAAAAAEAAgMRMRASEyBx/9oACAECAQE/AJ5qdxXZtidHElxeRhNy+CuS5Zs/JwaPT//EACARAAEEAgEFAAAAAAAAAAAAAAEAAgMREjEEEBMgQXH/2gAIAQMBAT8AtdiTAvxNBA+j0bKx0VDRGkVSi5LooyxrR9WzZ8P/2Q== 1x, data:image/jpeg;base64,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 2x"
+                alt="John Smith"
+                class="feedback-avatar"
+              />
+              <div>
+                <p class="feedback-name">John Smith</p>
+                <p class="feedback-role">Editor, BookMag</p>
+              </div>
+            </div>
+          </li>
+
+          <li class="swiper-slide feedback-card">
+            <p class="feedback-text">
+              Love the curated picks and clear descriptions. Makes it easy to
+              find my next favorite book.
+            </p>
+            <div class="feedback-user">
+              <img
+                src="data:image/jpeg;base64,/9j/4AAQSkZJRgABAQAAAQABAAD/2wCEAAgICAgJCAkKCgkNDgwODRMREBARExwUFhQWFBwrGx8bGx8bKyYuJSMlLiZENS8vNUROQj5CTl9VVV93cXecnNEBCAgICAkICQoKCQ0ODA4NExEQEBETHBQWFBYUHCsbHxsbHxsrJi4lIyUuJkQ1Ly81RE5CPkJOX1VVX3dxd5yc0f/CABEIADEAMAMBIgACEQEDEQH/xAAyAAACAwEBAQAAAAAAAAAAAAAGBwADBQQBCAEAAwEBAQAAAAAAAAAAAAAAAwQFAgEA/9oADAMBAAIQAxAAAAB/8dI33NfqvMlHGb1AJk2pkrliKjnryleMGXZ6CcNMaUjsQ30WC50jGxfqT6WKxMgnoTvZIQY7ZIBnekh1v//EAC0QAAIBAwIEBQMFAQAAAAAAAAECAwAEEQUhBhITQSIxMlFyBxBhFBUzkZOx/9oACAEBAAE/AKutT3KwgEe5rV+MLPTJliubuUzHcxxDLKD3bsBWl8XWGpzmG0v3aUAHkkDKTkZ2DVb6mfTKB8vtfTkHoqflWq38enWFxdOwUIuxO4BOwrhXh+DVJp7/AFNZZpnlLL1M/wBn81rPC9pLah7RP091GAYJIvAQ6bjOK4c1OTVNItrmYYn3Sb5psa0+436Lnw+a1IxeR2Pck19Rp8aXYW3Pyie88fwjQk1JYvZxaldxzwiOBCIJE5+sCmFTLZxj3HepbCS6uobki2xyASCSLqt7+Bs+GuG7EWEN/AJS/NeSTfHqeQqNijqw7GmHKxHscV9U2K22kEHdZpGrQNYe+0lrVTG8soRHSRQVLrs2R+aku/2fTJrm76axxJkJFGEJ7AABmG+wFcHXMl5ZXdzIcvJc7n4xoKUZYD3NalbmKbnHpf8A7X1PvEF7Y27nZYGb/Q1wlpUtwkpk6kMglJTzUkrgEGtc017jQbu3tlJlZFK5YsWKMHxlvfFcCQ3Eejy9eJomNyx5GGCNhWn25kl5z6Up0V1KsMg1q/DMi3jXhtY7g8vKJeTLqg7VDbxCQHpKCGznGDkUrE+GrXS553DuXiQDzGxx7Co41iRUXOAO5yfvq381aT6/v//EACARAQACAgEEAwAAAAAAAAAAAAECEQADMQQQISJDUWH/2gAIAQIBAT8A8Arj1Tb6epznhCRw5ta1yySkkfvOnb0wfzN1sKp5yUJSktmabNZGqrt8vb//xAAhEQABAwMEAwAAAAAAAAAAAAABAAIRAyEiBBASMxNDcf/aAAgBAwEBPwC5IAQ0ktGWRFlcEtKpdjUzh4wQtR3P+qkM5kJpDWBqrAGoXcpnb07f/9k="
+                srcset="data:image/jpeg;base64,/9j/4AAQSkZJRgABAQAAAQABAAD/2wCEAAgICAgJCAkKCgkNDgwODRMREBARExwUFhQWFBwrGx8bGx8bKyYuJSMlLiZENS8vNUROQj5CTl9VVV93cXecnNEBCAgICAkICQoKCQ0ODA4NExEQEBETHBQWFBYUHCsbHxsbHxsrJi4lIyUuJkQ1Ly81RE5CPkJOX1VVX3dxd5yc0f/CABEIADEAMAMBIgACEQEDEQH/xAAyAAACAwEBAQAAAAAAAAAAAAAGBwADBQQBCAEAAwEBAQAAAAAAAAAAAAAAAwQFAgEA/9oADAMBAAIQAxAAAAB/8dI33NfqvMlHGb1AJk2pkrliKjnryleMGXZ6CcNMaUjsQ30WC50jGxfqT6WKxMgnoTvZIQY7ZIBnekh1v//EAC0QAAIBAwIEBQMFAQAAAAAAAAECAwAEEQUhBhITQSIxMlFyBxBhFBUzkZOx/9oACAEBAAE/AKutT3KwgEe5rV+MLPTJliubuUzHcxxDLKD3bsBWl8XWGpzmG0v3aUAHkkDKTkZ2DVb6mfTKB8vtfTkHoqflWq38enWFxdOwUIuxO4BOwrhXh+DVJp7/AFNZZpnlLL1M/wBn81rPC9pLah7RP091GAYJIvAQ6bjOK4c1OTVNItrmYYn3Sb5psa0+436Lnw+a1IxeR2Pck19Rp8aXYW3Pyie88fwjQk1JYvZxaldxzwiOBCIJE5+sCmFTLZxj3HepbCS6uobki2xyASCSLqt7+Bs+GuG7EWEN/AJS/NeSTfHqeQqNijqw7GmHKxHscV9U2K22kEHdZpGrQNYe+0lrVTG8soRHSRQVLrs2R+aku/2fTJrm76axxJkJFGEJ7AABmG+wFcHXMl5ZXdzIcvJc7n4xoKUZYD3NalbmKbnHpf8A7X1PvEF7Y27nZYGb/Q1wlpUtwkpk6kMglJTzUkrgEGtc017jQbu3tlJlZFK5YsWKMHxlvfFcCQ3Eejy9eJomNyx5GGCNhWn25kl5z6Up0V1KsMg1q/DMi3jXhtY7g8vKJeTLqg7VDbxCQHpKCGznGDkUrE+GrXS553DuXiQDzGxx7Co41iRUXOAO5yfvq381aT6/v//EACARAQACAgEEAwAAAAAAAAAAAAECEQADMQQQISJDUWH/2gAIAQIBAT8A8Arj1Tb6epznhCRw5ta1yySkkfvOnb0wfzN1sKp5yUJSktmabNZGqrt8vb//xAAhEQABAwMEAwAAAAAAAAAAAAABAAIRAyEiBBASMxNDcf/aAAgBAwEBPwC5IAQ0ktGWRFlcEtKpdjUzh4wQtR3P+qkM5kJpDWBqrAGoXcpnb07f/9k= 1x, data:image/jpeg;base64,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 2x"
+                alt="Emily Johnson"
+                class="feedback-avatar"
+              />
+              <div>
+                <p class="feedback-name">Emily Johnson</p>
+                <p class="feedback-role">Author, Novelist</p>
+              </div>
+            </div>
+          </li>
+
+          <li class="swiper-slide feedback-card">
+            <p class="feedback-text">
+              Awesome service, quick shipping, and quality books. This store
+              makes book shopping so easy!
+            </p>
+            <div class="feedback-user">
+              <img
+                src="data:image/png;base64,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"
+                srcset="data:image/png;base64,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 1x, /js_dreamers/assets/victoria@2x-Cd3LIgie.png 2x"
+                alt="Victoria Alba"
+                class="feedback-avatar"
+              />
+              <div>
+                <p class="feedback-name">Victoria Alba</p>
+                <p class="feedback-role">Book Lover, Reader</p>
+              </div>
+            </div>
+          </li>
+
+          <li class="swiper-slide feedback-card">
+            <p class="feedback-text">
+              Great shop with fast delivery and unique titles. Always a pleasure
+              finding my next good read here!
+            </p>
+            <div class="feedback-user">
+              <img
+                src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAADgAAAA4CAMAAACfWMssAAAC9FBMVEUAAADf39/k5OTj4+Pk5OTi4uLi4uLKkHLj4+Pk5OTi4uLj5OTh4eGmZErVoH/k5OTi4uLi4uLh4eHnrYjiq4vanHXp6+x4Mx3Gjm3j4+PcpoDcqYvDiGPUooHk5OTRnH3RmHfCimzs8PLk5OXuyKjZnG+3cFOnY0moc1flq5Dapojap4DannG6im3RsZzanXW/gGjj4+Py8PHx7vDs6ur19PTu7O3r6ejt6+zj4N/n4+L08vTw7e3z8fPv7u/p5+fi4+Pp5ubn5eXe2tnu7Ovl5ebh4eHg3dz6+vv5+Pj39vfr5+b////QnHrp5eTl4uDg3t7X09Lk4uLb19bhsJDrsY7fqoXZnnr19Pb08vHm5+nPysn1u5reqonepoCjb1FyPCHw9ffeo4PboHvLh2X8+/3t8fT3yKr4waHlrInapoTUoYHXmnjBkHHWkmqeYkOjWz6JWj6KUTd7PSFrMxhjKQ7z+Prr7fDRxMD8zrDpupvltZjisIrcmW6ufV+5eFmtbEpzQipiOCD39fbu6ure0s7vwaDaq4jkp4PbooHfoHvWmHPbn3K9iWzPj2m+hma4gF7Fg12wc06mZUSYXECVUi9/Si5+RShPKBTm7/Lp6uvKxMLxtJTMpZDAnInPinDVkW6PY0iTVjh/UDWPTi6GSSlSMRz2/f7s6uzUzsvFv7q/sam5qaO7pJnZqpGwmY7wtIrZpomrkILKmoHponzfjnPDi2m1hGaydVeUaFKlaU52SS9rQStfMRtJGAXh2dX/27//1LbWvbHLu7DMtKf9yabPn4TdlnfNknShhXOffWy5imeWemfCf1ucclqublPFblC7d06RXD6CWTx8NCHy+v3p9vfi6/Hs4d7OyMTnv6fbt6TKqJnfsJbVp4qjjny4jHXjoHKndmWRcWSBbV3PdVuieFqyaFa7XU5rVkm4bkOrZEOkTDuaWjiFNydAIRD37eXkxLflxrXwmZPgnpDvk5CsgHLQcWnKhF+gc1ZvUkFfSjuN9KM7AAAAMXRSTlMAECDv39+AEL+fYFBAIObQsI9wIOXv39/Xr6+QiIBwcFBA79/f39/f0M+/v6CfkGBgQ/E8uAAAByxJREFUSMeNlnOUG1EUxlPbts0x42zsDbdRV+3a7Vq1bdu2bdu27X86bZp200zxTc7JOffd33zv3XNfbjhsKlaxcbkqtXtxe0W2KFuvccXABHaqQtkS0l62xSs+T9x29NICKQCUqFf+P7DSJQBBiOLu/O0TCydu2Za2FZwMMCpZrvg/McDYu9uLiYXzPUlzJhwZ705bFAJ8V+m/oBVKfU8J3j5//tbxc4ZtGLYhd33u/QWAVyXL/8mumjeh943CLQVb3CPjPuUeSbrvPjLNCPxQtWJsXPEqP5a7H5ozsSApadbIjbMnjJ09dnbq7hDAZ1qchSsF+MCjSVu3jH+Wn583cIjZHJ+QuocB/Uh2Doi8cWbz6PCV+zJ27ty5z7F2VGp6EOBPsnNAyJLChGPDzT179OiR0XPlrXCPl2MlizHcLxGFs/JmDpz6jXSszBl5PBIoqipFK1TNb6n7mTMbvzlmZOxiHJM3dQf8VO0XV95vwXju6OmR4Wazw9HTkeUcnH/4HOFPVgg44A9dPJwwZ1PhxARHqOdF0qaEuOWT/NdL+DZb2j9+/sGg+SNS7m4ojMode/z26Fk3750H/FX6h+Fv4UnXns6K1cwYOGtfbmasqWfcw6kXAFbLcsBv6ncvKc6R0f+EY+qIXT2nuh2vQgBWy1LA75YHx49YEzNiasauqOvLh4WHCwCAzbJ8QDikX2pu7EDr9rzkvAxH7JjV3toEFLZqQNS4oGDs+iFP5iWPfhxvXp82JSgQLMuAJQLD3e+k5M2dnfL0efK4UWO2M7eKba8VWcKTl6WNGz/24Zt3HxISPVsXACyqyKnOEu29NM1zWhOXPGbAyJQ0puNYVJ1TlQ1c4hk/1v04Mf+UuyBtdSQbWI5TliUapE/2nE44NSZ/zOjUFEMQG1iFU4olKohclpI6N8Uzb8LcgnkxFybpA1NKcgA2R+n0eZ5xqWkp25JTR8fnTOslDewBDiu3YtSICePmeuZtm5CssQ58qeCJBIJ/gQJAYAgWj14eNy5x9rMJ4zbExF5WIwv74FK9P8vxgwRSqVFHiA38JfnXR7jdee5hq0a9VkM0hBNBQXpAVgQtUhyBVMSHMZpUGYMNwm6HjhcUzMndf8UeQcE4JQJ4MCqkAangZ3Gq/DwZgGK2PkqKhjEiuNsisaHbJUNI9140BPNwSkgqRUrcBuFwkK9ZfbdRukjOA3kKhdIO8WhS3I3RFIOYj6NcHIRAXKTEuJSNp4C7ecmqvpYLEi+GuHIyQq5AKAqk+WRwsJiQYbDQBkEgxMVhRELLITnXoPeC1X1NLjUiiyOUNKJQ9kEoBAJhnNShqAhHEC4EglyYB0ooGyLXy6WCH01ezHut9EK7xKCwS5SIDeEiIAjSIEQJQRABucxDwZQdUkIRhBwSfQdLMPexrLc7ZQqFmB+hk4M2BESYD5cLIjCCM9+MI8VjXgUhKM2lILH3iMw0/T5LdXaDMmKKmoiw0wjInJLi8iiQB8EUxAUZS4ghtX1IinknLGXymRnr3Stht8tltJZPKvsIlUwmY8BTQjwUAyHmoUAQBfm4CAVtcrU6RACU9P0ei0G1WqEAsWAtrNB9ez3EFBJBIaYfUIaEQAkKYlqjRN576Z1HSyczt5HjtZSuPrxCplaqu8GGCC0f4vFopooIivMxVIJCDCqRgFqxXL9sWLTJ/aU3UPzHCIg8lDTAuX66Xq2WLFbDJCrhQTSIgcKF2DcQpWka7osSO6bH9L9sWhX3qHtp33Rsvjou2mnqr5luVC+RgwRfgtM4tBAjUD7TOTiOMl3Y13bVlZmZlZnlPDil9s/ZWmHPcIslKopBd0/RKXQiTIJLUEzERzEhhuNwXxhTqS7GDzKZs8wWk3VHkb8tDcOGvz0QGpWZFTU9vQ9MCDEYxvjkQsIo4mM4DKuERK816zSZoTPD4mdYO3N+qUy7j3PPPoid4TyZtRRDCFIoxPgiESoTEyIRn69SaSOnrT0ZPcSyLvF5Ys0ynCKq1MbU/2DiRlPiuveLKFKnEwmFpIinD5aRJKlVabtfWRu+eXD/E2dHRbWsUZRjyDpn8zKPnQhNPLmsn0pGEDqGgEmDmCRkOlXk8hzrzLXmMSN7hLauxPlNNepu3HxtxsyB64btnSwWywihllRpGUcdQfSaFm+NdQ6eaTZtrhPAMZ6VVyWsOjBoRs5tUtxPRmj79u3LWKuEqt67Tw0ZHDbowGBXftsaHBaVaWCKHRTutD5JF6f3k6lo0A4GhcjS++0/ZnWFhcU4w0IblOGwq2vN0LBQa86K4PR0/WQK27F3jWbI0MEuS3aoxjrIWqsp54+q1HB4ePiom3v2Xp22XzNkeM5QlyvbEuOMXqPRVG7kbxdQo46t4nPihzKyWFzZ2S5LWPaAATEBGKu61K8V5sqOsrgGOKMt2dEDsmq2bxqIsatZk/odKkdHa2Iq1+3UpBkr9RW6YR35vByrXgAAAABJRU5ErkJggg=="
+                srcset="data:image/png;base64,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 1x, /js_dreamers/assets/ihor@2x-CD_KRNZq.png 2x"
+                alt="Ihor Fly"
+                class="feedback-avatar"
+              />
+              <div>
+                <p class="feedback-name">Ihor Fly</p>
+                <p class="feedback-role">Book Lover, Reader</p>
+              </div>
+            </div>
+          </li>
+        </ul>
+      </div>
+
+      <!-- Navigation buttons -->
+      <div class="feedback-buttons-wrapper">
+        <!-- Pagination -->
+        <div class="feedback-swiper-pagination"></div>
+        <button class="feedback-custom-button-prev">
+          <svg width="24" height="24">
+            <use href="/js_dreamers/assets/sprite-Ds2XgIgJ.svg#icon-left-arrow-alt"></use>
+          </svg>
+        </button>
+
+        <button class="feedback-custom-button-next">
+          <svg width="24" height="24">
+            <use href="/js_dreamers/assets/sprite-Ds2XgIgJ.svg#icon-right-arrow-alt"></use>
+          </svg>
+        </button>
+      </div>
+    </div>
+  </div>
+</section>
+
+<script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
+
+    <section class="event-section" id="events">
+  <div class="event-container container">
+    <div class="event-title-box">
+      <h2 class="event-title">
+        <span class="event-title-span">Events</span>Upcoming Events at Booksy
+      </h2>
+      <p>
+        Discover readings, workshops, and bookish gatherings — online and
+        offline. Everyone's welcome.
+      </p>
+    </div>
+
+    <div class="event-swiper-container-wrapper">
+      <div class="swiper event-swiper">
+        <ul class="swiper-wrapper">
+          <li class="swiper-slide">
+            <picture class="events-photo">
+              <source
+                srcset="/js_dreamers/assets/libraryDesktop@1x-DSKKldz4.jpg 1x, /js_dreamers/assets/libraryDesktop@2x-DBvcevE-.jpg 2x"
+                media="(min-width: 1440px)"
+              />
+              <source
+                srcset="/js_dreamers/assets/libraryTablet@1x-BpJc6iev.jpg 1x, /js_dreamers/assets/libraryTablet@2x-CCSrY0Vw.jpg 2x"
+                media="(min-width: 768px)"
+              />
+              <source
+                srcset="/js_dreamers/assets/libraryMobile@1x-Bwpe7-OU.jpg 1x, /js_dreamers/assets/libraryMobile@2x-Bbbc3hgf.jpg 2x"
+                media="(min-width: 375px)"
+              />
+              <img
+                src="/js_dreamers/assets/libraryMobile@1x-Bwpe7-OU.jpg"
+                alt="Cozy Book Club"
+                width="342"
+                height="277"
+              />
+            </picture>
+            <div class="event-card">
+              <h3 class="events-card-title">
+                Cozy Book Club — "The Midnight Library"
+              </h3>
+              <p class="events-meta">In-store | June 5, 6:30 PM</p>
+              <p class="events-summary">
+                Join us for an evening of tea, thoughtful conversation, and
+                shared reflections as we dive into Matt Haig's bestseller.
+              </p>
+              <button
+                class="events-btn"
+                data-event-title="Cozy Book Club — 'The Midnight Library'"
+              >
+                Register
+                <svg class="events-btn-icon" width="24" height="24">
+                  <use href="/js_dreamers/assets/sprite-Ds2XgIgJ.svg#icon-chevron-right"></use>
+                </svg>
+              </button>
+            </div>
+          </li>
+          <li class="swiper-slide">
+            <picture class="events-photo">
+              <source
+                srcset="/js_dreamers/assets/workshopDesktop@1x-5vZz1Isf.jpg 1x, /js_dreamers/assets/workshopDesktop@2x-DcFC_BQP.jpg 2x"
+                media="(min-width: 1440px)"
+              />
+              <source
+                srcset="/js_dreamers/assets/workshopTablet@1x-D416ZhfS.jpg 1x, /js_dreamers/assets/workshopTablet@2x-DdTgwlJA.jpg 2x"
+                media="(min-width: 768px)"
+              />
+              <img
+                src="/js_dreamers/assets/workshopTablet@1x-D416ZhfS.jpg"
+                alt="Book Cover Design Workshop"
+                width="342"
+                height="277"
+              />
+            </picture>
+            <div class="event-card">
+              <h3 class="events-card-title">Book Cover Design Workshop</h3>
+              <p class="events-meta">Online | June 12, 7:00 PM</p>
+              <p class="events-summary">
+                A hands-on session for aspiring designers and curious readers.
+                Learn what makes a cover stand out — from concept to print.
+              </p>
+              <button
+                class="events-btn"
+                data-event-title="Book Cover Design Workshop"
+              >
+                Register
+                <svg class="events-btn-icon" width="24" height="24">
+                  <use href="/js_dreamers/assets/sprite-Ds2XgIgJ.svg#icon-chevron-right"></use>
+                </svg>
+              </button>
+            </div>
+          </li>
+          <li class="swiper-slide">
+            <picture class="events-photo">
+              <source
+                srcset="/js_dreamers/assets/childrensDesktop@1x-BN4CbHvE.jpg 1x, /js_dreamers/assets/childrensDesktop@2x-DFCb9pgi.jpg 2x"
+                media="(min-width: 1440px)"
+              />
+              <img
+                src="/js_dreamers/assets/childrensDesktop@1x-BN4CbHvE.jpg"
+                alt="Children's Story Hour"
+                width="342"
+                height="277"
+              />
+            </picture>
+            <div class="event-card">
+              <h3 class="events-card-title">Children's Story Hour</h3>
+              <p class="events-meta">In-store | June 15, 11:00 AM</p>
+              <p class="events-summary">
+                A magical morning of stories, games, and imagination for our
+                youngest book lovers (ages 4-8).
+              </p>
+              <button
+                class="events-btn"
+                data-event-title="Children's Story Hour"
+              >
+                Register
+                <svg class="events-btn-icon" width="24" height="24">
+                  <use href="/js_dreamers/assets/sprite-Ds2XgIgJ.svg#icon-chevron-right"></use>
+                </svg>
+              </button>
+            </div>
+          </li>
+        </ul>
+      </div>
+
+      <!-- Navigation buttons -->
+      <div class="event-buttons-wrapper">
+        <!-- Pagination -->
+        <div class="event-swiper-pagination"></div>
+        <button class="event-custom-button-prev">
+          <svg width="24" height="24">
+            <use href="/js_dreamers/assets/sprite-Ds2XgIgJ.svg#icon-left-arrow-alt"></use>
+          </svg>
+        </button>
+
+        <button class="event-custom-button-next">
+          <svg width="24" height="24">
+            <use href="/js_dreamers/assets/sprite-Ds2XgIgJ.svg#icon-right-arrow-alt"></use>
+          </svg>
+        </button>
+      </div>
+    </div>
+  </div>
+</section>
+
+    <div id="contact-modal" class="contact-modal is-hidden" role="dialog" aria-modal="true">
+  <div class="contact-modal-content">
+    <button class="contact-modal-close" aria-label="Close modal">
+      <svg class="contact-modal-icon-x" width="24" height="24">
+        <use href="/js_dreamers/assets/sprite-Ds2XgIgJ.svg#icon-x"></use>
+      </svg>
+    </button>
+    <h2 class="contact-modal-title">Register</h2>
+    <p class="contact-modal-subtitle"></p>
+    <form id="contact-modal-form" class="contact-modal-form">
+      <label class="contact-modal-label">
+        Name*
+        <input type="text" name="name" required class="contact-modal-input" />
+      </label>
+      <label class="contact-modal-label">
+        Email*
+        <input type="email" name="email" required class="contact-modal-input" />
+      </label>
+      <label class="contact-modal-label">
+        Message
+        <textarea
+          name="message"
+          placeholder="Type your message..."
+          class="contact-modal-textarea"
+        ></textarea>
+      </label>
+      <button type="submit" class="contact-modal-submit">Register</button>
+    </form>
+  </div>
+</div>
+
+    <section class="section-layout-section" id="layout">
+    <div class="layout-location-section container">
+        <div class="block-layout-location-section">
+            <div class="article-layout-location-section">
+                <h3 class="title-layout-location-section">Welcome to Booksy – your cozy corner for handpicked reads.
+                </h3>
+                <p class="text-layout-location-section">We believe books are more than just stories — they’re
+                    companions,
+                    doorways, and memories. Whether you’re chasing
+                    adventures or quiet moments, we’re here to help you find your next favorite book.</p>
+            </div>
+
+            <div class="location-section-picture">
+                <picture>
+                    <source
+                        srcset="/js_dreamers/assets/welcome-to-booksy-pc-Du3fMu-s.jpg 1x, /js_dreamers/assets/welcome-to-booksy-pc@2x-CAUGTVbZ.jpg 2x"
+                        media="(min-width: 1440px)" />
+                    <source
+                        srcset="/js_dreamers/assets/welcome-to-booksy-tab-DSIBU93S.jpg 1x, /js_dreamers/assets/welcome-to-booksy-tab@2x-Skhm7SR-.jpg 2x"
+                        media="(min-width: 768px)" />
+                    <source
+                        srcset="/js_dreamers/assets/welcome-to-booksy-mob-VyaWSHt5.jpg 1x, /js_dreamers/assets/welcome-to-booksy-mob@2x-DoBXf4oN.jpg 2x"
+                        media="(max-width: 767px)" />
+                    <img src="/js_dreamers/assets/welcome-to-booksy-mob-VyaWSHt5.jpg" alt="Welcome to booksy" class="location-image"
+                        loading="lazy" />
+                </picture>
+            </div>
+        </div>
+    </div>
+</section>
+
+<section class="section-location-section" id="location">
+    <div class="location-section-container container">
+        <div class="block-location-contacts-location-section">
+            <div class="location-block-location-section">
+                <h2 class="marker-location-location-section">Location</h2>
+                <h3 class="title-location-location-section">How to find us</h3>
+                <p class="text-location-location-section">We’re located in the heart of the city — a cozy corner where
+                    books
+                    come to life. Drop by to discover your next favorite
+                    story or simply connect with fellow book lovers.</p>
+            </div>
+
+            <div class="contact-block-location-section">
+                <ul class="contact-list">
+                    <li class="contact-item">
+                        <svg class="contact-icon" width="24" height="24">
+                            <use href="/js_dreamers/assets/sprite-Ds2XgIgJ.svg#icon-envelope"></use>
+                        </svg>
+                        <div class="contact-info">
+                            <h4 class="contact-label">Email</h4>
+                            <a href="mailto:hello@booksy.com" class="contact-link">hello@booksy.com</a>
+                        </div>
+                    </li>
+
+                    <li class="contact-item">
+                        <svg class="contact-icon" width="24" height="24">
+                            <use href="/js_dreamers/assets/sprite-Ds2XgIgJ.svg#icon-phone"></use>
+                        </svg>
+                        <div class="contact-info">
+                            <h4 class="contact-label">Phone</h4>
+                            <a href="tel:+612413043012" class="contact-link">+61 (241) 304–3012</a>
+                        </div>
+                    </li>
+
+                    <li class="contact-item">
+                        <svg class="contact-icon" width="24" height="24">
+                            <use href="/js_dreamers/assets/sprite-Ds2XgIgJ.svg#icon-map"></use>
+                        </svg>
+                        <div class="contact-info">
+                            <h4 class="contact-label">Office</h4>
+                            <p class="contact-text">123 Books St, Sydney NSW 2000 AU</p>
+                        </div>
+                    </li>
+                </ul>
+            </div>
+        </div>
+        <div class="map-container-location-section">
+            <iframe
+                src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d13492.184318488036!2d151.18818468715818!3d-33.8726763!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x6b12ae3e5fda3c47%3A0xa6229f1c028dcb81!2sKinokuniya%20Sydney!5e1!3m2!1suk!2sua!4v1751563679591!5m2!1suk!2sua"
+                width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy"
+                referrerpolicy="no-referrer-when-downgrade"></iframe>
+        </div>
+    </div>
+</section>
+    <button type="button" class="scroll-up-btn is-hidden" aria-label="Scroll to top">
+    <svg class="scroll-up-icon" width="24" height="24">
+      <use href="/js_dreamers/assets/sprite-Ds2XgIgJ.svg#icon-chevron-up"></use>
+    </svg>
+  </button>
+
+    <div class="container">
+  <button id="open-cart-btn" class="cart-button">
+    <svg
+      class="open-cart-icon"
+      width="50"
+      height="50"
+      viewBox="0 0 28 28"
+      fill="none"
+      xmlns="http://www.w3.org/2000/svg"
+    >
+      <path
+        d="M4 7H6L9 17H21L24 10H10"
+        stroke-width="2"
+        stroke-linecap="round"
+        stroke-linejoin="round"
+      ></path>
+      <rect x="6" y="3" width="4" height="6" rx="1"></rect>
+      <path
+        d="M11 21C11 22.1046 10.1046 23 9 23C7.89543 23 7 22.1046 7 21C7 19.8954 7.89543 19 9 19C10.1046 19 11 19.8954 11 21Z"
+      ></path>
+      <path
+        d="M21 21C21 22.1046 20.1046 23 19 23C17.8954 23 17 22.1046 17 21C17 19.8954 17.8954 19 19 19C20.1046 19 21 19.8954 21 21Z"
+      ></path>
+    </svg>
+    <span id="cart-count-badge" class="cart-count-badge"></span>
+  </button>
+
+  <!-- Cart Modal -->
+
+  <div id="cart-modal-backdrop" class="cart-modal-backdrop hidden">
+    <!-- hidden -->
+    <div class="cart-modal">
+      <button id="cart-close-btn" class="cart-close-btn">✖</button>
+      <h2 class="cart-title">Your Cart</h2>
+      <ul id="cart-items-list" class="cart-items-list"></ul>
+      <div class="cart-total">
+        Total: <span id="cart-total-price">$0.00</span>
+      </div>
+      <button id="cart-buy-btn" class="cart-buy-btn">Buy</button>
+    </div>
+  </div>
+</div>
+
+    <button id="theme-toggle" class="theme-toggle theme-toggle-light" aria-label="Toggle theme">
+      <svg class="icon-sun" width="24" height="24" viewBox="0 0 24 24" fill="none">
+        <path
+          d="M12 4V2M12 22v-2M4.22 4.22L2.81 2.81M21.19 21.19l-1.41-1.41M2 12H4m16 0h2M4.22 19.78L2.81 21.19M21.19 2.81l-1.41 1.41M12 8a4 4 0 100 8 4 4 0 000-8z"
+          stroke="currentColor" stroke-width="2" stroke-linecap="round" />
+      </svg>
+      <svg class="icon-moon" width="24" height="24" viewBox="0 0 24 24" fill="none">
+        <path d="M21 12.79A9 9 0 1111.21 3 7 7 0 0021 12.79z" stroke="currentColor" stroke-width="2"
+          stroke-linecap="round" />
+      </svg>
+    </button>
+  </main>
+  <footer class="footer">
+  <!-- Логотип -->
+  <div class="container footer-container">
+    <div class="footer-logo-nav">
+      <div class="footer-logo">
+        <a class="footer-logo__link" href="./index.html">
+          <svg class="footer-logo__icon" width="84" height="36">
+            <use href="/js_dreamers/assets/sprite-Ds2XgIgJ.svg#icon-logo"></use>
+          </svg>
+          <!-- <span class="footer-logo__text">Booksy</span> -->
+        </a>
+      </div>
+
+      <!-- Навігація -->
+      <nav class="footer-nav">
+        <ul class="footer-list">
+          <li class="footer-item"><a href="./index.html">Home</a></li>
+          <li class="footer-item"><a href="#books">Books</a></li>
+          <li class="footer-item"><a href="#feedbacks">Feedback</a></li>
+          <li class="footer-item"><a href="#location">Location</a></li>
+        </ul>
+      </nav>
+    </div>
+
+    <!-- Форма підписки -->
+    <form class="footer-form">
+      <p class="footer-form__title">Join</p>
+      <div class="footer-form__group">
+        <input
+          class="footer-form__input"
+          type="email"
+          id="user-email"
+          name="user-email"
+          pattern="^\w+(\.\w+)?@[a-zA-Z_]+?\.[a-zA-Z]{2,3}$"
+          title="usermail@gmail.com"
+          placeholder="Enter your email"
+          required
+        />
+        <button class="footer-form__button" type="submit">Sign Up</button>
+      </div>
+      <small class="footer-form__note">* Required field</small>
+    </form>
+  </div>
+
+  <!-- Копірайт -->
+  <p class="footer-copy">© 2025 Booksy. All rights reserved.</p>
+</footer>
+
+</body>
+
+</html>
