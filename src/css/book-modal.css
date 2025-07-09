@@ -213,6 +213,10 @@
     gap: 24px;
   }
 
+  .books-modal {
+    width: 80%;
+  }
+
   .books-modal-img {
     width: 309px;
     height: 467px;
@@ -225,5 +229,7 @@
     padding-bottom: 80px;
     padding-left: 104px;
     padding-right: 104px;
+    width: 60%;
+
   }
 }
