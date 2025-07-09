@@ -147,8 +147,8 @@
   fill: #fff;
 }
 
-.feedback-custom-button-next>svg,
-.feedback-custom-button-prev>svg {
+.feedback-custom-button-next > svg,
+.feedback-custom-button-prev > svg {
   transform: scale(1.1);
 }
 
@@ -197,5 +197,4 @@
   .feedback-card {
     width: 100%;
   }
-
 }

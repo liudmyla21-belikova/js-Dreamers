@@ -74,7 +74,7 @@
 
 .events-btn:hover,
 .events-btn:focus {
-font-weight: 600;
+  font-weight: 600;
 }
 
 .event-buttons-wrapper {
@@ -131,17 +131,16 @@ font-weight: 600;
   flex: 0 0 48px;
 }
 
-
 .event-custom-button-next.swiper-button-disabled,
 .event-custom-button-prev.swiper-button-disabled,
 .event-custom-button-next:disabled,
 .event-custom-button-prev:disabled {
   transform: none;
-    background-color: transparent;
-    cursor: no-drop;
-    border: 1px solid;
-    color: #fff;
-    fill: #fff;
+  background-color: transparent;
+  cursor: no-drop;
+  border: 1px solid;
+  color: #fff;
+  fill: #fff;
 }
 
 .event-section .event-custom-button-next.swiper-button-disabled svg,
@@ -162,14 +161,14 @@ font-weight: 600;
 .event-custom-button-prev.active-swiper-btn:hover,
 .event-custom-button-next.active-swiper-btn:focus,
 .event-custom-button-prev.active-swiper-btn:focus {
-background: #e15d05;
+  background: #e15d05;
   opacity: 0.8;
   fill: #fff;
 }
 
 .event-custom-button-next.active-swiper-btn:active,
 .event-custom-button-prev.active-swiper-btn:active {
-background: #5a2502;
+  background: #5a2502;
   fill: #fff;
 }
 
@@ -213,6 +212,5 @@ background: #5a2502;
   .events-pagination,
   .events-button-prev,
   .events-button-next {
-
   }
 }
